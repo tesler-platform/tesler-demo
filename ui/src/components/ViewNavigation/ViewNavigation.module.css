@@ -1,0 +1,23 @@
+.container {
+    font-weight: 500;
+    overflow: hidden;
+}
+
+.container :global(.ant-tabs-tab-active) .item {
+    opacity: 1;
+}
+
+.container :global(.ant-tabs-tab) {
+    padding: 21px 16px 20px 16px !important;
+}
+
+.container :global(.ant-tabs-bar) {
+    border: none;
+}
+
+.item {
+    opacity: 0.5;
+    font-size: 14px;
+    color: #fff;
+}
+
