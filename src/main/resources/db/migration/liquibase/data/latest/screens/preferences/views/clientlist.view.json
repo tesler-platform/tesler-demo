@@ -1,0 +1,13 @@
+{
+  "name": "clientlist",
+  "title": "Client List",
+  "template": "DashboardView",
+  "url": "/screen/client/view/clientlist",
+  "widgets": [
+    {
+      "widgetName": "clientList",
+      "position": 1,
+      "gridWidth": 4
+    }
+  ]
+}

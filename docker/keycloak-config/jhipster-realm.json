@@ -332,7 +332,7 @@
     "name" : "Admins",
     "path" : "/Admins",
     "attributes" : { },
-    "realmRoles" : [ "ROLE_ADMIN" ],
+    "realmRoles" : [ "ADMIN" ],
     "clientRoles" : { },
     "subGroups" : [ ]
   }, {

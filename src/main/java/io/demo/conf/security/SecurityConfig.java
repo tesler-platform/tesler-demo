@@ -1,12 +1,12 @@
-package io.tesler.conf.security;
+package io.demo.conf.security;
 
 
 import io.tesler.api.service.session.TeslerAuthenticationService;
 
 import io.tesler.core.metahotreload.conf.properties.MetaConfigurationProperties;
 import lombok.RequiredArgsConstructor;
-import io.tesler.conf.ApplicationConfigProperties;
-import io.tesler.conf.security.teslerkeycloak.TeslerKeycloakAuthenticationProvider;
+import io.demo.conf.ApplicationConfigProperties;
+import io.demo.conf.security.teslerkeycloak.TeslerKeycloakAuthenticationProvider;
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.KeycloakConfiguration;

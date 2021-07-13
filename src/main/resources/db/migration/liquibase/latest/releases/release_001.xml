@@ -1,0 +1,97 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd"
+                   logicalFilePath="db/migration/liquibase/latest/responsibilities/responsibilities.xml">
+
+
+
+    <changeSet id="main demo tables" author="ryalalov">
+        <createTable tableName="CLIENT">
+            <column name="ID" remarks="Identifier" type="NUMBER(19, 0)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Creation date"
+                    type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Last updated date"
+                    type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" foreignKeyName="CLIENT_CREATED_BY" references="USERS"/>
+            </column>
+            <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" foreignKeyName="CLIENT_LAST_UPD_BY" references="USERS"/>
+            </column>
+            <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FULL_NAME" type="VARCHAR(200)"/>
+            <column name="DESCRIPTION" type="TEXT"/>
+            <column name="CITY" type="VARCHAR(50)"/>
+            <column name="STREET" type="VARCHAR(150)"/>
+            <column name="BUILDING" type="VARCHAR(50)"/>
+            <column name="IMPORTANCE" type="VARCHAR(20)"/>
+            <column name="STATUS" type="VARCHAR(20)"/>
+        </createTable>
+
+        <createTable tableName="CONTACT">
+            <column name="ID" remarks="Identifier" type="NUMBER(19, 0)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Creation date"
+                    type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Last updated date"
+                    type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" foreignKeyName="CONTACT_CREATED_BY" references="USERS"/>
+            </column>
+            <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" foreignKeyName="CONTACT_LAST_UPD_BY" references="USERS"/>
+            </column>
+            <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FULL_NAME" type="VARCHAR(200)"/>
+            <column name="PHONE_NUMBER" type="VARCHAR(13)"/>
+            <column name="EMAIL" type="VARCHAR(50)"/>
+            <column name="CLIENT_ID" type="NUMBER(19, 0)">
+                <constraints foreignKeyName="REF_CLIENT" references="CLIENT"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="FIELD_OF_ACTIVITY">
+            <column name="ID" remarks="Identifier" type="NUMBER(19, 0)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Creation date"
+                    type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Last updated date"
+                    type="TIMESTAMP(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" foreignKeyName="FOV_CREATED_BY" references="USERS"/>
+            </column>
+            <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+                <constraints nullable="false" foreignKeyName="FOV_LAST_UPD_BY" references="USERS"/>
+            </column>
+            <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE" type="VARCHAR(50)"/>
+            <column name="CLIENT_ID" type="NUMBER(19, 0)">
+                <constraints foreignKeyName="REF_CLIENT" references="CLIENT"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,4 +1,4 @@
-package io.tesler.conf.security.teslerkeycloak;
+package io.demo.conf.security.teslerkeycloak;
 
 import io.tesler.api.data.dictionary.LOV;
 import io.tesler.api.service.session.InternalAuthorizationService;

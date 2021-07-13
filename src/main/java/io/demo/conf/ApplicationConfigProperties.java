@@ -1,4 +1,4 @@
-package io.tesler.conf;
+package io.demo.conf;
 
 import lombok.Getter;
 import lombok.Setter;

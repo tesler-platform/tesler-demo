@@ -1,4 +1,4 @@
-package io.tesler.conf;
+package io.demo.conf;
 
 import io.tesler.core.config.BeanScan;
 import io.tesler.core.config.CoreApplicationConfig;
@@ -35,7 +35,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 @Import({
 		CoreApplicationConfig.class
 })
-@BeanScan(value = {"io.tesler"})
+@BeanScan(value = {"io.demo"})
 public class ApplicationConfig implements SchedulingConfigurer {
 
 	private static final Database primaryDatabase = Database.POSTGRESQL;

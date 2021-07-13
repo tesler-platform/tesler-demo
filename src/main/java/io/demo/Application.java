@@ -1,4 +1,4 @@
-package io.tesler;
+package io.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

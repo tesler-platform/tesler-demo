@@ -1,0 +1,13 @@
+{
+  "name": "clientedit",
+  "title": "Client Edit",
+  "template": "DashboardView",
+  "url": "/screen/client/view/clientedit",
+  "widgets": [
+    {
+      "widgetName": "clientEdit",
+      "position": 1,
+      "gridWidth": 4
+    }
+  ]
+}

@@ -1,5 +1,7 @@
-package io.tesler.crudma;
+package io.demo.crudma;
 
+import io.demo.response.client.data.ClientReadResponseService;
+import io.demo.response.client.data.ClientWriteResponseService;
 import io.tesler.core.crudma.bc.BcIdentifier;
 import io.tesler.core.crudma.bc.EnumBcIdentifier;
 import io.tesler.core.crudma.bc.impl.AbstractEnumBcSupplier;
@@ -11,7 +13,8 @@ import org.springframework.stereotype.Component;
 public enum ServiceAssociation implements EnumBcIdentifier {
 
 	// @formatter:off
-
+	client(ClientReadResponseService.class),
+	clientEdit(ClientWriteResponseService.class)
 	;
 
 	// @formatter:on
