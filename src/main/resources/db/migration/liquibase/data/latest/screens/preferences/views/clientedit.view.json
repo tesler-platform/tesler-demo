@@ -8,6 +8,11 @@
       "widgetName": "clientEdit",
       "position": 1,
       "gridWidth": 4
+    },
+    {
+      "widgetName": "contactEditList",
+      "position": 2,
+      "gridWidth": 4
     }
   ]
 }

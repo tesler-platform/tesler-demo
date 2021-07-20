@@ -2,25 +2,34 @@ package io.demo.response.client.data.impl;
 
 import io.demo.model.Client;
 import io.demo.model.Contact;
+import io.demo.model.Contact_;
 import io.demo.response.client.data.ClientContactService;
 import io.demo.response.client.dto.ContactDTO;
 import io.demo.response.client.dto.ContactDTO_;
+import io.demo.response.client.fieldmeta.ContactFieldMetaBuilder;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
 import io.tesler.core.dto.rowmeta.CreateResult;
 import io.tesler.core.service.action.Actions;
-import io.tesler.core.service.rowmeta.FieldMetaBuilder;
-import io.tesler.model.core.entity.BaseEntity;
+import io.tesler.model.core.entity.BaseEntity_;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
 
-import javax.persistence.metamodel.SingularAttribute;
-
+@Service
 public class ClientContactServiceImpl extends VersionAwareResponseService<ContactDTO, Contact>
 		implements ClientContactService {
-	public ClientContactServiceImpl(Class<ContactDTO> typeOfDTO, Class<Contact> typeOfEntity,
-			SingularAttribute<? super Contact, ? extends BaseEntity> parentSpec,
-			Class<? extends FieldMetaBuilder<ContactDTO>> metaBuilder) {
-		super(typeOfDTO, typeOfEntity, parentSpec, metaBuilder);
+	public ClientContactServiceImpl() {
+		super(ContactDTO.class, Contact.class, null, ContactFieldMetaBuilder.class);
+	}
+
+	@Override
+	protected Specification<Contact> getParentSpecification(BusinessComponent bc) {
+		return (root, cq, cb) -> cb.and(
+				super.getParentSpecification(bc).toPredicate(root, cq, cb),
+				cb.equal(root.get(Contact_.client).get(BaseEntity_.id), bc.getParentIdAsLong())
+		);
+
 	}
 
 	@Override
@@ -49,6 +58,7 @@ public class ClientContactServiceImpl extends VersionAwareResponseService<Contac
 	public Actions<ContactDTO> getActions() {
 		return Actions.<ContactDTO>builder()
 				.create().text("Add contact").add()
+				.save().add()
 				.build();
 	}
 }

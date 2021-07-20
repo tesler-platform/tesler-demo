@@ -5,6 +5,9 @@ tesler:
   meta:
     dev-panel-enabled: ${DEV_PANEL_ENABLED:true}
     directory: ${META_DIRECTORY:file:./src/main/resources/db/migration/liquibase/data/latest}
+  widget:
+    fields:
+      include-packages: io.tesler.core.ui.model.json.field.subtypes, io.demo.field.meta
 
 server:
   forward-headers-strategy: framework
@@ -40,6 +43,7 @@ spring:
           batch_size: 100
   main:
     allow-bean-definition-overriding: true
+    banner-mode: off
 
 keycloak:
   auth-server-url: ${AUTH_SERVER_URL:http://localhost:9080/auth}

@@ -1,0 +1,35 @@
+{
+  "name": "contactEditList",
+  "title": "",
+  "type": "List",
+  "bc": "contactEdit",
+  "showCondition": [],
+  "fields": [
+    {
+      "title": "Contact Full Name",
+      "key": "fullName",
+      "type": "input",
+      "drillDown": "true"
+    },
+    {
+      "title": "Phone Number",
+      "key": "phoneNumber",
+      "type": "input"
+    },
+    {
+      "title": "Email",
+      "key": "email",
+      "type": "input"
+    }
+  ],
+  "axisFields": [],
+  "chart": [],
+  "options": {
+    "actionGroups": {
+      "include": [
+        "create",
+        "save"
+      ]
+    }
+  }
+}

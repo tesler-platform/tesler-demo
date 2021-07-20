@@ -12,6 +12,7 @@ import io.tesler.core.dto.multivalue.MultivalueField;
 import io.tesler.core.dto.multivalue.MultivalueFieldSingleValue;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
 import io.tesler.core.dto.rowmeta.CreateResult;
+import io.tesler.core.service.action.Actions;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,11 +26,6 @@ public class ClientWriteResponseServiceImpl extends VersionAwareResponseService<
 		implements ClientWriteResponseService {
 	public ClientWriteResponseServiceImpl() {
 		super(ClientWriteDTO.class, Client.class, null, ClientWriteFieldMetaBuilder.class);
-	}
-
-	@Override
-	public ClientWriteDTO getOne(BusinessComponent bc) {
-		return super.getOne(bc);
 	}
 
 	@Override
@@ -83,6 +79,13 @@ public class ClientWriteResponseServiceImpl extends VersionAwareResponseService<
 						))
 		);
 		return dto;
+	}
+
+	@Override
+	public Actions<ClientWriteDTO> getActions() {
+		return Actions.<ClientWriteDTO>builder()
+				.save().add()
+				.build();
 	}
 
 	private List<String> getValuesDelta(ClientWriteDTO clientDto, Client client) {

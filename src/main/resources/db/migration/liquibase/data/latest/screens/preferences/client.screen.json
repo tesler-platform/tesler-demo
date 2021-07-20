@@ -12,6 +12,9 @@
       },
       {
         "viewName": "clientedit"
+      },
+      {
+        "viewName": "clientview"
       }
     ]
   }

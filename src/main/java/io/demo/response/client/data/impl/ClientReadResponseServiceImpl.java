@@ -2,6 +2,7 @@ package io.demo.response.client.data.impl;
 
 import io.demo.crudma.ServiceAssociation;
 import io.demo.model.Client;
+import io.demo.model.enums.ClientStatus;
 import io.demo.response.client.data.ClientReadResponseService;
 import io.demo.response.client.dto.ClientReadDTO;
 import io.demo.response.client.fieldmeta.ClientReadFieldMetaBuilder;
@@ -24,6 +25,7 @@ public class ClientReadResponseServiceImpl extends VersionAwareResponseService<C
 	@Override
 	protected CreateResult<ClientReadDTO> doCreateEntity(Client entity, BusinessComponent bc) {
 		baseDAO.save(entity);
+		entity.setStatus(ClientStatus.New);
 		return new CreateResult<>(entityToDto(bc, entity))
 				.setAction(PostAction.drillDown(
 						DrillDownType.INNER,
@@ -44,6 +46,19 @@ public class ClientReadResponseServiceImpl extends VersionAwareResponseService<C
 	public Actions<ClientReadDTO> getActions() {
 		return Actions.<ClientReadDTO>builder()
 				.create().text("Create Client").add()
+				.newAction()
+				.action("edit", "Edit")
+				.withoutAutoSaveBefore()
+				.invoker((bc, data) -> new ActionResultDTO<ClientReadDTO>()
+						.setAction(PostAction.drillDown(
+								DrillDownType.INNER,
+								String.format(
+										"/screen/client/view/clientedit/%s/%s",
+										ServiceAssociation.clientEdit,
+										bc.getId()
+								)
+						)))
+				.add()
 				.build();
 	}
 

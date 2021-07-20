@@ -1,5 +1,6 @@
 package io.demo.crudma;
 
+import io.demo.response.client.data.ClientContactService;
 import io.demo.response.client.data.ClientReadResponseService;
 import io.demo.response.client.data.ClientWriteResponseService;
 import io.tesler.core.crudma.bc.BcIdentifier;
@@ -14,7 +15,9 @@ public enum ServiceAssociation implements EnumBcIdentifier {
 
 	// @formatter:off
 	client(ClientReadResponseService.class),
-	clientEdit(ClientWriteResponseService.class)
+	clientEdit(ClientWriteResponseService.class),
+		contact(client, ClientContactService.class),
+		contactEdit(clientEdit, ClientContactService.class)
 	;
 
 	// @formatter:on

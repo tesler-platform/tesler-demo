@@ -1,0 +1,17 @@
+{
+  "name": "clientViewButtons",
+  "title": "",
+  "type": "Form",
+  "bc": "client",
+  "showCondition": [],
+  "fields": [],
+  "axisFields": [],
+  "chart": [],
+  "options": {
+    "actionGroups": {
+      "include": [
+       "edit"
+      ]
+    }
+  }
+}
