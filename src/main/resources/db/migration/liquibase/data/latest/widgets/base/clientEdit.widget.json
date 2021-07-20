@@ -1,0 +1,113 @@
+{
+  "name": "clientEdit",
+  "title": "Client Edit",
+  "type": "Form",
+  "bc": "clientEdit",
+  "showCondition": [],
+  "fields": [
+    {
+      "label": "Full Name",
+      "key": "fullName",
+      "type": "input"
+    },
+    {
+      "label": "Description",
+      "key": "description",
+      "type": "input"
+    },
+    {
+      "label": "Importance",
+      "key": "importance",
+      "type": "dictionary"
+    },
+    {
+      "label": "City",
+      "key": "city",
+      "type": "input"
+    },
+    {
+      "label": "Street",
+      "key": "street",
+      "type": "input"
+    },
+    {
+      "label": "Building",
+      "key": "building",
+      "type": "input"
+    },
+    {
+      "label": "Field of Activity",
+      "key": "fieldOfActivity",
+      "type": "multipleSelect"
+    }
+  ],
+  "axisFields": [],
+  "chart": [],
+  "options": {
+    "actionGroups": {
+      "include": [
+        "save"
+      ]
+    },
+    "layout": {
+      "rows": [
+        {
+          "cols": [
+            {
+              "fieldKey": "fullName",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "description",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "importance",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "city",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "street",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "building",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "fieldOfActivity",
+              "span": 12
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

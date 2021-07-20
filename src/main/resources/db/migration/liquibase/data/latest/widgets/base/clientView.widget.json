@@ -1,0 +1,93 @@
+{
+  "name": "clientView",
+  "title": "Client View",
+  "type": "Info",
+  "bc": "client",
+  "showCondition": [],
+  "fields": [
+    {
+      "blockId": "1",
+      "name": "Client",
+      "fields": [
+        {
+          "label": "Client",
+          "key": "fullName",
+          "type": "input"
+        },
+        {
+          "label": "Address",
+          "key": "address",
+          "type": "input"
+        },
+        {
+          "label": "Field of Activity",
+          "key": "fieldOfActivity",
+          "type": "input"
+        },
+        {
+          "label": "Importance",
+          "key": "importance",
+          "type": "dictionary"
+        },
+        {
+          "label": "Status",
+          "key": "status",
+          "type": "dictionary"
+        }
+      ]
+    }
+  ],
+  "axisFields": [],
+  "chart": [],
+  "options": {
+    "actionGroups": {
+      "include": [
+        "edit"
+      ]
+    },
+    "layout": {
+      "rows": [
+        {
+          "cols": [
+            {
+              "fieldKey": "fullName",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "address",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "importance",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "fieldOfActivity",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "status",
+              "span": 12
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

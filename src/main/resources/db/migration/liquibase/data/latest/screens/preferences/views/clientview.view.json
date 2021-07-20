@@ -1,0 +1,23 @@
+{
+  "name": "clientview",
+  "title": "Client List",
+  "template": "DashboardView",
+  "url": "/screen/client/view/clientview",
+  "widgets": [
+    {
+      "widgetName": "clientViewButtons",
+      "position": 1,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientView",
+      "position": 2,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "contactViewList",
+      "position": 3,
+      "gridWidth": 4
+    }
+  ]
+}

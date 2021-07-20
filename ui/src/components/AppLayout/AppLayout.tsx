@@ -9,11 +9,17 @@ import { Card } from '../Card/Card'
 import DevPanel from '../DevPanel/DevPanel'
 import { SSO_AUTH } from '../../actions/types'
 import styles from './AppLayout.module.css'
+import {CustomFieldTypes} from "../../interfaces/widget";
+import MultipleSelectField from "../../fields/MultipleSelectField/MultipleSelectField";
 
 const skipWidgetTypes = [
     'HeaderWidget',
     'SecondLevelMenu'
 ]
+
+const customFields = {
+    [CustomFieldTypes.MultipleSelect] : MultipleSelectField
+}
 
 export const AppLayout: React.FC = () => {
     const sessionActive = useSelector((state: AppState) => state.session.active)
@@ -37,7 +43,7 @@ export const AppLayout: React.FC = () => {
                     <Layout.Header>
                         <AppBar/>
                     </Layout.Header>
-                    <View card={ Card as any } skipWidgetTypes={ skipWidgetTypes }/>
+                    <View customFields={customFields} card={ Card as any } skipWidgetTypes={ skipWidgetTypes }/>
                 </Layout.Content>
             </Layout></Layout>
         : <div className={styles.spinContainer}><Spin size="large"/></div>

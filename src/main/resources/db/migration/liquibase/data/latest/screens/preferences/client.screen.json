@@ -1,0 +1,21 @@
+{
+  "name": "client",
+  "title": "Clients",
+  "primaryViewName": "clientlist",
+  "primaryViews": [
+    "clientlist"
+  ],
+  "navigation": {
+    "menu": [
+      {
+        "viewName": "clientlist"
+      },
+      {
+        "viewName": "clientedit"
+      },
+      {
+        "viewName": "clientview"
+      }
+    ]
+  }
+}
