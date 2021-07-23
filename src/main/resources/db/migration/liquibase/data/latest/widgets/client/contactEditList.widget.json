@@ -1,9 +1,8 @@
 {
   "name": "contactEditList",
-  "title": "",
+  "title": "Contacts",
   "type": "List",
   "bc": "contactEdit",
-  "showCondition": [],
   "fields": [
     {
       "title": "Contact Full Name",
@@ -22,8 +21,6 @@
       "type": "input"
     }
   ],
-  "axisFields": [],
-  "chart": [],
   "options": {
     "actionGroups": {
       "include": [

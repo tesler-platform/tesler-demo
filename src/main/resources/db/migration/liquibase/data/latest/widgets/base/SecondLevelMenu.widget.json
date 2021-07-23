@@ -2,8 +2,5 @@
   "name": "SecondLevelMenu",
   "title": "Navigation",
   "type": "SecondLevelMenu",
-  "showCondition": [],
-  "fields": [],
-  "axisFields": [],
-  "chart": []
+  "fields": []
 }

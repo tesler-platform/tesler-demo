@@ -3,7 +3,6 @@
   "title": "",
   "type": "List",
   "bc": "client",
-  "showCondition": [],
   "fields": [
     {
       "title": "Client",
@@ -24,18 +23,14 @@
     {
       "title": "Importance",
       "key": "importance",
-      "type": "dictionary"
+      "type": "dictionary",
+      "bgColorKey": "color"
     },
     {
       "title": "Status",
       "key": "status",
       "type": "dictionary"
     }
-  ],
-  "axisFields": [],
-  "chart": [],
-  "options": {
-
-    }
-  }
+  ]
 }
+

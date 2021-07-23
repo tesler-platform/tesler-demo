@@ -1,14 +1,11 @@
 .container {
-
-}
-.operation {
-
+    margin-bottom: 1.5em;
 }
 .subOperation {
 
 }
-.icon {
-
+.loading {
+    height: 40px;
 }
 .formOperation {
 
