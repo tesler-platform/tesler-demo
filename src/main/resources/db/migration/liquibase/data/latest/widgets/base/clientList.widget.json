@@ -24,7 +24,8 @@
     {
       "title": "Importance",
       "key": "importance",
-      "type": "dictionary"
+      "type": "dictionary",
+      "bgColorKey": "color"
     },
     {
       "title": "Status",

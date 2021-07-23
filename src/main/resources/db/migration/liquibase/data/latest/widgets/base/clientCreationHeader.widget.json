@@ -1,0 +1,11 @@
+{
+  "name": "clientCreationHeader",
+  "title": "Client Creation",
+  "type": "Header",
+  "bc": "clientEdit",
+  "showCondition": [],
+  "fields": [],
+  "axisFields": [],
+  "chart": [],
+  "options": {}
+}

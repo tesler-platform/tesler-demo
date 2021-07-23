@@ -1,6 +1,6 @@
-import {AnyAction} from '../interfaces/actions'
-import {AppState} from '../interfaces/storeSlices'
-import {ViewState} from '@tesler-ui/core/interfaces/view'
+import { AnyAction } from '../interfaces/actions'
+import { AppState } from '../interfaces/storeSlices'
+import { ViewState } from '@tesler-ui/core/interfaces/view'
 
 /**
  * Your initial state for this slice
@@ -20,11 +20,7 @@ export const initialState: ViewState = {
     popupData: { bcName: '' }
 }
 
-export default function viewReducer(
-    state: ViewState = initialState,
-    action: AnyAction,
-    store?: Readonly<AppState>
-): ViewState {
+export default function viewReducer(state: ViewState = initialState, action: AnyAction, store?: Readonly<AppState>): ViewState {
     switch (action.type) {
         /**
          * Your reducers for this slice
