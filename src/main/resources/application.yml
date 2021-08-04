@@ -15,6 +15,7 @@ server:
     session:
       cookie:
         http-only: true
+        secure: true
 
 spring:
   application:

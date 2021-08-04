@@ -7,7 +7,10 @@ import java.util.concurrent.Executors;
 import javax.sql.DataSource;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.util.http.Rfc6265CookieProcessor;
+import org.apache.tomcat.util.http.SameSiteCookies;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.web.embedded.tomcat.TomcatContextCustomizer;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -126,4 +129,15 @@ public class ApplicationConfig implements SchedulingConfigurer {
 		resolver.setContentType("text/html;charset=UTF-8");
 		return resolver;
 	}
+
+	@Bean
+	public TomcatContextCustomizer sameSiteCookiesConfig() {
+		return context -> {
+			final Rfc6265CookieProcessor cookieProcessor = new Rfc6265CookieProcessor();
+			cookieProcessor.setSameSiteCookies(SameSiteCookies.NONE.getValue());
+			context.setCookieProcessor(cookieProcessor);
+		};
+	}
+
+
 }
