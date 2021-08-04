@@ -4,6 +4,10 @@ import io.tesler.core.config.BeanScan;
 import io.tesler.core.config.CoreApplicationConfig;
 import io.tesler.core.config.UIConfig;
 import java.util.concurrent.Executors;
+import javax.servlet.Filter;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponseWrapper;
 import javax.sql.DataSource;
 
 import lombok.RequiredArgsConstructor;
@@ -53,7 +57,8 @@ public class ApplicationConfig implements SchedulingConfigurer {
 				registry
 						.addMapping("/**")
 						.allowedMethods("*")
-						.allowedOrigins("*")
+						.allowedOrigins("http://localhost:3000", "http://localhost:8080")
+						.allowCredentials(true)
 						.allowedHeaders("*");
 			}
 		};
@@ -139,5 +144,18 @@ public class ApplicationConfig implements SchedulingConfigurer {
 		};
 	}
 
+	@Bean
+	public Filter secureAllCookies() {
+		return (req, res, chain) -> chain.doFilter(
+				req,
+				new HttpServletResponseWrapper((HttpServletResponse) res) {
+					@Override
+					public void addCookie(Cookie cookie) {
+						cookie.setSecure(true);
+						super.addCookie(cookie);
+					}
+				}
+		);
+	}
 
 }

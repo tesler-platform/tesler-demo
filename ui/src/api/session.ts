@@ -39,7 +39,8 @@ export function axiosInstance() {
         headers: {
             ...HEADERS,
             ...{ ClientId: __CLIENT_ID__ },
-        }
+        },
+        withCredentials: true
     })
     instance.interceptors.request.use(tokenInterceptor, () => Promise.reject())
     return instance
