@@ -119,10 +119,23 @@
     </dependencies>
   </dependencyManagement>
   <build>
-    <plugins>
+    <finalName>tesler-demo</finalName>
+        <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>io.demo.Application</mainClass>
+                    <profiles>${spring.active.profiles}</profiles>
+                    <classifier>exec</classifier>
+                </configuration>
       </plugin>
 
       <plugin>

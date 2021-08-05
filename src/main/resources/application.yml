@@ -28,7 +28,7 @@ spring:
     driver-class-name: ${DATABASE_DRIVER:org.postgresql.Driver}
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
     username: ${DATABASE_USER:postgres}
-    password: ${DATABASE_PASSWORD:postgres}
+    password: ${DATABASE_PASSWORD:khKJPOsfiwae}
   liquibase:
     change-log: classpath:/db/db.changelog-master.xml
     enabled: true
@@ -65,3 +65,4 @@ keycloak:
   bearer-only: true
   public-client: true
   use-resource-role-mappings: false
+  ssl-required: none

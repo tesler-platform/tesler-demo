@@ -1,6 +1,6 @@
 {
   "realm" : "jhipster",
-  "auth-server-url" : "http://localhost:9080/auth",
+  "auth-server-url" : "http://demo.tesler.io:9080/auth",
   "ssl-required" : "external",
   "resource" : "web_app",
   "public-client" : true,

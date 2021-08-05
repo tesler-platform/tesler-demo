@@ -1,0 +1,8 @@
+[
+  {
+    "id": "redeploy",
+    "execute-command": "/home/root/remote-deploy/redeploy.sh",
+    "command-working-directory": "/home/root/",
+    "response-message": "Redeploying tesler-demo."
+  }
+]

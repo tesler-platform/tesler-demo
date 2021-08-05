@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  tesler-demo:
+    image: abratashev/tesler-demo:latest
+    environment:
+      DATABASE_URL: 'jdbc:postgresql://tesler_postgres:5432/postgres'
+      AUTH_SERVER_URL: 'http://demo.tesler.io:9080/auth'
+      DATABASE_PASSWORD: 'khKJPOsfiwae'
+      JAVA_TOOL_OPTIONS: '-agentlib:jdwp=transport=dt_socket,server=y,address=8989,suspend=n'
+    expose:
+      - 8080
+    ports:
+      - 80:8080
+      - 8981:8989
+    depends_on:
+      - tesler_postgres
+      - tesler_keycloak
+  tesler_postgres:
+    image: postgres:12.0
+    environment:
+      - POSTGRES_PASSWORD=khKJPOsfiwae
+    ports:
+      - 5433:5432
+  tesler_keycloak:
+    image: jboss/keycloak:12.0.4
+    command:
+      [
+          '-b',
+          '0.0.0.0',
+          '-Dkeycloak.migration.action=import',
+          '-Dkeycloak.migration.provider=dir',
+          '-Dkeycloak.migration.dir=/opt/jboss/keycloak/realm-config',
+          '-Dkeycloak.migration.strategy=IGNORE_EXISTING',
+          '-Djboss.socket.binding.port-offset=1000',
+          '-Dkeycloak.profile.feature.upload_scripts=enabled'
+      ]
+    volumes:
+      - ../keycloak-config:/opt/jboss/keycloak/realm-config
+      - ../tmp/keycloak-db:/opt/jboss/keycloak/standalone/data
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - DB_VENDOR=h2
+    expose:
+      - 9080
+    ports:
+      - 9080:9080
+      - 9443:9443
+      - 10990:10990

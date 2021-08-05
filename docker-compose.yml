@@ -26,10 +26,26 @@ services:
       - ./docker/keycloak-config:/opt/jboss/keycloak/realm-config
       - ./.tmp/keycloak-db:/opt/jboss/keycloak/standalone/data
     environment:
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=admin
-      - DB_VENDOR=h2
+      KEYCLOAK_USER: 'admin'
+      KEYCLOAK_PASSWORD: 'admin'
+      DB_VENDOR: 'h2'
     ports:
       - 9080:9080
       - 9443:9443
       - 10990:10990
+  tesler-demo:
+    build: .
+    image: tesler-demo:latest
+    environment:
+      DATABASE_URL: 'jdbc:postgresql://tesler_postgres:5432/postgres'
+      AUTH_SERVER_URL: 'http://tesler_keycloak:9080/auth'
+      DATABASE_PASSWORD: 'postgres'
+      JAVA_TOOL_OPTIONS: '-agentlib:jdwp=transport=dt_socket,server=y,address=8989,suspend=n'
+    expose:
+      - 8080
+    ports:
+      - 0.0.0.0:8081:8080
+      - 127.0.0.1:8981:8989
+    depends_on:
+      - tesler_postgres
+      - tesler_keycloak
