@@ -1,6 +1,6 @@
 import { actionTypes, AnyAction } from '../interfaces/actions'
-import { AppState } from '../interfaces/storeSlices'
-import { Session } from '@tesler-ui/core/interfaces/session'
+import {AppState} from '../interfaces/storeSlices'
+import {Session} from '@tesler-ui/core/interfaces/session'
 
 export type CustomSession = Session & { logout: boolean }
 
@@ -14,7 +14,11 @@ export const initialState: CustomSession = {
     logout: false
 }
 
-export default function sessionReducer(state: CustomSession = initialState, action: AnyAction, store?: Readonly<AppState>): CustomSession {
+export default function sessionReducer(
+    state: CustomSession = initialState,
+    action: AnyAction,
+    store?: Readonly<AppState>
+): CustomSession {
     switch (action.type) {
         /**
          * Your reducers for this slice

@@ -1,6 +1,6 @@
 {
   "name": "clientView",
-  "title": "",
+  "title": "Client View",
   "type": "Info",
   "bc": "client",
   "showCondition": [],
@@ -27,8 +27,7 @@
         {
           "label": "Importance",
           "key": "importance",
-          "type": "dictionary",
-          "bgColorKey": "color"
+          "type": "dictionary"
         },
         {
           "label": "Status",

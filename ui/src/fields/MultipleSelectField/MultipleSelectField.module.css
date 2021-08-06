@@ -1,109 +1,109 @@
-/*@import '~assets/styles/theme';*/
-/*todo refactor when design will be ready ready*/
-/*.container {*/
-/*    :global {*/
-/*        .ant-select-selection:hover {*/
-/*            border-color: #176db7;*/
-/*            box-shadow: none;*/
-/*        }*/
+@import '~assets/styles/theme';
 
-/*        .ant-select-selection--multiple .ant-select-selection__choice {*/
-/*            font-family: open_sansregular;*/
-/*            font-size: 16px;*/
-/*            border-radius: 2px;*/
-/*            border: none;*/
-/*            background-color: #c8e5ff;*/
-/*            color: @black;*/
-/*            margin-top: 6px;*/
-/*            margin-left: 6px;*/
+.container {
+    :global {
+        .ant-select-selection:hover {
+            border-color: #176db7;
+            box-shadow: none;
+        }
 
-/*            &__remove {*/
-/*                color: rgba(0, 0, 0, 0.85);*/
-/*            }*/
-/*        }*/
+        .ant-select-selection--multiple .ant-select-selection__choice {
+            font-family: open_sansregular;
+            font-size: 16px;
+            border-radius: 2px;
+            border: none;
+            background-color: #c8e5ff;
+            color: @black;
+            margin-top: 6px;
+            margin-left: 6px;
 
-/*        .ant-select-search__field__wrap {*/
-/*            font-family: open_sansregular;*/
-/*            font-size: 16px;*/
-/*            color: rgba(0, 0, 0, 0.85);*/
-/*        }*/
-/*    }*/
-/*}*/
+            &__remove {
+                color: rgba(0, 0, 0, 0.85);
+            }
+        }
 
-/*.checkbox {*/
-/*    width: 16px;*/
-/*    height: 16px;*/
-/*    top: -0.13em;*/
-/*    position: relative;*/
-/*    display: inline-block;*/
-/*}*/
+        .ant-select-search__field__wrap {
+            font-family: open_sansregular;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.85);
+        }
+    }
+}
 
-/*.emptyCheckbox {*/
-/*    width: 16px;*/
-/*    height: 16px;*/
-/*    border-radius: 2px;*/
-/*    border: solid 1px @brown-grey;*/
-/*    top: 0.09em;*/
-/*    position: relative;*/
-/*    display: inline-block;*/
-/*}*/
+.checkbox {
+    width: 16px;
+    height: 16px;
+    top: -0.13em;
+    position: relative;
+    display: inline-block;
+}
 
-/*.title {*/
-/*    padding-left: 10px;*/
-/*}*/
+.emptyCheckbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    border: solid 1px @brown-grey;
+    top: 0.09em;
+    position: relative;
+    display: inline-block;
+}
 
-/*.dropDownMenu {*/
-/*    :global {*/
-/*        .ant-select-dropdown-menu-item {*/
-/*            font-family: open_sansregular;*/
-/*            font-size: 16px;*/
-/*            color: @black;*/
+.title {
+    padding-left: 10px;
+}
 
-/*            &:hover:not(ant-select-dropdown-menu-item-disabled) {*/
-/*                color: #176db7;*/
-/*                background-color: rgba(230, 230, 230, 0.3);*/
-/*                opacity: 1;*/
-/*            }*/
-/*        }*/
+.dropDownMenu {
+    :global {
+        .ant-select-dropdown-menu-item {
+            font-family: open_sansregular;
+            font-size: 16px;
+            color: @black;
 
-/*        .ant-select-dropdown-menu-item-selected {*/
-/*            color: #176db7;*/
-/*            opacity: 1;*/
-/*            font-weight: 400;*/
-/*            background-color: #ffffff;*/
-/*        }*/
+            &:hover:not(ant-select-dropdown-menu-item-disabled) {
+                color: #176db7;
+                background-color: rgba(230, 230, 230, 0.3);
+                opacity: 1;
+            }
+        }
 
-/*        .ant-select-dropdown-menu-item-active:not(.ant-select-dropdown-menu-item-disabled) {*/
-/*            background-color: #ffffff;*/
-/*        }*/
-/*    }*/
-/*}*/
+        .ant-select-dropdown-menu-item-selected {
+            color: #176db7;
+            opacity: 1;
+            font-weight: 400;
+            background-color: #ffffff;
+        }
 
-/*.container:global(.ant-select-focused.ant-select-enabled .ant-select-selection) {*/
-/*    border-color: #176db7;*/
-/*    box-shadow: none;*/
-/*}*/
+        .ant-select-dropdown-menu-item-active:not(.ant-select-dropdown-menu-item-disabled) {
+            background-color: #ffffff;
+        }
+    }
+}
 
-/*:global(.ant-select:not(.ant-select-disabled)).container {*/
-/*    :global {*/
-/*        .ant-select-selection--multiple .ant-select-selection__choice:hover {*/
-/*            background-color: #176db7;*/
-/*            color: #ffffff;*/
+.container:global(.ant-select-focused.ant-select-enabled .ant-select-selection) {
+    border-color: #176db7;
+    box-shadow: none;
+}
 
-/*            .ant-select-selection__choice__remove {*/
-/*                color: #ffffff;*/
-/*            }*/
-/*        }*/
-/*    }*/
-/*}*/
+:global(.ant-select:not(.ant-select-disabled)).container {
+    :global {
+        .ant-select-selection--multiple .ant-select-selection__choice:hover {
+            background-color: #176db7;
+            color: #ffffff;
 
-/*.dropDownMenu:global(.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item-selected .ant-select-selected-icon),*/
-/*.dropDownMenu:global(.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item:hover .ant-select-selected-icon) {*/
-/*    display: none;*/
-/*}*/
+            .ant-select-selection__choice__remove {
+                color: #ffffff;
+            }
+        }
+    }
+}
 
-/*.dropDownMenu:global(.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item:hover) {*/
-/*    .emptyCheckbox {*/
-/*        border-color: #176db7;*/
-/*    }*/
-/*}*/
+.dropDownMenu:global(.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item-selected .ant-select-selected-icon),
+.dropDownMenu:global(.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item:hover .ant-select-selected-icon) {
+    display: none;
+}
+
+.dropDownMenu:global(.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item:hover) {
+    .emptyCheckbox {
+        border-color: #176db7;
+    }
+}

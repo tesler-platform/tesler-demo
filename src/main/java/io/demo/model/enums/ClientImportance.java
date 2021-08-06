@@ -9,9 +9,9 @@ import org.apache.commons.lang3.EnumUtils;
 @Getter
 @AllArgsConstructor
 public enum ClientImportance {
-	High("High", "#EC3F3F"),
-	Medium("Medium", "#FCA546"),
-	Low("Low", "#008C3E");
+	High("High", "#FFFFFF"),
+	Medium("Medium", "#FFFFFF"),
+	Low("Low", "#FFFFFF");
 
 	@JsonValue
 	private final String importance;
