@@ -1,4 +1,4 @@
-import Keycloak, { KeycloakInitOptions } from 'keycloak-js';
+import Keycloak, { KeycloakInitOptions } from 'keycloak-js'
 
 export const KEYCLOAK_MIN_VALIDITY = 10
 

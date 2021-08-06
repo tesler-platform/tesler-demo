@@ -1,6 +1,6 @@
 {
   "name": "contactEditList",
-  "title": "",
+  "title": "Contacts",
   "type": "List",
   "bc": "contactEdit",
   "showCondition": [],

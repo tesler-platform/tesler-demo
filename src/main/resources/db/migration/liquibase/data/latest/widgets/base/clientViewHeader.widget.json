@@ -1,0 +1,11 @@
+{
+  "name": "clientViewHeader",
+  "title": "Client Description",
+  "type": "Header",
+  "bc": "clientEdit",
+  "showCondition": [],
+  "fields": [],
+  "axisFields": [],
+  "chart": [],
+  "options": {}
+}

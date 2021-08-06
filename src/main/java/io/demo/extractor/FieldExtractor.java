@@ -25,7 +25,8 @@ public class FieldExtractor extends BaseFieldExtractor {
 	@Override
 	public List<String> getSupportedTypes() {
 		return Lists.newArrayList(
-				"Form"
+				"Form",
+				"Header"
 		);
 	}
 

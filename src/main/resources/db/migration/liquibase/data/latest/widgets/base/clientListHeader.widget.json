@@ -1,0 +1,13 @@
+{
+  "name": "clientListHeader",
+  "title": "Client List",
+  "type": "Header",
+  "bc": "client",
+  "showCondition": [],
+  "fields": [],
+  "axisFields": [],
+  "chart": [],
+  "options": {
+
+  }
+}

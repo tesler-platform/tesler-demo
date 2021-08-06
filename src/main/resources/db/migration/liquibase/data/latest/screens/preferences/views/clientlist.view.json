@@ -5,8 +5,13 @@
   "url": "/screen/client/view/clientlist",
   "widgets": [
     {
-      "widgetName": "clientList",
+      "widgetName": "clientListHeader",
       "position": 1,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientList",
+      "position": 2,
       "gridWidth": 4
     }
   ]
