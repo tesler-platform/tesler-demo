@@ -1,12 +1,14 @@
-@value colors "../../assets/styles/theme.module.css";
-@value main-light-mode, accent from colors;
-
 .container {
+    font-weight: 500;
     overflow: hidden;
 }
 
-.container :global(.ant-tabs-ink-bar) {
-    background-color: accent;
+.container :global(.ant-tabs-tab-active) .item {
+    opacity: 1;
+}
+
+.container :global(.ant-tabs-tab) {
+    padding: 21px 16px 20px 16px !important;
 }
 
 .container :global(.ant-tabs-bar) {
@@ -14,8 +16,8 @@
 }
 
 .item {
+    opacity: 0.5;
     font-size: 14px;
-    line-height: 20px;
-    color: main-light-mode;
+    color: #fff;
 }
 

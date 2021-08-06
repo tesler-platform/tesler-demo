@@ -1,11 +1,10 @@
-import { AnyAction, actionTypes } from '../interfaces/actions'
-import { AppState, ScreenState } from '../interfaces/storeSlices'
+import {AnyAction, actionTypes} from '../interfaces/actions'
+import {AppState, ScreenState} from '../interfaces/storeSlices'
 
 /**
  * Your initial state for this slice
  */
 export const initialState: ScreenState = {
-    menuCollapsed: false,
     screenName: '',
     bo: {
         activeBcName: '',
@@ -18,14 +17,12 @@ export const initialState: ScreenState = {
     sorters: {}
 }
 
-export default function screenReducer(state: ScreenState = initialState, action: AnyAction, store?: Readonly<AppState>): ScreenState {
+export default function screenReducer(
+    state: ScreenState = initialState,
+    action: AnyAction,
+    store?: Readonly<AppState>
+): ScreenState {
     switch (action.type) {
-        case actionTypes.changeMenuCollapsed: {
-            return {
-                ...state,
-                menuCollapsed: action.payload
-            }
-        }
         /**
          * Your reducers for this slice
          */

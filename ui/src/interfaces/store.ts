@@ -1,9 +1,10 @@
-import { AppState } from '../interfaces/storeSlices'
-import { AnyAction } from './actions'
+
+import {AppState} from '../interfaces/storeSlices'
+import {AnyAction} from './actions'
 
 /**
  * Describes an application reducer
- *
+ * 
  */
 export type CustomReducer<ReducerState, State = AppState> = (
     state: ReducerState,
@@ -12,7 +13,7 @@ export type CustomReducer<ReducerState, State = AppState> = (
 ) => ReducerState
 
 /**
- *
+ * 
  */
 export interface ReducerConfiguration<ReducerState, ClientActions> {
     initialState: ReducerState
@@ -21,8 +22,8 @@ export interface ReducerConfiguration<ReducerState, ClientActions> {
 }
 
 /**
- *
+ * 
  */
 export type RootReducer<ClientStore, ClientActions> = {
-    [reducerSliceName in keyof ClientStore]: ReducerConfiguration<ClientStore[keyof ClientStore], ClientActions>
+    [reducerSliceName in keyof ClientStore]: ReducerConfiguration<ClientStore[keyof ClientStore], ClientActions>;
 }

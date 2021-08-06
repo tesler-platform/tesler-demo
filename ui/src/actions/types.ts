@@ -1,7 +1,7 @@
 /**
  * This is an utility class for typing payload of redux actions
  */
-import { ActionPayloadTypes as TeslerActionPayloadTypes, createActionCreators } from '@tesler-ui/core'
+import {ActionPayloadTypes as TeslerActionPayloadTypes, createActionCreators} from '@tesler-ui/core'
 
 const z = null as any
 
@@ -11,14 +11,9 @@ export const SSO_AUTH = 'SSO_AUTH'
  * Declare your redux actions here with action name and payload type
  *
  * Assign every action an empty value (`z`) to prevent Typescript from erasing it in runtime
- *
  * @see https://github.com/microsoft/TypeScript/issues/12437
  */
 export class CustomActionTypes extends TeslerActionPayloadTypes {
-    /**
-     * Set state of side menu: open or collapsed
-     */
-    changeMenuCollapsed: boolean = z
 
     /**
      * An example of action and payload declaration
@@ -42,3 +37,4 @@ export class CustomActionTypes extends TeslerActionPayloadTypes {
  * { type: 'customAction', payload: { customMessage: 'test' } }
  */
 export const $do = createActionCreators(new CustomActionTypes())
+

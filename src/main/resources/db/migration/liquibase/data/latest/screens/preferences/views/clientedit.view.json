@@ -5,18 +5,13 @@
   "url": "/screen/client/view/clientedit",
   "widgets": [
     {
-      "widgetName": "clientCreationHeader",
+      "widgetName": "clientEdit",
       "position": 1,
       "gridWidth": 4
     },
     {
-      "widgetName": "clientEdit",
-      "position": 2,
-      "gridWidth": 4
-    },
-    {
       "widgetName": "contactEditList",
-      "position": 3,
+      "position": 2,
       "gridWidth": 4
     }
   ]

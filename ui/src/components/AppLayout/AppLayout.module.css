@@ -1,12 +1,3 @@
-@value colors "../../assets/styles/theme.module.css";
-@value main-dark-mode from colors;
-
-.appLayout, :global(.ant-layout) {
-  background: main-dark-mode
-}
-.appLayout :global(.ant-layout-header) {
-  background: main-dark-mode;
-}
 
 .spinContainer {
   display: flex;

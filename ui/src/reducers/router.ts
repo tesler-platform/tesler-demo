@@ -1,5 +1,5 @@
-import { actionTypes, AnyAction } from '../interfaces/actions'
-import { AppState } from '../interfaces/storeSlices'
+import {actionTypes, AnyAction} from '../interfaces/actions'
+import {AppState} from '../interfaces/storeSlices'
 import { Route } from '@tesler-ui/core/interfaces/router'
 import { historyObj } from '@tesler-ui/core'
 
@@ -28,11 +28,11 @@ export default function dataReducer(
 
 /**
  * Copy of built-in parseLocation of Tesler UI extended with a fix for malformed url, e.g.
- * when GET parameters are present and joined through `&` without `?` appearing first.
- *
+ * when GET parameters are present and joined through `&` without `?` appearing first. 
+ * 
  * TODO: Remove when https://github.com/tesler-platform/tesler-ui/issues/663 is resolved.
- *
- * @param loc
+ * 
+ * @param loc 
  */
 export function keycloakAwareParseLocation(loc: Location): Route {
     let path: string = loc.pathname
@@ -49,9 +49,9 @@ export function keycloakAwareParseLocation(loc: Location): Route {
     const tokens = path.split('/').map(decodeURIComponent)
 
     let type = 'unknown'
-    let screenName
-    let viewName
-    let bcPath
+    let screenName = undefined
+    let viewName = undefined
+    let bcPath = undefined
     if (tokens.length > 0 && tokens[0] === 'router') {
         type = 'router'
     } else if (tokens.length === 1) {

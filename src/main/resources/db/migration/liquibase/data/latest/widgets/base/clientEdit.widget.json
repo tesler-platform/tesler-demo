@@ -1,6 +1,6 @@
 {
   "name": "clientEdit",
-  "title": "General information",
+  "title": "Client Edit",
   "type": "Form",
   "bc": "clientEdit",
   "showCondition": [],

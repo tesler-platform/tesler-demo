@@ -1,12 +1,17 @@
-import { AnyAction as TeslerAnyAction, AnyOfMap, createActionTypes, uActionsMap } from '@tesler-ui/core'
-import { Store } from 'redux'
-import { ActionsObservable as rActionsObservable } from 'redux-observable'
-import { Observable } from 'rxjs/Observable'
-import { CustomActionTypes } from '../actions/types'
-import { AppState } from '../interfaces/storeSlices'
+import {
+    AnyAction as TeslerAnyAction,
+    AnyOfMap,
+    createActionTypes,
+    uActionsMap
+} from '@tesler-ui/core'
+import {Store} from 'redux'
+import {ActionsObservable as rActionsObservable} from 'redux-observable'
+import {Observable} from 'rxjs/Observable'
+import {CustomActionTypes} from '../actions/types'
+import {AppState} from '../interfaces/storeSlices'
 
 /**
- * A dictionary storing types of all redux actions available to the application
+ * A dictionary storing types of all redux actions available to the application 
  */
 export const actionTypes = createActionTypes(new CustomActionTypes())
 
