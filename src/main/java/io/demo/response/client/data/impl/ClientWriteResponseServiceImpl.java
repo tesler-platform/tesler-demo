@@ -39,6 +39,9 @@ public class ClientWriteResponseServiceImpl extends VersionAwareResponseService<
 		if (data.isFieldChanged(ClientWriteDTO_.fullName)) {
 			entity.setFullName(data.getFullName());
 		}
+		if (data.isFieldChanged(ClientWriteDTO_.description)) {
+			entity.setDescription(data.getDescription());
+		}
 		if (data.isFieldChanged(ClientWriteDTO_.fieldOfActivity)) {
 			List<String> selected = getValuesDelta(data, entity);
 			selected.forEach(selectedRegionName -> {
