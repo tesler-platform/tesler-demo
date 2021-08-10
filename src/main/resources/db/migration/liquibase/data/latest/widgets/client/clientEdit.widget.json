@@ -1,9 +1,8 @@
 {
   "name": "clientEdit",
-  "title": "Client Edit",
+  "title": "General information",
   "type": "Form",
   "bc": "clientEdit",
-  "showCondition": [],
   "fields": [
     {
       "label": "Full Name",
@@ -41,8 +40,6 @@
       "type": "multipleSelect"
     }
   ],
-  "axisFields": [],
-  "chart": [],
   "options": {
     "actionGroups": {
       "include": [

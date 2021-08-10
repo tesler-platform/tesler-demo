@@ -5,18 +5,28 @@
   "url": "/screen/client/view/clientview",
   "widgets": [
     {
-      "widgetName": "clientViewButtons",
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientViewHeader",
       "position": 1,
       "gridWidth": 4
     },
     {
-      "widgetName": "clientView",
+      "widgetName": "clientViewButtons",
       "position": 2,
       "gridWidth": 4
     },
     {
-      "widgetName": "contactViewList",
+      "widgetName": "clientView",
       "position": 3,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "contactViewList",
+      "position": 4,
       "gridWidth": 4
     }
   ]

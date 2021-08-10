@@ -1,9 +1,8 @@
 {
   "name": "clientView",
-  "title": "Client View",
+  "title": "",
   "type": "Info",
   "bc": "client",
-  "showCondition": [],
   "fields": [
     {
       "blockId": "1",
@@ -27,7 +26,8 @@
         {
           "label": "Importance",
           "key": "importance",
-          "type": "dictionary"
+          "type": "dictionary",
+          "bgColorKey": "color"
         },
         {
           "label": "Status",
@@ -37,8 +37,6 @@
       ]
     }
   ],
-  "axisFields": [],
-  "chart": [],
   "options": {
     "actionGroups": {
       "include": [

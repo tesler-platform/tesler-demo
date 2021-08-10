@@ -3,7 +3,6 @@
   "title": "",
   "type": "List",
   "bc": "contact",
-  "showCondition": [],
   "fields": [
     {
       "title": "Contact Full Name",
@@ -22,8 +21,6 @@
       "type": "input"
     }
   ],
-  "axisFields": [],
-  "chart": [],
   "options": {
     "actionGroups": {
       "include": []

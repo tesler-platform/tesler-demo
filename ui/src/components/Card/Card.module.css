@@ -1,16 +1,18 @@
+@import "../../assets/fonts/fonts.module.css";
+@value colors "../../assets/styles/theme.module.css";
+@value main-light-mode from colors;
+
 .container {
     background-color: white;
     border-radius: 2px;
-    padding: 10px;
-    margin-top: 16px;
 }
 
-.container :global(.ant-table .ant-table-thead > tr > th) {
-    padding: 11px 16px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.85);
-    background: #fff;
-    border-bottom: 1px solid #595959;
+.widgetTitle {
+    color: main-light-mode;
+    font-family: openSans_bold;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 1em;
 }
 
 .tabContainer {
@@ -23,57 +25,4 @@
     line-height: 1.56;
     color: #595959;
     margin-left: -12px;
-}
-
-.markdown {
-    margin: 25px 0;
-
-}
-
-.markdown pre code{
-    margin: 0;
-    padding: 0;
-    background: none;
-    border: none;
-}
-
-.markdown code{
-    margin: 0 1px;
-    padding: 0.1em 0.4em;
-    font-size: 0.9em;
-    background: #f2f4f5;
-    border: 1px solid #f0f0f0;
-    border-radius: 3px;
-}
-
-.markdown pre {
-    background: #f5f5f5;
-    padding: 10px;
-    border: 1px solid #ccc;
-
-}
-
-.markdown table {
-    width: 100%;
-}
-
-.markdown th {
-    font-size: 24;
-    background: rgba(0, 0, 0, 0.02);
-    color: #5c6b77;
-    border: 1px solid #f0f0f0;
-    padding: 12px;
-}
-
-.markdown td {
-    text-align: center;
-    font-size: 24;
-    border: 1px solid #f0f0f0;
-    padding: 15px;
-}
-
-.markdown ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
 }
