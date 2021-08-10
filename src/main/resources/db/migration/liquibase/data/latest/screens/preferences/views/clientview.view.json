@@ -1,6 +1,6 @@
 {
   "name": "clientview",
-  "title": "Client List",
+  "title": "Client View",
   "template": "DashboardView",
   "url": "/screen/client/view/clientview",
   "widgets": [

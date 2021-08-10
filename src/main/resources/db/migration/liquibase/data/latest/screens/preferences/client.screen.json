@@ -8,13 +8,18 @@
   "navigation": {
     "menu": [
       {
-        "viewName": "clientlist"
-      },
-      {
-        "viewName": "clientedit"
-      },
-      {
-        "viewName": "clientview"
+        "title": "Clients",
+        "child": [
+          {
+            "viewName": "clientlist"
+          },
+          {
+            "viewName": "clientedit"
+          },
+          {
+            "viewName": "clientview"
+          }
+        ]
       }
     ]
   }

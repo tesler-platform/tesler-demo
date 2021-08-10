@@ -1,12 +1,6 @@
 insert into responsibilities (id, resp_type, screens, dept_id, internal_role_cd)
 VALUES (nextval('RESPONSIBILITY_ID'), 'SCREEN',
         '[
-          {
-    "id": "id12",
-    "name": "preferences",
-    "text": "Настройки",
-    "url": "/screen/preferences"
-  },
   {
     "id": "id1",
     "name": "client",
@@ -25,12 +19,6 @@ VALUES (nextval('RESPONSIBILITY_ID'), 'VIEW', 0, 'ADMIN', 'clientview');
 insert into responsibilities (id, resp_type, screens, dept_id, internal_role_cd)
 VALUES (nextval('RESPONSIBILITY_ID'), 'SCREEN',
         '[
-          {
-    "id": "id12",
-    "name": "preferences",
-    "text": "Настройки",
-    "url": "/screen/preferences"
-  },
   {
     "id": "id1",
     "name": "client",
@@ -49,12 +37,6 @@ VALUES (nextval('RESPONSIBILITY_ID'), 'VIEW', 0, 'ROLE_ADMIN', 'clientview');
 insert into responsibilities (id, resp_type, screens, dept_id, internal_role_cd)
 VALUES (nextval('RESPONSIBILITY_ID'), 'SCREEN',
         '[
-          {
-    "id": "id12",
-    "name": "preferences",
-    "text": "Настройки",
-    "url": "/screen/preferences"
-  },
   {
     "id": "id1",
     "name": "client",
