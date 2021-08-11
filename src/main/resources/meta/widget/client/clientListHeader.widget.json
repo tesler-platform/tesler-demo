@@ -3,5 +3,10 @@
   "title": "Client List",
   "type": "HeaderWidget",
   "bc": "client",
-  "fields": []
+  "fields": [],
+  "options": {
+    "actionGroups": {
+      "include": []
+    }
+  }
 }

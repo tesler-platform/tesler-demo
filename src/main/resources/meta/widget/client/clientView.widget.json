@@ -1,6 +1,6 @@
 {
   "name": "clientView",
-  "title": "",
+  "title": "General Information",
   "type": "Info",
   "bc": "client",
   "fields": [
@@ -38,11 +38,6 @@
     }
   ],
   "options": {
-    "actionGroups": {
-      "include": [
-        "edit"
-      ]
-    },
     "layout": {
       "rows": [
         {

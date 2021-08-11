@@ -1,6 +1,6 @@
 /*@import "../../../assets/fonts/fonts.module.css";*/
 @value colors "../../../assets/styles/theme.module.css";
-@value accent20, accent, main-light-mode from colors;
+@value accent20, accent, main-light-mode, not-available from colors;
 
 .tableContainer :global(.ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td) {
     background-color: accent20;
@@ -23,10 +23,12 @@
 }
 
 .tableContainer :global(.ant-table-tbody > tr > td) {
-    padding: 8px;
+    padding: 12px 8px;
 }
-.tableContainer :global(.ant-table .ant-table-thead > tr > th) {
+.tableContainer :global(.ant-table .ant-table-content .ant-table-thead > tr > th) {
     padding: 13px 8px;
+    border: none;
+    box-shadow: inset 0 -1px 0 not-available;
 }
 
 .tableContainer :global([class^="ColumnTitle"]) {

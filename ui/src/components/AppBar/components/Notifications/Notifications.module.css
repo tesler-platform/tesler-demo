@@ -1,0 +1,16 @@
+@value colors "../../../../assets/styles/theme.module.css";
+@value main-light-mode from colors;
+
+.content {
+    white-space: pre-wrap;
+    width: 200px;
+    max-height: 350px;
+    overflow-x: auto;
+    line-height: 20px;
+    color: main-light-mode;
+}
+
+.icon {
+    font-size: 20px;
+    margin-right: 28px;
+}

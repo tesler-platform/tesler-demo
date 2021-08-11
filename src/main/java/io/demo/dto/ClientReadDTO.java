@@ -16,6 +16,8 @@ public class ClientReadDTO extends ClientAbstractDTO {
 	private String address;
 
 	private String fieldOfActivity;
+	private String markBgColor;
+	private String markDescription;
 
 	public ClientReadDTO(Client client) {
 		super(client);

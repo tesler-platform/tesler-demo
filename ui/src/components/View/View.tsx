@@ -6,25 +6,29 @@ import { CustomFieldTypes, CustomWidgetTypes } from '../../interfaces/widget'
 import MultipleSelectField from '../../fields/MultipleSelectField/MultipleSelectField'
 import Form from '../widgets/Form/Form'
 import Header from '../widgets/Header/Header'
+import Breadcrumbs from '../widgets/Breadcrumbs/Breadcrumbs'
 import EmptyCard from '../EmptyCard/EmptyCard'
 import styles from './View.module.css'
 import Info from '../widgets/Info/Info'
 import Table from '../widgets/Table/Table'
 import { FieldType } from '@tesler-ui/core/interfaces/view'
 import Dictionary from '../../fields/Dictionary/Dictionary'
+import ColoredMark from '../../fields/ColoredMark/ColoredMark'
 
-const skipWidgetTypes = [WidgetTypes.SecondLevelMenu]
+const skipWidgetTypes = [WidgetTypes.SecondLevelMenu, CustomWidgetTypes.Breadcrumbs]
 
 const customFields = {
     [FieldType.dictionary]: Dictionary,
-    [CustomFieldTypes.MultipleSelect]: MultipleSelectField
+    [CustomFieldTypes.MultipleSelect]: MultipleSelectField,
+    [CustomFieldTypes.ColoredMark]: ColoredMark
 }
 
 const customWidgets: Partial<Record<CustomWidgetTypes | WidgetTypes, CustomWidgetDescriptor>> = {
     [WidgetTypes.Form]: { component: Form },
     [WidgetTypes.Info]: { component: Info },
     [WidgetTypes.List]: { component: Table },
-    [WidgetTypes.HeaderWidget]: { component: Header, card: EmptyCard }
+    [WidgetTypes.HeaderWidget]: { component: Header, card: EmptyCard },
+    [CustomWidgetTypes.Breadcrumbs]: { component: Breadcrumbs }
 }
 
 function View() {

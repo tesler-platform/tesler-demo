@@ -6,3 +6,8 @@
 .withTabs {
     justify-content: space-between;
 }
+
+.rightBlock {
+    display: flex;
+    align-items: center;
+}

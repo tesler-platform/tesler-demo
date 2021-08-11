@@ -1,0 +1,14 @@
+{
+  "title": "",
+  "name": "clientBreadcrumbs",
+  "type": "Breadcrumbs",
+  "options": {
+    "breadcrumbs": [
+      {
+        "viewName": "clientlist",
+        "bcName": "client",
+        "type": "list"
+      }
+    ]
+  }
+}

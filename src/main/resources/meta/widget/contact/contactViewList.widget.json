@@ -1,6 +1,6 @@
 {
   "name": "contactViewList",
-  "title": "",
+  "title": "Contacts",
   "type": "List",
   "bc": "contact",
   "fields": [

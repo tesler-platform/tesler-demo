@@ -8,9 +8,7 @@ interface EmptyCardProps {
 function EmptyCard({ children }: EmptyCardProps) {
     return (
         <Row justify="center">
-            <Col span={22} offset={1}>
-                {children}
-            </Col>
+            <Col span={22}>{children}</Col>
         </Row>
     )
 }

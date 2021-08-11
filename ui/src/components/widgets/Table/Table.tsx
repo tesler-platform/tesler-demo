@@ -5,6 +5,8 @@ import styles from './Table.module.css'
 import { ColumnProps } from 'antd/es/table'
 import { DataItem } from '@tesler-ui/core/interfaces/data'
 import MenuColumn from './components/MenuColumn'
+import Pagination from '../../ui/Pagination/Pagination'
+import { CustomWidgetTableMeta } from '../../../interfaces/widget'
 
 interface TableProps {
     meta: WidgetTableMeta
@@ -28,8 +30,9 @@ function Table({ meta }: TableProps) {
     }, [menuColumn])
 
     return (
-        <div className={styles.tableContainer}>
-            <TableWidget meta={meta} controlColumns={controlColumns} />
+        <div style={{ maxWidth: (meta as CustomWidgetTableMeta)?.options?.maxWidth }} className={styles.tableContainer}>
+            <TableWidget meta={meta} controlColumns={controlColumns} disablePagination />
+            <Pagination meta={meta} />
         </div>
     )
 }

@@ -1,0 +1,11 @@
+@value colors "../../../assets/styles/theme.module.css";
+@value accent from colors;
+
+.container {
+    margin-top: 24px;
+}
+
+.container :global(.ant-breadcrumb-separator),
+.breadcrumbItem > span {
+    color: accent;
+}

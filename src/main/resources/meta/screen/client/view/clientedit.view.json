@@ -5,6 +5,11 @@
   "url": "/screen/client/view/clientedit",
   "widgets": [
     {
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
       "widgetName": "clientCreationHeader",
       "position": 1,
       "gridWidth": 4
@@ -17,6 +22,16 @@
     {
       "widgetName": "contactEditList",
       "position": 3,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientBreadcrumbs",
+      "position": 4,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEditButtons",
+      "position": 5,
       "gridWidth": 4
     }
   ],

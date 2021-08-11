@@ -1,3 +1,4 @@
+import { Row } from 'antd'
 import React from 'react'
 import { WidgetInfoMeta, WidgetInfoField } from '@tesler-ui/core/interfaces/widget'
 import { useFlatFormFields } from '@tesler-ui/core'
@@ -5,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../../interfaces/storeSlices'
 import { $do } from '../../../actions/types'
 import InfoRow from './components/InfoRow'
-import { Row } from 'antd'
 
 interface InfoProps {
     meta: WidgetInfoMeta

@@ -25,6 +25,16 @@ public class ClientReadResponseService extends VersionAwareResponseService<Clien
 	}
 
 	@Override
+	protected ClientReadDTO entityToDto(BusinessComponent bc, Client entity) {
+		ClientReadDTO dto = super.entityToDto(bc, entity);
+		if (entity.getStatus().equals(ClientStatus.New)) {
+			dto.setMarkBgColor("#EC3F3F");
+			dto.setMarkDescription("There is no activity has been created for a client with the \"New\" status");
+		}
+		return dto;
+	}
+
+	@Override
 	protected CreateResult<ClientReadDTO> doCreateEntity(Client entity, BusinessComponent bc) {
 		clientRepository.save(entity);
 		entity.setStatus(ClientStatus.New);
@@ -47,7 +57,7 @@ public class ClientReadResponseService extends VersionAwareResponseService<Clien
 	@Override
 	public Actions<ClientReadDTO> getActions() {
 		return Actions.<ClientReadDTO>builder()
-				.create().text("Create Client").add()
+				.create().text("Add").add()
 				.newAction()
 				.action("edit", "Edit")
 				.withoutAutoSaveBefore()

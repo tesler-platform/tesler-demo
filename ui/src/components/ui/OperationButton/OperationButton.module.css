@@ -2,6 +2,7 @@
 @value accent, main-dark-mode from colors;
 
 .operation {
+    min-width: 122px;
     height: 40px;
     padding: 10px 16px;
     background-color: accent;

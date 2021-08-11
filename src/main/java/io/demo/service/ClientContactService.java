@@ -63,7 +63,7 @@ public class ClientContactService extends VersionAwareResponseService<ContactDTO
 	@Override
 	public Actions<ContactDTO> getActions() {
 		return Actions.<ContactDTO>builder()
-				.create().text("Add contact").add()
+				.create().text("Add").add()
 				.save().add()
 				.build();
 	}

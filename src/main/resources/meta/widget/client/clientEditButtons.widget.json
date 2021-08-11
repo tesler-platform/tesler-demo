@@ -1,13 +1,12 @@
 {
-  "name": "clientViewButtons",
-  "title": "",
+  "name": "clientEditButtons",
   "type": "Form",
-  "bc": "client",
+  "bc": "clientEdit",
   "fields": [],
   "options": {
     "actionGroups": {
       "include": [
-       "edit"
+        "save"
       ]
     }
   }

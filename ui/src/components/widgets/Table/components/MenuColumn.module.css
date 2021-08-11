@@ -8,6 +8,7 @@
 
 .overlayContainer {
     min-width: 200px;
+    font-family: openSans_regular;
 }
 
 .overlayContainer :global(.ant-menu-vertical) {

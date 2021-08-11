@@ -1,7 +1,12 @@
 {
   "name": "clientCreationHeader",
   "title": "Client Creation",
-  "type": "Header",
+  "type": "HeaderWidget",
   "bc": "clientEdit",
-  "fields": []
+  "fields": [],
+  "options": {
+    "actionGroups": {
+      "include": []
+    }
+  }
 }

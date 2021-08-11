@@ -2,6 +2,13 @@
   "name": "clientViewHeader",
   "title": "Client Description",
   "type": "HeaderWidget",
-  "bc": "clientEdit",
-  "fields": []
+  "bc": "client",
+  "fields": [],
+  "options": {
+    "actionGroups": {
+      "include": [
+        "edit"
+      ]
+    }
+  }
 }

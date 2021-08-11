@@ -15,11 +15,6 @@
       "gridWidth": 4
     },
     {
-      "widgetName": "clientViewButtons",
-      "position": 2,
-      "gridWidth": 4
-    },
-    {
       "widgetName": "clientView",
       "position": 3,
       "gridWidth": 4
@@ -27,6 +22,11 @@
     {
       "widgetName": "contactViewList",
       "position": 4,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientBreadcrumbs",
+      "position": 5,
       "gridWidth": 4
     }
   ],

@@ -8,10 +8,15 @@ import DevPanel from '../DevPanel/DevPanel'
 import { SSO_AUTH } from '../../actions/types'
 import styles from './AppLayout.module.css'
 import View from '../View/View'
+import Breadcrumbs from '../widgets/Breadcrumbs/Breadcrumbs'
+import { CustomWidgetTypes, WidgetBreadcrumbsMeta } from '../../interfaces/widget'
 
 export const AppLayout: React.FC = () => {
     const sessionActive = useSelector((state: AppState) => state.session.active)
     const logoutRequested = useSelector((state: AppState) => state.session.logout)
+    const breadcrumbsWidget = useSelector((state: AppState) =>
+        state.view.widgets?.find(widget => widget.type === CustomWidgetTypes.Breadcrumbs)
+    )
     const dispatch = useDispatch()
 
     React.useEffect(() => {
@@ -25,8 +30,9 @@ export const AppLayout: React.FC = () => {
             <DevPanel />
             <Layout className={styles.appLayout}>
                 <AppSide />
-                <Layout.Content>
+                <Layout.Content className={styles.layoutContent}>
                     <AppBar />
+                    {breadcrumbsWidget && <Breadcrumbs meta={breadcrumbsWidget as WidgetBreadcrumbsMeta} />}
                     <View />
                 </Layout.Content>
             </Layout>

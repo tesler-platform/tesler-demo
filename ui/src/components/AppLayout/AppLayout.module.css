@@ -2,7 +2,6 @@
 @value colors "../../assets/styles/theme.module.css";
 @value main-dark-mode from colors;
 
-
 .appLayout {
   font-family: openSans_regular;
   font-size: 14px;
@@ -13,6 +12,12 @@
 }
 .appLayout :global(.ant-layout-header) {
   background: main-dark-mode;
+  padding: 0;
+}
+
+.layoutContent {
+  padding-left: 48px;
+  padding-right: 32px;
 }
 
 .spinContainer {

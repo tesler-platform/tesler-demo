@@ -1,0 +1,25 @@
+@value colors "../../../../assets/styles/theme.module.css";
+@value accent, main-dark-mode from colors;
+
+:global(.ant-btn).actionsOpenButton {
+    width: 121px;
+    height: 40px;
+    margin-bottom: 32px;
+    border-radius: 8px;
+    border: none;
+    background-color: accent;
+    color: main-dark-mode;
+}
+
+.overlayContainer {
+    width: 257px;
+}
+
+.overlayContainer :global(.ant-menu-vertical) {
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(187, 201, 217, 0.2);
+}
+
+.overlayContainer :global(.ant-menu-item:hover) {
+    color: accent;
+}

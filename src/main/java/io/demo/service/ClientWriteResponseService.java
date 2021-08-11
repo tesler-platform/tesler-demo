@@ -66,7 +66,7 @@ public class ClientWriteResponseService extends VersionAwareResponseService<Clie
 	@Override
 	public Actions<ClientWriteDTO> getActions() {
 		return Actions.<ClientWriteDTO>builder()
-				.save().add()
+				.save().text("Save").add()
 				.build();
 	}
 
