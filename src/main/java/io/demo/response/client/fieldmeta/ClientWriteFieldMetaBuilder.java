@@ -9,8 +9,6 @@ import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;
 import io.tesler.core.service.rowmeta.FieldMetaBuilder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-
 import static io.demo.dictionary.DictionaryType.FIELD_OF_ACTIVITY;
 
 @Service
@@ -32,10 +30,8 @@ public class ClientWriteFieldMetaBuilder extends FieldMetaBuilder<ClientWriteDTO
 				ClientWriteDTO_.description,
 				ClientWriteDTO_.city,
 				ClientWriteDTO_.fieldOfActivity);
-		fields.setDictionaryTypeWithCustomValues(ClientWriteDTO_.importance,
-				Arrays.stream(ClientImportance.values()).map(ClientImportance::getImportance)
-						.toArray(String[]::new)
-		);
+
+		fields.setEnumValues(ClientWriteDTO_.importance, ClientImportance.values());
 
 		fields.setDictionaryTypeWithAllValues(ClientWriteDTO_.fieldOfActivity, FIELD_OF_ACTIVITY);
 	}

@@ -9,7 +9,7 @@
     <parent>
         <groupId>io.tesler</groupId>
         <artifactId>tesler-starter-parent</artifactId>
-        <version>3.0.0.M13</version>
+        <version>3.0.2-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -23,7 +23,7 @@
         <keycloak-spring-boot-starter.version>14.0.0</keycloak-spring-boot-starter.version>
 
         <!--delete after fix https://github.com/spring-projects/spring-security/issues/9787-->
-        <spring-security.version>5.5.1-SNAPSHOT</spring-security.version>
+        <spring-security.version>5.5.1</spring-security.version>
         <spring-security-crypto.version>5.5.0</spring-security-crypto.version>
 
     </properties>
