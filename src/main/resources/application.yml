@@ -19,8 +19,6 @@ server:
 spring:
   application:
     name: ${APPLICATION_NAME:example}
-  aop:
-    proxy-target-class: false
   datasource:
     name: primaryDS
     driver-class-name: ${DATABASE_DRIVER:org.postgresql.Driver}
