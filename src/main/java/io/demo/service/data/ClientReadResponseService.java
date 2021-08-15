@@ -1,6 +1,6 @@
 package io.demo.service.data;
 
-import io.demo.controller.ServiceAssociation;
+import io.demo.controller.TeslerRestController;
 import io.demo.model.Client;
 import io.demo.model.enums.ClientStatus;
 import io.demo.repository.ClientRepository;
@@ -34,7 +34,7 @@ public class ClientReadResponseService extends VersionAwareResponseService<Clien
 						DrillDownType.INNER,
 						String.format(
 								"/screen/client/view/clientedit/%s/%s",
-								ServiceAssociation.clientEdit,
+								TeslerRestController.clientEdit,
 								entity.getId()
 						)
 				));
@@ -57,7 +57,7 @@ public class ClientReadResponseService extends VersionAwareResponseService<Clien
 								DrillDownType.INNER,
 								String.format(
 										"/screen/client/view/clientedit/%s/%s",
-										ServiceAssociation.clientEdit,
+										TeslerRestController.clientEdit,
 										bc.getId()
 								)
 						)))

@@ -11,7 +11,7 @@ import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 @Getter
-public enum ServiceAssociation implements EnumBcIdentifier {
+public enum TeslerRestController implements EnumBcIdentifier {
 
 	// @formatter:off
 	client(ClientReadResponseService.class),
@@ -22,39 +22,39 @@ public enum ServiceAssociation implements EnumBcIdentifier {
 
 	// @formatter:on
 
-	public static final EnumBcIdentifier.Holder<ServiceAssociation> Holder = new Holder<>(ServiceAssociation.class);
+	public static final EnumBcIdentifier.Holder<TeslerRestController> Holder = new Holder<>(TeslerRestController.class);
 
 	private final BcDescription bcDescription;
 
-	ServiceAssociation(String parentName, Class<?> serviceClass, boolean refresh) {
+	TeslerRestController(String parentName, Class<?> serviceClass, boolean refresh) {
 		this.bcDescription = buildDescription(parentName, serviceClass, refresh);
 	}
 
-	ServiceAssociation(String parentName, Class<?> serviceClass) {
+	TeslerRestController(String parentName, Class<?> serviceClass) {
 		this(parentName, serviceClass, false);
 	}
 
-	ServiceAssociation(BcIdentifier parent, Class<?> serviceClass, boolean refresh) {
+	TeslerRestController(BcIdentifier parent, Class<?> serviceClass, boolean refresh) {
 		this(parent == null ? null : parent.getName(), serviceClass, refresh);
 	}
 
-	ServiceAssociation(BcIdentifier parent, Class<?> serviceClass) {
+	TeslerRestController(BcIdentifier parent, Class<?> serviceClass) {
 		this(parent, serviceClass, false);
 	}
 
-	ServiceAssociation(Class<?> serviceClass, boolean refresh) {
+	TeslerRestController(Class<?> serviceClass, boolean refresh) {
 		this((String) null, serviceClass, refresh);
 	}
 
-	ServiceAssociation(Class<?> serviceClass) {
+	TeslerRestController(Class<?> serviceClass) {
 		this((String) null, serviceClass, false);
 	}
 
 	@Component
-	public static class BcSupplier extends AbstractEnumBcSupplier<ServiceAssociation> {
+	public static class BcSupplier extends AbstractEnumBcSupplier<TeslerRestController> {
 
 		public BcSupplier() {
-			super(ServiceAssociation.Holder);
+			super(TeslerRestController.Holder);
 		}
 
 	}

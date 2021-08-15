@@ -1,6 +1,6 @@
 package io.demo.service.fieldmeta;
 
-import io.demo.controller.ServiceAssociation;
+import io.demo.controller.TeslerRestController;
 import io.demo.service.dto.ClientReadDTO;
 import io.demo.service.dto.ClientReadDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
@@ -20,7 +20,7 @@ public class ClientReadFieldMetaBuilder extends FieldMetaBuilder<ClientReadDTO> 
 				DrillDownType.INNER,
 				String.format(
 						"/screen/client/view/clientview/%s/%s",
-						ServiceAssociation.client,
+						TeslerRestController.client,
 						id
 				)
 		);
