@@ -14,12 +14,7 @@ public enum ClientImportance {
 	Low("Low", "#008C3E");
 
 	@JsonValue
-	private final String importance;
+	private final String value;
+
 	private final String color;
-
-	@JsonCreator
-	private ClientImportance forValue(String value) {
-		return EnumUtils.getEnum(ClientImportance.class, value.toUpperCase());
-	}
-
 }

@@ -12,5 +12,5 @@ public enum ClientStatus {
 	InProgress("In progress");
 
 	@JsonValue
-	private final String status;
+	private final String value;
 }

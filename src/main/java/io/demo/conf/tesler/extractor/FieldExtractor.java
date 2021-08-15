@@ -1,4 +1,4 @@
-package io.demo.extractor;
+package io.demo.conf.tesler.extractor;
 
 import com.google.common.collect.Lists;
 import io.tesler.core.ui.field.BaseFieldExtractor;

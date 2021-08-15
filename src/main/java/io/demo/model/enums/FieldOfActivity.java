@@ -2,6 +2,7 @@ package io.demo.model.enums;
 
 import java.util.Arrays;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -18,7 +19,10 @@ public enum FieldOfActivity {
 	@JsonValue
 	private final String value;
 
-	public static FieldOfActivity getByValue(String value) {
-		return Arrays.stream(FieldOfActivity.values()).filter(en -> en.getValue().equals(value)).findFirst().orElse(null);
+	public static FieldOfActivity getByValue(@NonNull String value) {
+		return Arrays.stream(FieldOfActivity.values())
+				.filter(en -> en.getValue().equals(value))
+				.findFirst()
+				.orElse(null);
 	}
 }

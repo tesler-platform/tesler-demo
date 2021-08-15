@@ -7,7 +7,7 @@ tesler:
     directory: ${META_DIRECTORY:file:./src/main/resources/tesler/meta}
   widget:
     fields:
-      include-packages: io.tesler.core.ui.model.json.field.subtypes, io.demo.field.meta
+      include-packages: io.tesler.core.ui.model.json.field.subtypes, io.demo.conf.tesler.meta
 
 server:
   forward-headers-strategy: framework

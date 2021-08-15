@@ -15,8 +15,8 @@ public enum TeslerRestController implements EnumBcIdentifier {
 
 	// @formatter:off
 	client(ClientReadResponseService.class),
-	clientEdit(ClientWriteResponseService.class),
 		contact(client, ClientContactService.class),
+	clientEdit(ClientWriteResponseService.class),
 		contactEdit(clientEdit, ClientContactService.class)
 	;
 
