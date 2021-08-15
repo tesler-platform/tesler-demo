@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClientReadFieldMetaBuilder extends FieldMetaBuilder<ClientReadDTO> {
-	
+
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<ClientReadDTO> fields, InnerBcDescription bcDescription,
 			Long id, Long parentId) {
