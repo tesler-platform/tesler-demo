@@ -1,9 +1,8 @@
 package io.demo.service.data;
 
 import io.demo.model.Client;
-import io.demo.model.FieldOfActivity;
+import io.demo.model.enums.FieldOfActivity;
 import io.demo.repository.ClientRepository;
-import io.demo.repository.FieldOfActivityRepository;
 import io.demo.service.dto.ClientWriteDTO;
 import io.demo.service.dto.ClientWriteDTO_;
 import io.demo.service.fieldmeta.ClientWriteFieldMetaBuilder;
@@ -16,23 +15,16 @@ import io.tesler.core.dto.rowmeta.CreateResult;
 import io.tesler.core.service.action.Actions;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
-
-import static io.demo.dictionary.DictionaryType.FIELD_OF_ACTIVITY;
 
 @Service
 public class ClientWriteResponseService extends VersionAwareResponseService<ClientWriteDTO, Client> {
 
 	private final ClientRepository clientRepository;
 
-	private final FieldOfActivityRepository fieldOfActivityRepository;
-
-	public ClientWriteResponseService(ClientRepository clientRepository, FieldOfActivityRepository fieldOfActivityRepository) {
+	public ClientWriteResponseService(ClientRepository clientRepository) {
 		super(ClientWriteDTO.class, Client.class, null, ClientWriteFieldMetaBuilder.class);
 		this.clientRepository = clientRepository;
-		this.fieldOfActivityRepository = fieldOfActivityRepository;
 	}
 
 	@Override
@@ -50,13 +42,11 @@ public class ClientWriteResponseService extends VersionAwareResponseService<Clie
 			entity.setDescription(data.getDescription());
 		}
 		if (data.isFieldChanged(ClientWriteDTO_.fieldOfActivity)) {
-			List<String> selected = getValuesDelta(data, entity);
-			selected.forEach(selectedRegionName -> {
-				FieldOfActivity fov = new FieldOfActivity();
-				fov.setValue(FIELD_OF_ACTIVITY.lookupName(selectedRegionName));
-				fov.setClient(entity);
-				fieldOfActivityRepository.save(fov);
-			});
+			entity.setFieldOfActivities(
+					data.getFieldOfActivity().getValues()
+							.stream()
+							.map(v -> FieldOfActivity.getByValue(v.getValue()))
+							.collect(Collectors.toSet()));
 		}
 		if (data.isFieldChanged(ClientWriteDTO_.importance)) {
 			entity.setImportance(data.getImportance());
@@ -77,39 +67,10 @@ public class ClientWriteResponseService extends VersionAwareResponseService<Clie
 	}
 
 	@Override
-	protected ClientWriteDTO entityToDto(BusinessComponent bc, Client entity) {
-		ClientWriteDTO dto = super.entityToDto(bc, entity);
-		dto.setFieldOfActivity(
-				entity.getFieldOfActivities()
-						.stream()
-						.collect(MultivalueField.toMultivalueField(
-								fov -> fov.getId().toString(),
-								fov -> FIELD_OF_ACTIVITY.lookupValue(fov.getValue())
-
-						))
-		);
-		return dto;
-	}
-
-	@Override
 	public Actions<ClientWriteDTO> getActions() {
 		return Actions.<ClientWriteDTO>builder()
 				.save().add()
 				.build();
 	}
 
-	private List<String> getValuesDelta(ClientWriteDTO clientDto, Client client) {
-		List<String> selected = clientDto.getFieldOfActivity().getValues().stream()
-				.map(MultivalueFieldSingleValue::getValue)
-				.distinct()
-				.collect(Collectors.toList());
-
-		Set<FieldOfActivity> currentValues = client.getFieldOfActivities();
-		currentValues.removeIf(fieldOfActivity -> !selected.contains(FIELD_OF_ACTIVITY.lookupValue(fieldOfActivity.getValue())));
-		currentValues.stream().distinct()
-				.map(exist -> FIELD_OF_ACTIVITY.lookupValue(exist.getValue()))
-				.filter(selected::contains)
-				.forEach(selected::remove);
-		return selected;
-	}
 }

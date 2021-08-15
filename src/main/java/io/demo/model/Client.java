@@ -2,6 +2,7 @@ package io.demo.model;
 
 import io.demo.model.enums.ClientImportance;
 import io.demo.model.enums.ClientStatus;
+import io.demo.model.enums.FieldOfActivity;
 import io.tesler.model.core.entity.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,10 @@ public class Client extends BaseEntity {
 
 	private String building;
 
-	@OneToMany(mappedBy = "client")
+	@ElementCollection(targetClass = FieldOfActivity.class)
+	@CollectionTable(name = "FIELD_OF_ACTIVITY", joinColumns = @JoinColumn(name = "CLIENT_ID"))
+	@Column(name = "VALUE", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private Set<FieldOfActivity> fieldOfActivities;
 
 	@OneToMany(mappedBy = "client")

@@ -1,15 +1,15 @@
 package io.demo.service.fieldmeta;
 
 import io.demo.model.enums.ClientImportance;
+import io.demo.model.enums.FieldOfActivity;
 import io.demo.service.dto.ClientWriteDTO;
 import io.demo.service.dto.ClientWriteDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;
 import io.tesler.core.service.rowmeta.FieldMetaBuilder;
+import java.util.Arrays;
 import org.springframework.stereotype.Service;
-
-import static io.demo.dictionary.DictionaryType.FIELD_OF_ACTIVITY;
 
 @Service
 public class ClientWriteFieldMetaBuilder extends FieldMetaBuilder<ClientWriteDTO> {
@@ -33,7 +33,10 @@ public class ClientWriteFieldMetaBuilder extends FieldMetaBuilder<ClientWriteDTO
 
 		fields.setEnumValues(ClientWriteDTO_.importance, ClientImportance.values());
 
-		fields.setDictionaryTypeWithAllValues(ClientWriteDTO_.fieldOfActivity, FIELD_OF_ACTIVITY);
+		fields.setDictionaryTypeWithCustomValues(ClientWriteDTO_.fieldOfActivity,
+				Arrays.stream(FieldOfActivity.values()).map(FieldOfActivity::getValue)
+						.toArray(String[]::new)
+		);
 	}
 
 	@Override
