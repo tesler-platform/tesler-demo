@@ -1,11 +1,12 @@
-package io.demo.response.client.data;
+package io.demo.service.data;
 
 import io.demo.model.Client;
 import io.demo.model.FieldOfActivity;
-import io.demo.response.client.data.ClientWriteResponseService;
-import io.demo.response.client.dto.ClientWriteDTO;
-import io.demo.response.client.dto.ClientWriteDTO_;
-import io.demo.response.client.fieldmeta.ClientWriteFieldMetaBuilder;
+import io.demo.repository.ClientRepository;
+import io.demo.repository.FieldOfActivityRepository;
+import io.demo.service.dto.ClientWriteDTO;
+import io.demo.service.dto.ClientWriteDTO_;
+import io.demo.service.fieldmeta.ClientWriteFieldMetaBuilder;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.multivalue.MultivalueField;
@@ -23,13 +24,20 @@ import static io.demo.dictionary.DictionaryType.FIELD_OF_ACTIVITY;
 
 @Service
 public class ClientWriteResponseService extends VersionAwareResponseService<ClientWriteDTO, Client> {
-	public ClientWriteResponseService() {
+
+	private final ClientRepository clientRepository;
+
+	private final FieldOfActivityRepository fieldOfActivityRepository;
+
+	public ClientWriteResponseService(ClientRepository clientRepository, FieldOfActivityRepository fieldOfActivityRepository) {
 		super(ClientWriteDTO.class, Client.class, null, ClientWriteFieldMetaBuilder.class);
+		this.clientRepository = clientRepository;
+		this.fieldOfActivityRepository = fieldOfActivityRepository;
 	}
 
 	@Override
 	protected CreateResult<ClientWriteDTO> doCreateEntity(Client entity, BusinessComponent bc) {
-		baseDAO.save(entity);
+		clientRepository.save(entity);
 		return new CreateResult<>(entityToDto(bc, entity));
 	}
 
@@ -47,7 +55,7 @@ public class ClientWriteResponseService extends VersionAwareResponseService<Clie
 				FieldOfActivity fov = new FieldOfActivity();
 				fov.setValue(FIELD_OF_ACTIVITY.lookupName(selectedRegionName));
 				fov.setClient(entity);
-				baseDAO.save(fov);
+				fieldOfActivityRepository.save(fov);
 			});
 		}
 		if (data.isFieldChanged(ClientWriteDTO_.importance)) {

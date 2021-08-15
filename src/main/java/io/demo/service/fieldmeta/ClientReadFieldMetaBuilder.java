@@ -1,8 +1,8 @@
-package io.demo.response.client.fieldmeta;
+package io.demo.service.fieldmeta;
 
-import io.demo.crudma.ServiceAssociation;
-import io.demo.response.client.dto.ClientReadDTO;
-import io.demo.response.client.dto.ClientReadDTO_;
+import io.demo.controller.ServiceAssociation;
+import io.demo.service.dto.ClientReadDTO;
+import io.demo.service.dto.ClientReadDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.DrillDownType;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
@@ -15,7 +15,8 @@ public class ClientReadFieldMetaBuilder extends FieldMetaBuilder<ClientReadDTO> 
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<ClientReadDTO> fields, InnerBcDescription bcDescription,
 			Long id, Long parentId) {
-		fields.setDrilldown(ClientReadDTO_.fullName,
+		fields.setDrilldown(
+				ClientReadDTO_.fullName,
 				DrillDownType.INNER,
 				String.format(
 						"/screen/client/view/clientview/%s/%s",

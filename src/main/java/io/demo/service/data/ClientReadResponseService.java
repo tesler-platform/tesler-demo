@@ -1,11 +1,11 @@
-package io.demo.response.client.data;
+package io.demo.service.data;
 
-import io.demo.crudma.ServiceAssociation;
+import io.demo.controller.ServiceAssociation;
 import io.demo.model.Client;
 import io.demo.model.enums.ClientStatus;
-import io.demo.response.client.data.ClientReadResponseService;
-import io.demo.response.client.dto.ClientReadDTO;
-import io.demo.response.client.fieldmeta.ClientReadFieldMetaBuilder;
+import io.demo.repository.ClientRepository;
+import io.demo.service.dto.ClientReadDTO;
+import io.demo.service.fieldmeta.ClientReadFieldMetaBuilder;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.DrillDownType;
@@ -17,13 +17,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClientReadResponseService extends VersionAwareResponseService<ClientReadDTO, Client> {
-	public ClientReadResponseService() {
+
+	private final ClientRepository clientRepository;
+
+	public ClientReadResponseService(ClientRepository clientRepository) {
 		super(ClientReadDTO.class, Client.class, null, ClientReadFieldMetaBuilder.class);
+		this.clientRepository = clientRepository;
 	}
 
 	@Override
 	protected CreateResult<ClientReadDTO> doCreateEntity(Client entity, BusinessComponent bc) {
-		baseDAO.save(entity);
+		clientRepository.save(entity);
 		entity.setStatus(ClientStatus.New);
 		return new CreateResult<>(entityToDto(bc, entity))
 				.setAction(PostAction.drillDown(

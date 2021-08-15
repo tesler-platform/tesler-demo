@@ -1,12 +1,13 @@
-package io.demo.response.client.data;
+package io.demo.service.data;
 
 import io.demo.model.Client;
 import io.demo.model.Contact;
 import io.demo.model.Contact_;
-import io.demo.response.client.data.ClientContactService;
-import io.demo.response.client.dto.ContactDTO;
-import io.demo.response.client.dto.ContactDTO_;
-import io.demo.response.client.fieldmeta.ContactFieldMetaBuilder;
+import io.demo.repository.ClientRepository;
+import io.demo.repository.ContactRepository;
+import io.demo.service.dto.ContactDTO;
+import io.demo.service.dto.ContactDTO_;
+import io.demo.service.fieldmeta.ContactFieldMetaBuilder;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
@@ -18,8 +19,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClientContactService extends VersionAwareResponseService<ContactDTO, Contact> {
-	public ClientContactService() {
+
+	private final ContactRepository contactRepository;
+	private final ClientRepository clientRepository;
+
+	public ClientContactService(ContactRepository contactRepository, ClientRepository clientRepository) {
 		super(ContactDTO.class, Contact.class, null, ContactFieldMetaBuilder.class);
+		this.contactRepository = contactRepository;
+		this.clientRepository = clientRepository;
 	}
 
 	@Override
@@ -33,9 +40,9 @@ public class ClientContactService extends VersionAwareResponseService<ContactDTO
 
 	@Override
 	protected CreateResult<ContactDTO> doCreateEntity(Contact entity, BusinessComponent bc) {
-		Client client = baseDAO.findById(Client.class, bc.getParentIdAsLong());
+		Client client = clientRepository.findById(bc.getParentIdAsLong()).orElse(null);
 		entity.setClient(client);
-		baseDAO.save(entity);
+		contactRepository.save(entity);
 		return new CreateResult<>(entityToDto(bc, entity));
 	}
 

@@ -1,8 +1,8 @@
-package io.demo.response.client.fieldmeta;
+package io.demo.service.fieldmeta;
 
 import io.demo.model.enums.ClientImportance;
-import io.demo.response.client.dto.ClientWriteDTO;
-import io.demo.response.client.dto.ClientWriteDTO_;
+import io.demo.service.dto.ClientWriteDTO;
+import io.demo.service.dto.ClientWriteDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;

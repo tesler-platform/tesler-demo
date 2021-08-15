@@ -1,4 +1,4 @@
-package io.demo.response.client.dto;
+package io.demo.service.dto;
 
 import io.demo.model.Client;
 import io.demo.model.FieldOfActivity;

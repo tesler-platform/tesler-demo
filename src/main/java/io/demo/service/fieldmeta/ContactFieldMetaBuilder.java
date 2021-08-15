@@ -1,7 +1,7 @@
-package io.demo.response.client.fieldmeta;
+package io.demo.service.fieldmeta;
 
-import io.demo.response.client.dto.ContactDTO;
-import io.demo.response.client.dto.ContactDTO_;
+import io.demo.service.dto.ContactDTO;
+import io.demo.service.dto.ContactDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;
