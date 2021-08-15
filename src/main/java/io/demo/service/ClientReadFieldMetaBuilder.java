@@ -12,19 +12,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClientReadFieldMetaBuilder extends FieldMetaBuilder<ClientReadDTO> {
+	
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<ClientReadDTO> fields, InnerBcDescription bcDescription,
 			Long id, Long parentId) {
 		fields.setDrilldown(
 				ClientReadDTO_.fullName,
 				DrillDownType.INNER,
-				String.format(
-						"/screen/client/view/clientview/%s/%s",
-						TeslerRestController.client,
-						id
-				)
-		);
-
+				"/screen/client/view/clientview/" + TeslerRestController.client +  "/" + id);
 	}
 
 	@Override
