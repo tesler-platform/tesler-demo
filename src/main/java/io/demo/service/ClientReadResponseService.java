@@ -1,11 +1,10 @@
-package io.demo.service.data;
+package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
 import io.demo.model.Client;
 import io.demo.model.enums.ClientStatus;
 import io.demo.repository.ClientRepository;
-import io.demo.service.dto.ClientReadDTO;
-import io.demo.service.fieldmeta.ClientReadFieldMetaBuilder;
+import io.demo.dto.ClientReadDTO;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.DrillDownType;

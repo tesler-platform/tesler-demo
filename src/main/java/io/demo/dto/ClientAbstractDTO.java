@@ -1,4 +1,4 @@
-package io.demo.service.dto;
+package io.demo.dto;
 
 import io.demo.model.Client;
 import io.demo.model.enums.ClientImportance;

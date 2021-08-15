@@ -1,7 +1,7 @@
-package io.demo.service.fieldmeta;
+package io.demo.service;
 
-import io.demo.service.dto.ContactDTO;
-import io.demo.service.dto.ContactDTO_;
+import io.demo.dto.ContactDTO;
+import io.demo.dto.ContactDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;
@@ -9,7 +9,7 @@ import io.tesler.core.service.rowmeta.FieldMetaBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ContactFieldMetaBuilder extends FieldMetaBuilder<ContactDTO> {
+public class ClientContactFieldMetaBuilder extends FieldMetaBuilder<ContactDTO> {
 
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<ContactDTO> fields, InnerBcDescription bcDescription,

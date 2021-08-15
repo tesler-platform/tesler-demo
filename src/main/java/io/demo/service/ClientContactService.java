@@ -1,13 +1,12 @@
-package io.demo.service.data;
+package io.demo.service;
 
 import io.demo.model.Client;
 import io.demo.model.Contact;
 import io.demo.model.Contact_;
 import io.demo.repository.ClientRepository;
 import io.demo.repository.ContactRepository;
-import io.demo.service.dto.ContactDTO;
-import io.demo.service.dto.ContactDTO_;
-import io.demo.service.fieldmeta.ContactFieldMetaBuilder;
+import io.demo.dto.ContactDTO;
+import io.demo.dto.ContactDTO_;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
@@ -24,7 +23,7 @@ public class ClientContactService extends VersionAwareResponseService<ContactDTO
 	private final ClientRepository clientRepository;
 
 	public ClientContactService(ContactRepository contactRepository, ClientRepository clientRepository) {
-		super(ContactDTO.class, Contact.class, null, ContactFieldMetaBuilder.class);
+		super(ContactDTO.class, Contact.class, null, ClientContactFieldMetaBuilder.class);
 		this.contactRepository = contactRepository;
 		this.clientRepository = clientRepository;
 	}

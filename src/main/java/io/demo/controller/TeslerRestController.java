@@ -1,8 +1,8 @@
 package io.demo.controller;
 
-import io.demo.service.data.ClientContactService;
-import io.demo.service.data.ClientReadResponseService;
-import io.demo.service.data.ClientWriteResponseService;
+import io.demo.service.ClientContactService;
+import io.demo.service.ClientReadResponseService;
+import io.demo.service.ClientWriteResponseService;
 import io.tesler.core.crudma.bc.BcIdentifier;
 import io.tesler.core.crudma.bc.EnumBcIdentifier;
 import io.tesler.core.crudma.bc.impl.AbstractEnumBcSupplier;

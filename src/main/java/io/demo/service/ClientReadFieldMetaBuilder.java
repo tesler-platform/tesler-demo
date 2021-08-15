@@ -1,8 +1,8 @@
-package io.demo.service.fieldmeta;
+package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
-import io.demo.service.dto.ClientReadDTO;
-import io.demo.service.dto.ClientReadDTO_;
+import io.demo.dto.ClientReadDTO;
+import io.demo.dto.ClientReadDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.DrillDownType;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
