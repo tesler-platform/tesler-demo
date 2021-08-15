@@ -1,4 +1,4 @@
-package io.demo.model.enums;
+package io.demo.entity.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;

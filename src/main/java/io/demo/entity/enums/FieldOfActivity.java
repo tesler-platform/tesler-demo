@@ -1,4 +1,4 @@
-package io.demo.model.enums;
+package io.demo.entity.enums;
 
 import java.util.Arrays;
 import lombok.Getter;

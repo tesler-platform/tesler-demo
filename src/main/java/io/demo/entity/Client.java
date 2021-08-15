@@ -1,8 +1,8 @@
-package io.demo.model;
+package io.demo.entity;
 
-import io.demo.model.enums.ClientImportance;
-import io.demo.model.enums.ClientStatus;
-import io.demo.model.enums.FieldOfActivity;
+import io.demo.entity.enums.ClientImportance;
+import io.demo.entity.enums.ClientStatus;
+import io.demo.entity.enums.FieldOfActivity;
 import io.tesler.model.core.entity.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

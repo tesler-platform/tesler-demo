@@ -1,7 +1,7 @@
 package io.demo.service;
 
-import io.demo.model.enums.ClientImportance;
-import io.demo.model.enums.FieldOfActivity;
+import io.demo.entity.enums.ClientImportance;
+import io.demo.entity.enums.FieldOfActivity;
 import io.demo.dto.ClientWriteDTO;
 import io.demo.dto.ClientWriteDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;

@@ -1,8 +1,8 @@
 package io.demo.service;
 
-import io.demo.model.Client;
-import io.demo.model.Contact;
-import io.demo.model.Contact_;
+import io.demo.entity.Client;
+import io.demo.entity.Contact;
+import io.demo.entity.Contact_;
 import io.demo.repository.ClientRepository;
 import io.demo.repository.ContactRepository;
 import io.demo.dto.ContactDTO;

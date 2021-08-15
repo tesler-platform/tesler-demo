@@ -1,4 +1,4 @@
-package io.demo.model;
+package io.demo.entity;
 
 import io.tesler.model.core.entity.BaseEntity;
 import lombok.Getter;

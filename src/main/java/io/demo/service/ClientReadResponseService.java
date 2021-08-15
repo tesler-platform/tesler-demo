@@ -1,8 +1,8 @@
 package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
-import io.demo.model.Client;
-import io.demo.model.enums.ClientStatus;
+import io.demo.entity.Client;
+import io.demo.entity.enums.ClientStatus;
 import io.demo.repository.ClientRepository;
 import io.demo.dto.ClientReadDTO;
 import io.tesler.core.crudma.bc.BusinessComponent;

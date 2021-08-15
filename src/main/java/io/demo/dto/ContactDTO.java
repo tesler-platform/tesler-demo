@@ -1,6 +1,6 @@
 package io.demo.dto;
 
-import io.demo.model.Contact;
+import io.demo.entity.Contact;
 import io.tesler.api.data.dto.DataResponseDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

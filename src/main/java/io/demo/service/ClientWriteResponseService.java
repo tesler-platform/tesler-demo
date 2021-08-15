@@ -1,7 +1,7 @@
 package io.demo.service;
 
-import io.demo.model.Client;
-import io.demo.model.enums.FieldOfActivity;
+import io.demo.entity.Client;
+import io.demo.entity.enums.FieldOfActivity;
 import io.demo.repository.ClientRepository;
 import io.demo.dto.ClientWriteDTO;
 import io.demo.dto.ClientWriteDTO_;

@@ -1,6 +1,6 @@
 package io.demo.repository;
 
-import io.demo.model.Contact;
+import io.demo.entity.Contact;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

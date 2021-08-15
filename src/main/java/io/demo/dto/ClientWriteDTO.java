@@ -1,7 +1,7 @@
 package io.demo.dto;
 
-import io.demo.model.Client;
-import io.demo.model.enums.FieldOfActivity;
+import io.demo.entity.Client;
+import io.demo.entity.enums.FieldOfActivity;
 import io.tesler.core.dto.multivalue.MultivalueField;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
