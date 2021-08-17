@@ -28,6 +28,25 @@
 
     </properties>
 
+    <repositories>
+        <repository>
+            <id>snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+            </releases>
+            <snapshots>
+            </snapshots>
+        </repository>
+        <!--delete after fix https://github.com/spring-projects/spring-security/issues/9787-->
+        <repository>
+            <id>spring-snapshot</id>
+            <name>Spring Snapshot Repository</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!--delete after fix https://github.com/spring-projects/spring-security/issues/9787-->
         <dependency>
