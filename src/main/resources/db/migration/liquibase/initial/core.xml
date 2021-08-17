@@ -218,6 +218,7 @@
             </column>
             <column name="TYPE" remarks="Тип справочника" type="VARCHAR2(255)"/>
             <column name="KEY" remarks="Ключ" type="VARCHAR2(255)"/>
+            <column name="VALUE" remarks="Значение по умолчанию" type="VARCHAR2(255)"/>
             <column name="ACTIVE" remarks="Признак активности" type="BOOLEAN"/>
             <column name="DISPLAY_ORDER" remarks="Порядок отображения" type="NUMBER"/>
             <column name="DESCRIPTION" remarks="Описание" type="VARCHAR2(1000)"/>
@@ -2520,13 +2521,11 @@
             <column header="DESCRIPTION" name="DESCRIPTION" type="STRING"/>
         </loadUpdateData>
 
-        <loadUpdateData tableName="DICTIONARY_ITEM_TR" primaryKey="ID,LANGUAGE" encoding="UTF-8" separator=";"
-                        quotchar="&quot;" file="db/migration/liquibase/data/initial/DICTIONARY_ITEM_TR.csv">
-            <column header="ID" name="ID" type="NUMERIC"/>
-            <column header="LANGUAGE" name="LANGUAGE" type="STRING"/>
-            <column header="VALUE" name="VALUE" type="STRING"/>
-        </loadUpdateData>
+        <sql>
+            insert into DICTIONARY_ITEM_TR (ID, LANGUAGE, VALUE) select ID, 'ru' as LANGUAGE, VALUE as VALUE from DICTIONARY_ITEM;
+        </sql>
     </changeSet>
+
 
     <changeSet author="initial" id="PROJECTS">
         <loadData tableName="PRJ" encoding="UTF-8" separator=";" quotchar="&quot;"

@@ -67,26 +67,6 @@
         </createTable>
 
         <createTable tableName="FIELD_OF_ACTIVITY">
-            <column name="ID" remarks="Identifier" type="NUMBER(19, 0)">
-                <constraints primaryKey="true"/>
-            </column>
-            <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Creation date"
-                    type="TIMESTAMP(6)">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Last updated date"
-                    type="TIMESTAMP(6)">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
-                <constraints nullable="false" foreignKeyName="FOV_CREATED_BY" references="USERS"/>
-            </column>
-            <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
-                <constraints nullable="false" foreignKeyName="FOV_LAST_UPD_BY" references="USERS"/>
-            </column>
-            <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
-                <constraints nullable="false"/>
-            </column>
             <column name="VALUE" type="VARCHAR(50)"/>
             <column name="CLIENT_ID" type="NUMBER(19, 0)">
                 <constraints foreignKeyName="REF_CLIENT" references="CLIENT"/>

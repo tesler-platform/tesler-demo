@@ -4,10 +4,10 @@ app:
 tesler:
   meta:
     dev-panel-enabled: ${DEV_PANEL_ENABLED:true}
-    directory: ${META_DIRECTORY:file:./src/main/resources/db/migration/liquibase/data/latest}
+    directory: ${META_DIRECTORY:file:./src/main/resources/tesler/meta}
   widget:
     fields:
-      include-packages: io.tesler.core.ui.model.json.field.subtypes, io.demo.field.meta
+      include-packages: io.tesler.core.ui.model.json.field.subtypes, io.demo.conf.tesler.meta
 
 server:
   forward-headers-strategy: framework
@@ -19,8 +19,6 @@ server:
 spring:
   application:
     name: ${APPLICATION_NAME:example}
-  aop:
-    proxy-target-class: false
   datasource:
     name: primaryDS
     driver-class-name: ${DATABASE_DRIVER:org.postgresql.Driver}
