@@ -894,7 +894,7 @@
             <column name="RESPONSIBILITIES" remarks="Респонсибилити" type="VARCHAR2(255 BYTE)"/>
             <column name="SCREENS" remarks="Доступные пользователю скрины" type="CLOB"/>
             <column name="RESP_TYPE" type="VARCHAR2(255)"/>
-            <column defaultValueNumeric="0" name="READ_ONLY" type="NUMBER(1, 0)">
+            <column defaultValueNumeric="0" name="READ_ONLY" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
             <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Дата создания"

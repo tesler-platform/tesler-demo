@@ -14,5 +14,10 @@
       "position": 2,
       "gridWidth": 4
     }
+  ],
+  "rolesAllowed": [
+    "ADMIN",
+    "ROLE_ADMIN",
+    "ROLE_USER"
   ]
 }
