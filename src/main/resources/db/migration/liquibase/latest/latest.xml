@@ -5,7 +5,4 @@
                    logicalFilePath="db/migration/liquibase/latest/latest.xml">
 
     <include file="views/views.xml" relativeToChangelogFile="true"/>
-
-    <!-- данные и метаданные -->
-    <include file="responsibilities/responsibilities.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
