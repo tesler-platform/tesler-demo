@@ -35,6 +35,7 @@
             <releases>
             </releases>
             <snapshots>
+                <updatePolicy>always</updatePolicy>
             </snapshots>
         </repository>
         <!--delete after fix https://github.com/spring-projects/spring-security/issues/9787-->
