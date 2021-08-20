@@ -13,14 +13,10 @@ import org.springframework.stereotype.Component;
 @Getter
 public enum TeslerRestController implements EnumBcIdentifier {
 
-	// @formatter:off
 	client(ClientReadResponseService.class),
 		contact(client, ClientContactService.class),
 	clientEdit(ClientWriteResponseService.class),
-		contactEdit(clientEdit, ClientContactService.class)
-	;
-
-	// @formatter:on
+		contactEdit(clientEdit, ClientContactService.class);
 
 	public static final EnumBcIdentifier.Holder<TeslerRestController> Holder = new Holder<>(TeslerRestController.class);
 
