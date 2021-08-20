@@ -19,7 +19,8 @@ public class ClientReadFieldMetaBuilder extends FieldMetaBuilder<ClientReadDTO> 
 		fields.setDrilldown(
 				ClientReadDTO_.fullName,
 				DrillDownType.INNER,
-				"/screen/client/view/clientview/" + TeslerRestController.client +  "/" + id);
+				"/screen/client/view/clientview/" + TeslerRestController.client + "/" + id
+		);
 	}
 
 	@Override
@@ -27,4 +28,5 @@ public class ClientReadFieldMetaBuilder extends FieldMetaBuilder<ClientReadDTO> 
 			Long parentId) {
 
 	}
+
 }

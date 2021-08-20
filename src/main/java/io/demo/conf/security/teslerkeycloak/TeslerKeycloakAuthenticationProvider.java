@@ -50,7 +50,8 @@ public class TeslerKeycloakAuthenticationProvider extends KeycloakAuthentication
 		txService.invokeInTx(() -> {
 			upsertUserAndRoles(
 					account.getKeycloakSecurityContext().getToken(),
-					accessToken.getAccount().getRoles());
+					accessToken.getAccount().getRoles()
+			);
 			return null;
 		});
 
@@ -137,4 +138,5 @@ public class TeslerKeycloakAuthenticationProvider extends KeycloakAuthentication
 		user.setActive(true);
 		user.setDepartment(jpaDao.findById(Department.class, 0L));
 	}
+
 }

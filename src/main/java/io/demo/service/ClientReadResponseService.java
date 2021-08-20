@@ -68,4 +68,5 @@ public class ClientReadResponseService extends VersionAwareResponseService<Clien
 	public boolean isDeferredCreationSupported(BusinessComponent bc) {
 		return false;
 	}
+
 }

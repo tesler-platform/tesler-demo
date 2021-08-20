@@ -42,4 +42,5 @@ public class Client extends BaseEntity {
 
 	@Enumerated(value = EnumType.STRING)
 	private ClientStatus status;
+
 }

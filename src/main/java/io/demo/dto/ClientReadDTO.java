@@ -14,11 +14,13 @@ import java.util.stream.Collectors;
 public class ClientReadDTO extends ClientAbstractDTO {
 
 	private String address;
+
 	private String fieldOfActivity;
 
 	public ClientReadDTO(Client client) {
 		super(client);
-		this.address = String.join(", ",
+		this.address = String.join(
+				", ",
 				client.getStreet(),
 				client.getBuilding(),
 				client.getCity()
@@ -29,4 +31,5 @@ public class ClientReadDTO extends ClientAbstractDTO {
 				.collect(Collectors.joining(", "));
 
 	}
+
 }

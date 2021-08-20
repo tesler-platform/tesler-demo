@@ -30,4 +30,5 @@ public class ClientContactFieldMetaBuilder extends FieldMetaBuilder<ContactDTO> 
 	public void buildIndependentMeta(FieldsMeta<ContactDTO> fields, InnerBcDescription bcDescription, Long parentId) {
 
 	}
+
 }

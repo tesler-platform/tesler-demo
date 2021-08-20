@@ -42,11 +42,13 @@ public class TeslerKeycloakCoreSessionService extends CoreSessionServiceImpl {
 		}
 	}
 
-	private TeslerKeycloakAccount mapTokenToTeslerDetails(KeycloakAuthenticationToken token, KeycloakAuthenticationToken accessToken, SimpleKeycloakAccount account) {
+	private TeslerKeycloakAccount mapTokenToTeslerDetails(KeycloakAuthenticationToken token,
+			KeycloakAuthenticationToken accessToken, SimpleKeycloakAccount account) {
 		TeslerKeycloakAccount details = new TeslerKeycloakAccount(
 				account.getPrincipal(),
 				accessToken.getAccount().getRoles(),
-				account.getKeycloakSecurityContext());
+				account.getKeycloakSecurityContext()
+		);
 
 		txService.invokeInTx(() -> {
 			User user = getUserByLogin(token.getAccount().getKeycloakSecurityContext().getToken().getName().toUpperCase());

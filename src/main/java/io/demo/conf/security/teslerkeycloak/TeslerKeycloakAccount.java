@@ -19,15 +19,23 @@ import java.util.Set;
 public class TeslerKeycloakAccount extends SimpleKeycloakAccount implements TeslerUserDetailsInterface {
 
 	private static final long serialVersionUID = 4714671346784362939L;
+
 	private Long id;
+
 	private String username;
+
 	private String password;
+
 	private LOV userRole;
+
 	private LOV timezone;
+
 	private LOV localeCd;
+
 	private Set<GrantedAuthority> authorities;
 
-	public TeslerKeycloakAccount(Principal principal, Set<String> roles, RefreshableKeycloakSecurityContext securityContext) {
+	public TeslerKeycloakAccount(Principal principal, Set<String> roles,
+			RefreshableKeycloakSecurityContext securityContext) {
 		super(principal, roles, securityContext);
 	}
 
@@ -46,4 +54,5 @@ public class TeslerKeycloakAccount extends SimpleKeycloakAccount implements Tesl
 	public boolean isEnabled() {
 		return true;
 	}
+
 }

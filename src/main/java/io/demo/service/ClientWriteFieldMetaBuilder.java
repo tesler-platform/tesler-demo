@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClientWriteFieldMetaBuilder extends FieldMetaBuilder<ClientWriteDTO> {
+
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<ClientWriteDTO> fields, InnerBcDescription bcDescription,
 			Long id, Long parentId) {
@@ -25,15 +26,18 @@ public class ClientWriteFieldMetaBuilder extends FieldMetaBuilder<ClientWriteDTO
 				ClientWriteDTO_.importance,
 				ClientWriteDTO_.fieldOfActivity
 		);
-		fields.setRequired(ClientWriteDTO_.fullName,
+		fields.setRequired(
+				ClientWriteDTO_.fullName,
 				ClientWriteDTO_.importance,
 				ClientWriteDTO_.description,
 				ClientWriteDTO_.city,
-				ClientWriteDTO_.fieldOfActivity);
+				ClientWriteDTO_.fieldOfActivity
+		);
 
 		fields.setEnumValues(ClientWriteDTO_.importance, ClientImportance.values());
 
-		fields.setDictionaryTypeWithCustomValues(ClientWriteDTO_.fieldOfActivity,
+		fields.setDictionaryTypeWithCustomValues(
+				ClientWriteDTO_.fieldOfActivity,
 				Arrays.stream(FieldOfActivity.values()).map(FieldOfActivity::getValue)
 						.toArray(String[]::new)
 		);
@@ -44,4 +48,5 @@ public class ClientWriteFieldMetaBuilder extends FieldMetaBuilder<ClientWriteDTO
 			Long parentId) {
 
 	}
+
 }

@@ -126,4 +126,5 @@ public class ApplicationConfig implements SchedulingConfigurer {
 		resolver.setContentType("text/html;charset=UTF-8");
 		return resolver;
 	}
+
 }
