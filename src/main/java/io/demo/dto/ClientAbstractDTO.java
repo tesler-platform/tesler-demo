@@ -32,4 +32,5 @@ public abstract class ClientAbstractDTO extends DataResponseDTO {
 		this.status = client.getStatus();
 		this.color = Optional.ofNullable(client.getImportance()).map(ClientImportance::getColor).orElse(null);
 	}
+
 }

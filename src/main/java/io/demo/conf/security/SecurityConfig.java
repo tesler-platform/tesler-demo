@@ -97,4 +97,5 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
+
 }

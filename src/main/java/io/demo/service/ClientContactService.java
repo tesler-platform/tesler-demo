@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 public class ClientContactService extends VersionAwareResponseService<ContactDTO, Contact> {
 
 	private final ContactRepository contactRepository;
+
 	private final ClientRepository clientRepository;
 
 	public ClientContactService(ContactRepository contactRepository, ClientRepository clientRepository) {
@@ -66,4 +67,5 @@ public class ClientContactService extends VersionAwareResponseService<ContactDTO
 				.save().add()
 				.build();
 	}
+
 }

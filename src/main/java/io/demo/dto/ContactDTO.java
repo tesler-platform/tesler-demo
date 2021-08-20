@@ -23,4 +23,5 @@ public class ContactDTO extends DataResponseDTO {
 		this.phoneNumber = contact.getPhoneNumber();
 		this.email = contact.getEmail();
 	}
+
 }
