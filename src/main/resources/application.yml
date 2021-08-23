@@ -4,7 +4,7 @@ app:
 tesler:
   meta:
     dev-panel-enabled: ${DEV_PANEL_ENABLED:true}
-    directory: ${META_DIRECTORY:file:./src/main/resources/tesler/meta}
+    directory: ${META_DIRECTORY:file:./src/main/resources/meta}
     view-allowed-roles-enabled: true
   widget:
     fields:
@@ -27,7 +27,7 @@ spring:
     username: ${DATABASE_USER:postgres}
     password: ${DATABASE_PASSWORD:postgres}
   liquibase:
-    change-log: classpath:/db/migration/liquibase/master.xml
+    change-log: classpath:/db/db.changelog-master.xml
     enabled: true
   cache:
     type: None
