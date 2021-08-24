@@ -134,7 +134,6 @@ public class TeslerKeycloakAuthenticationProvider extends KeycloakAuthentication
 		user.setEmail(accessToken.getEmail());
 		user.setPhone(accessToken.getPhoneNumber());
 		user.setActive(true);
-		user.setDepartment(jpaDao.findById(Department.class, 0L));
 	}
 
 }
