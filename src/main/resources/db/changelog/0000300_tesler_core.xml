@@ -404,39 +404,7 @@
       </column>
     </createTable>
   </changeSet>
-  <changeSet author="initial" id="DIVISION TABLE">
-    <createTable remarks="Подразделение" tableName="DIVISION">
-      <column name="ID" remarks="Индентификатор" type="NUMBER(19, 0)">
-        <constraints primaryKey="true" primaryKeyName="PK_DIVISION"/>
-      </column>
-      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Дата создания"
-        type="TIMESTAMP(6)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Дата изменения"
-        type="TIMESTAMP(6)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" remarks="Кто создал" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" remarks="Кто изменил" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="LEVEL_CD" remarks="Уровень подразделения" type="VARCHAR2(255)"/>
-      <column name="NAME" remarks="Название" type="VARCHAR2(1000)"/>
-      <column name="ACTIVE" remarks="Активно" type="NUMBER(1, 0)"/>
-      <column name="DEPT_ID" remarks="Департмент" type="NUMBER(19, 0)"/>
-      <column name="PARENT_ID" remarks="Родительское подразделение" type="NUMBER(19, 0)"/>
-      <column name="HEAD_USER_ROLE_ID" remarks="Руководитель" type="NUMBER(19, 0)"/>
-      <column name="FULL_NAME" remarks="Полное название" type="VARCHAR2(4000)"/>
-      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="0" name="CHECK_GU_FLG" remarks="Принадлежность к ГУ" type="NUMBER(1, 0)"/>
-      <column name="HEAD_OFFICE_CD" remarks="Наименование оргструктуры" type="VARCHAR2(255)"/>
-    </createTable>
-  </changeSet>
+
 
   <changeSet author="initial" id="FILE_DATASOURCE TABLE">
     <createTable remarks="Конфигурация источников файлов" tableName="FILE_DATASOURCE">
@@ -886,7 +854,6 @@
         remarks="Идентификатор последнего пользователя, обновившего запись" type="NUMBER(19, 0)">
         <constraints nullable="false"/>
       </column>
-      <column name="DIVISION_ID" remarks="Подразделение" type="NUMBER(19, 0)"/>
       <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
         <constraints nullable="false"/>
       </column>
@@ -1534,16 +1501,6 @@
       initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
       referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
   </changeSet>
-  <changeSet author="initial" id="DIVISION CONSTRAINTS">
-    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="DIVISION"
-      constraintName="FK_DIVISION_CB" deferrable="false" initiallyDeferred="false"
-      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
-      referencedTableName="USERS" validate="true"/>
-    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="DIVISION"
-      constraintName="FK_DIVISION_UB" deferrable="false" initiallyDeferred="false"
-      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
-      referencedTableName="USERS" validate="true"/>
-  </changeSet>
   <changeSet author="initial" id="DICTIONARY_LNK_RULE_COND CONSTRAINTS">
     <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="DICTIONARY_LNK_RULE_COND"
       constraintName="FK_DLNKRULECOND_CB" deferrable="false" initiallyDeferred="false"
@@ -1675,10 +1632,6 @@
       constraintName="FK_USER_ROLE_CREATED_BY" deferrable="false" initiallyDeferred="false"
       onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
       referencedTableName="USERS" validate="true"/>
-    <addForeignKeyConstraint baseColumnNames="DIVISION_ID" baseTableName="USER_ROLE"
-      constraintName="FK_USER_ROLE_DIVISION" deferrable="false" initiallyDeferred="false"
-      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
-      referencedTableName="DIVISION" validate="true"/>
     <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="USER_ROLE"
       constraintName="FK_USER_ROLE_UPDATED_BY" deferrable="false" initiallyDeferred="false"
       onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
