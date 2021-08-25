@@ -63,13 +63,6 @@
         <constraints foreignKeyName="REF_CLIENT" references="CLIENT"/>
       </column>
     </createTable>
-
-    <createTable tableName="FIELD_OF_ACTIVITY">
-      <column name="VALUE" type="VARCHAR(50)"/>
-      <column name="CLIENT_ID" type="NUMBER(19, 0)">
-        <constraints foreignKeyName="REF_CLIENT" references="CLIENT"/>
-      </column>
-    </createTable>
   </changeSet>
 
 </databaseChangeLog>
