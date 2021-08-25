@@ -806,7 +806,25 @@
       <column name="ACTIVE" type="BOOLEAN"/>
     </createTable>
   </changeSet>
-
+  <changeSet author="initial" id="USER_ACTIVITY TABLE">
+    <createTable remarks="Лог пользовательской активности" tableName="USER_ACTIVITY">
+      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
+        <constraints primaryKey="true" primaryKeyName="PK_USER_ACTIVITY"/>
+      </column>
+      <column name="CREATED_DATE" remarks="Дата" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="TYPE_CD" remarks="Тип активности" type="VARCHAR2(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="USER_ID" remarks="Идентификатор пользователя" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="VIEW_NAME" remarks="Название вью" type="VARCHAR2(255)"/>
+      <column name="URL" remarks="URL" type="VARCHAR2(4000)"/>
+      <column name="DURATION" remarks="Продолжительность просмотра вью (миллисекунды)" type="NUMBER(19, 0)"/>
+    </createTable>
+  </changeSet>
   <changeSet author="initial" id="USER_ROLE TABLE">
     <createTable remarks="Роли пользователя" tableName="USER_ROLE">
       <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
@@ -1398,6 +1416,12 @@
     <addForeignKeyConstraint baseColumnNames="REV" baseTableName="DEPT_AUD" constraintName="DEPT_AUD_REV_FK"
       deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
       referencedColumnNames="ID" referencedTableName="REVINFO" validate="true"/>
+  </changeSet>
+  <changeSet author="initial" id="USER_ACTIVITY CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_ACTIVITY"
+      constraintName="FK_AUTH_LOG_USER" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
   </changeSet>
   <changeSet author="initial" id="VIEW_WIDGETS CONSTRAINTS">
     <addForeignKeyConstraint baseColumnNames="WIDGET_ID" baseTableName="VIEW_WIDGETS"
