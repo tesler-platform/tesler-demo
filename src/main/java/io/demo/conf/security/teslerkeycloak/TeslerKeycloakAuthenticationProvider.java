@@ -124,7 +124,9 @@ public class TeslerKeycloakAuthenticationProvider extends KeycloakAuthentication
 		if (user.getLogin() == null) {
 			user.setLogin(accessToken.getName().toUpperCase());
 		}
-
+		if (user.getProject() == null) {
+			user.setProject(jpaDao.findById(Project.class, 1L));
+		}
 		user.setInternalRole(new LOV(role));
 		user.setUserPrincipalName(accessToken.getName());
 		user.setFirstName(accessToken.getGivenName());
