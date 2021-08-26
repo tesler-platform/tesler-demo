@@ -5,12 +5,8 @@ import styles from './OperationButton.module.css'
 import { ButtonProps } from 'antd/lib/button/button'
 
 function OperationButton(props: ButtonProps) {
-    const { className, children, onClick, ...rest } = props
-    return (
-        <Button {...rest} onClick={onClick} className={cn(styles.operation, className)}>
-            {children}
-        </Button>
-    )
+    const { className, ...rest } = props
+    return <Button {...rest} className={cn(styles.base, styles.primaryOperation, className)} />
 }
 
 export default React.memo(OperationButton)
