@@ -9,7 +9,7 @@ interface FormProps {
 
 function Form({ meta }: FormProps) {
     return (
-        <div className={styles.container}>
+        <div className={styles.formContainer}>
             <FormWidget meta={meta} />
         </div>
     )
