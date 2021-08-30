@@ -1,5 +1,7 @@
 {
   "name": "client",
+  "icon": "team",
+  "order": 0,
   "title": "Clients",
   "primaryViewName": "clientlist",
   "primaryViews": [
