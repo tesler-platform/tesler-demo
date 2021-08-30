@@ -1,46 +1,55 @@
-.icon {
-    color: #595959;
-}
+@value colors "../../assets/styles/theme.module.css";
+@value accent, accent20 from colors;
+
 
 .MenuItemLink {
-    font-size: 16px;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    width: 240px;
+    width: 224px;
+}
+
+.MenuItemLink :global(.anticon) {
+    font-size: 1.3em;
 }
 
 .Container {
     border-right: 0;
 }
 
+.menuContainer :global(.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected) {
+    background-color: accent20;
+}
+
+.Container :global(.ant-menu-item:active) {
+    border-radius: 8px;
+    color: accent;
+    background-color: accent20;
+}
+
+.Container :global(.ant-menu-item-selected) {
+    border-radius: 8px;
+    color: accent;
+}
+.Container :global(.ant-menu-item:hover) {
+    color: accent;
+}
+
 .Item {
     display: flex;
-    margin: 0 !important;
     align-items: center;
-    font-weight: initial;
-    white-space: normal;
 }
 
 .Item:global(.ant-menu-item) {
     height: 48px;
-    padding-right: 5px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    font-family: Roboto;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 3;
-    letter-spacing: normal;
+    font-size: 14px;
+    line-height: 20px;
 }
+
 
 
 .Container:global(.ant-menu-vertical) {
     border-right: 0;
-}
-.Category {
-    font-weight: 600;
 }
 
 .sideMenuCollapsed {

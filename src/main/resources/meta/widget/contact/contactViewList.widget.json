@@ -1,0 +1,29 @@
+{
+  "name": "contactViewList",
+  "title": "",
+  "type": "List",
+  "bc": "contact",
+  "fields": [
+    {
+      "title": "Contact Full Name",
+      "key": "fullName",
+      "type": "input",
+      "drillDown": "true"
+    },
+    {
+      "title": "Phone Number",
+      "key": "phoneNumber",
+      "type": "input"
+    },
+    {
+      "title": "Email",
+      "key": "email",
+      "type": "input"
+    }
+  ],
+  "options": {
+    "actionGroups": {
+      "include": []
+    }
+  }
+}

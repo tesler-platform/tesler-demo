@@ -1,0 +1,38 @@
+{
+  "name": "clientview",
+  "title": "Client View",
+  "template": "DashboardView",
+  "url": "/screen/client/view/clientview",
+  "widgets": [
+    {
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientViewHeader",
+      "position": 1,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientViewButtons",
+      "position": 2,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientView",
+      "position": 3,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "contactViewList",
+      "position": 4,
+      "gridWidth": 4
+    }
+  ],
+  "rolesAllowed": [
+    "ADMIN",
+    "ROLE_ADMIN",
+    "ROLE_USER"
+  ]
+}

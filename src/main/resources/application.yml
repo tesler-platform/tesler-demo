@@ -4,7 +4,11 @@ app:
 tesler:
   meta:
     dev-panel-enabled: ${DEV_PANEL_ENABLED:true}
-    directory: ${META_DIRECTORY:file:./src/main/resources/db/migration/liquibase/data/latest}
+    directory: ${META_DIRECTORY:file:./src/main/resources/meta}
+    view-allowed-roles-enabled: true
+  widget:
+    fields:
+      include-packages: io.tesler.core.ui.model.json.field.subtypes, io.demo.conf.tesler.meta
 
 server:
   forward-headers-strategy: framework
@@ -16,8 +20,6 @@ server:
 spring:
   application:
     name: ${APPLICATION_NAME:example}
-  aop:
-    proxy-target-class: false
   datasource:
     name: primaryDS
     driver-class-name: ${DATABASE_DRIVER:org.postgresql.Driver}
@@ -25,7 +27,7 @@ spring:
     username: ${DATABASE_USER:postgres}
     password: ${DATABASE_PASSWORD:postgres}
   liquibase:
-    change-log: classpath:/db/migration/liquibase/master.xml
+    change-log: classpath:/db/db.changelog-master.xml
     enabled: true
   cache:
     type: None
@@ -40,6 +42,7 @@ spring:
           batch_size: 100
   main:
     allow-bean-definition-overriding: true
+    banner-mode: off
 
 keycloak:
   auth-server-url: ${AUTH_SERVER_URL:http://localhost:9080/auth}
