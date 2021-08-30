@@ -3,7 +3,7 @@ import { CustomWidgetDescriptor, WidgetTypes } from '@tesler-ui/core/interfaces/
 import Card from '../Card/Card'
 import { View as TeslerView } from '@tesler-ui/core'
 import { CustomFieldTypes, CustomWidgetTypes } from '../../interfaces/widget'
-import MultipleSelectField from '../../fields/MultipleSelectField/MultipleSelectField'
+import MultipleSelectField from '../fields/MultipleSelectField/MultipleSelectField'
 import Form from '../widgets/Form/Form'
 import Header from '../widgets/Header/Header'
 import EmptyCard from '../EmptyCard/EmptyCard'
@@ -11,11 +11,13 @@ import styles from './View.module.css'
 import Info from '../widgets/Info/Info'
 import Table from '../widgets/Table/Table'
 import { FieldType } from '@tesler-ui/core/interfaces/view'
-import Dictionary from '../../fields/Dictionary/Dictionary'
+import Dictionary from '../fields/Dictionary/Dictionary'
+import ColoredMark from '../fields/ColoredMark/ColoredMark'
 
 const skipWidgetTypes = [WidgetTypes.SecondLevelMenu]
 
 const customFields = {
+    [CustomFieldTypes.ColoredMark]: ColoredMark,
     [FieldType.dictionary]: Dictionary,
     [CustomFieldTypes.MultipleSelect]: MultipleSelectField
 }

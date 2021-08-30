@@ -7,7 +7,7 @@ import { MultivalueSingleValue } from '@tesler-ui/core/interfaces/data'
 import { SelectProps } from 'antd/lib/select'
 //import styles from './MultipleSelectField.module.css'
 import checkbox from './img/checkbox.svg'
-import { AppState } from '../../interfaces/storeSlices'
+import { AppState } from '../../../interfaces/storeSlices'
 
 interface MultipleSelectFieldProps {
     value: MultivalueSingleValue[]

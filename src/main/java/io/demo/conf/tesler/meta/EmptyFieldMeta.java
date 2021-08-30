@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TeslerWidgetField({"multipleSelect"})
-public class MultipleSelectFieldMetaCustom extends FieldMeta.FieldMetaBase {
+@TeslerWidgetField({"multipleSelect", "coloredMark"})
+public class EmptyFieldMeta extends FieldMeta.FieldMetaBase {
 
 }

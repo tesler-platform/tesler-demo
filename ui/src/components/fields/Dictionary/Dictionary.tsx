@@ -1,11 +1,11 @@
 import React from 'react'
 import { DictionaryProps } from '@tesler-ui/core/components/ui/Dictionary/Dictionary'
 import { useSelector } from 'react-redux'
-import { AppState } from '../../interfaces/storeSlices'
+import { AppState } from '../../../interfaces/storeSlices'
 import { buildBcUrl } from '@tesler-ui/core'
 import styles from './Dictionary.module.css'
 import { RowMeta } from '@tesler-ui/core/interfaces/rowMeta'
-import { EMPTY_ARRAY, opacitySuffix } from '../../constants/constants'
+import { EMPTY_ARRAY, opacitySuffix } from '../../../constants/constants'
 import { Dictionary as CoreDictionary } from '@tesler-ui/core'
 
 function Dictionary(props: DictionaryProps) {

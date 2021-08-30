@@ -1,0 +1,20 @@
+@value colors "../../../assets/styles/theme.module.css";
+@value main-light-mode from colors;
+
+.coloredMark {
+    display: inline-block;
+    width: 8px;
+    cursor: pointer;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.markInfo {
+    white-space: pre-wrap;
+    width: 272px;
+    max-height: 150px;
+    overflow-y: auto;
+    font-family: openSans_regular;
+    line-height: 20px;
+    color: main-light-mode;
+}

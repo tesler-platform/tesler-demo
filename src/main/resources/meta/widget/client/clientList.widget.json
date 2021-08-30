@@ -5,6 +5,13 @@
   "bc": "client",
   "fields": [
     {
+      "title": "",
+      "key": "markBgColor",
+      "type": "coloredMark",
+      "hintKey": "markDescription",
+      "width": 20
+    },
+    {
       "title": "Client",
       "key": "fullName",
       "type": "input",
