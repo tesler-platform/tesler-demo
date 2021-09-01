@@ -45,7 +45,7 @@ public class MeetingDTO extends DataResponseDTO {
 		this.notes = meeting.getNotes();
 		this.result = meeting.getResult();
 		this.responsibleName = meeting.getResponsibleName();
-		if(meeting.getClient()!=null) {
+		if (meeting.getClient() != null) {
 			this.clientName = meeting.getClient().getFullName();
 			this.client_id = meeting.getClient().getId();
 		}

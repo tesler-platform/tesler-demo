@@ -1,8 +1,8 @@
 package io.demo.controller;
 
-import io.demo.service.Client.ClientContactService;
-import io.demo.service.Client.ClientReadResponseService;
-import io.demo.service.Client.ClientWriteResponseService;
+import io.demo.service.ClientContactService;
+import io.demo.service.ClientReadResponseService;
+import io.demo.service.ClientWriteResponseService;
 import io.demo.service.Meeting.MeetingReadResponseService;
 import io.demo.service.Meeting.MeetingWriteResponseService;
 import io.demo.service.Meeting.PickListPopup.ClientPickListPopupService;
