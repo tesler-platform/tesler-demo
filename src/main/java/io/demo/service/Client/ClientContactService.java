@@ -1,4 +1,4 @@
-package io.demo.service;
+package io.demo.service.Client;
 
 import io.demo.entity.Client;
 import io.demo.entity.Contact;

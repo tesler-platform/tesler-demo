@@ -8,7 +8,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
-    "gen:schema": "node ./node_modules/@tesler-ui/schema/bin/build-schema",
     "rename": "node -e \"require('fs').rename('build/index.html', 'build/index.ftl', function(err) { if (err) console.log(err); console.log('index.ftl formed') })\""
   },
   "dependencies": {

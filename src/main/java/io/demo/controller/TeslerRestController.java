@@ -1,8 +1,13 @@
 package io.demo.controller;
 
-import io.demo.service.ClientContactService;
-import io.demo.service.ClientReadResponseService;
-import io.demo.service.ClientWriteResponseService;
+import io.demo.service.Client.ClientContactService;
+import io.demo.service.Client.ClientReadResponseService;
+import io.demo.service.Client.ClientWriteResponseService;
+import io.demo.service.Meeting.MeetingReadResponseService;
+import io.demo.service.Meeting.MeetingWriteResponseService;
+import io.demo.service.Meeting.PickListPopup.ClientPickListPopupService;
+import io.demo.service.Meeting.PickListPopup.ContactPickListPopupService;
+import io.demo.service.Meeting.PickListPopup.ResponsiblePickListPopupService;
 import io.tesler.core.crudma.bc.BcIdentifier;
 import io.tesler.core.crudma.bc.EnumBcIdentifier;
 import io.tesler.core.crudma.bc.impl.AbstractEnumBcSupplier;
@@ -13,10 +18,16 @@ import org.springframework.stereotype.Component;
 @Getter
 public enum TeslerRestController implements EnumBcIdentifier {
 	// @formatter:on
+
 	client(ClientReadResponseService.class),
 		contact(client, ClientContactService.class),
 	clientEdit(ClientWriteResponseService.class),
-		contactEdit(clientEdit, ClientContactService.class);
+		contactEdit(clientEdit, ClientContactService.class),
+	meeting(MeetingReadResponseService.class),
+	meetingEdit(MeetingWriteResponseService.class),
+		responsiblePickListPopup(meetingEdit, ResponsiblePickListPopupService.class),
+		clientPickListPopup(meetingEdit, ClientPickListPopupService.class),
+		contactPickListPopup(meetingEdit, ContactPickListPopupService.class);
 	// @formatter:on
 
 	public static final EnumBcIdentifier.Holder<TeslerRestController> Holder = new Holder<>(TeslerRestController.class);

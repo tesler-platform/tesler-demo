@@ -511,7 +511,219 @@
       </column>
     </createTable>
   </changeSet>
+  <changeSet author="initial" id="LAYOUTS_VIEWS TABLE">
+    <createTable remarks="Сетки для VIEW" tableName="LAYOUTS_VIEWS">
+      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="USER_ID" remarks="Пользователь" type="NUMBER(19, 0)"/>
+      <column name="VIEW_NAME" remarks="VIEW" type="VARCHAR2(255)"/>
+      <column defaultValueNumeric="12" name="COLUMNS" remarks="Количество столбцов" type="NUMBER(2, 0)"/>
+      <column defaultValueNumeric="8" name="ROW_HEIGHT" remarks="Ширина строки (px)" type="NUMBER(4, 0)"/>
+      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="LAYOUTS_WIDGETS TABLE">
+    <createTable remarks="Расположение виджетов на сетке" tableName="LAYOUTS_WIDGETS">
+      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="LAYOUT_ID" remarks="Идентификатор сетки" type="NUMBER(19, 0)"/>
+      <column name="WIDGET_ID" remarks="Виджет" type="NUMBER(19, 0)"/>
+      <column name="X" remarks="Координата X на сетке" type="NUMBER(2, 0)"/>
+      <column name="Y" remarks="Координата Y на сетке" type="NUMBER(4, 0)"/>
+      <column name="WIDTH" remarks="Ширина виджета (в столбцах)" type="NUMBER(2, 0)"/>
+      <column name="HEIGHT" remarks="Высота виджета (в строках)" type="NUMBER(4, 0)"/>
+      <column name="MIN_WIDTH" remarks="Минимальная ширина" type="NUMBER(2, 0)"/>
+      <column name="MAX_WIDTH" remarks="Максимальная ширина" type="NUMBER(2, 0)"/>
+      <column name="MIN_HEIGHT" remarks="Минимальная высота" type="NUMBER(2, 0)"/>
+      <column name="MAX_HEIGHT" remarks="Максимальная высота" type="NUMBER(2, 0)"/>
+      <column name="IS_RESIZABLE" remarks="Можно менять размер" type="NUMBER(1, 0)"/>
+      <column name="IS_DRAGGABLE" remarks="Можно менять расположение" type="NUMBER(1, 0)"/>
+      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="LOGIN_ROLE TABLE">
+    <createTable remarks="Сопоставление ролей пользователей" tableName="LOGIN_ROLE">
+      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="PRJ_GRP_ID" remarks="Идентификатор группы пользователей" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="INTERNAL_ROLE_CD" remarks="TYPE = INTERNAL_ROLE Внутренняя роль пользователя"
+        type="VARCHAR2(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Дата создания"
+        type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Дата последнего обновления"
+        type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" remarks="Идентификатор пользователя-создателя"
+        type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"
+        remarks="Идентификатор последнего пользователя, обновившего запись" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="DEPT_ID" type="NUMBER(19, 0)"/>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
 
+  <changeSet author="initial" id="PRJ TABLE">
+    <createTable remarks="Проект" tableName="PRJ">
+      <column name="ID" remarks="Наименование" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="NAME" type="VARCHAR2(255 BYTE)"/>
+      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_AUD TABLE">
+    <createTable tableName="PRJ_AUD">
+      <column name="ID" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="REV" type="NUMBER(10, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="REVTYPE" type="NUMBER(3, 0)"/>
+      <column name="NAME" type="VARCHAR2(255 BYTE)"/>
+      <column name="CREATED_DATE" type="TIMESTAMP(6)"/>
+      <column name="UPDATED_DATE" type="TIMESTAMP(6)"/>
+      <column name="CREATED_BY_USER_ID" type="NUMBER(19, 0)"/>
+      <column name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)"/>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_GRP TABLE">
+    <createTable remarks="Группы" tableName="PRJ_GRP">
+      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="PROJECT_ID" remarks="Идентификатор проекта" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="NAME" remarks="Название группы" type="VARCHAR2(100)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_GRP_AUD TABLE">
+    <createTable tableName="PRJ_GRP_AUD">
+      <column name="ID" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="REV" type="NUMBER(10, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="REVTYPE" type="NUMBER(3, 0)"/>
+      <column name="PROJECT_ID" type="NUMBER(19, 0)"/>
+      <column name="NAME" type="VARCHAR2(100)"/>
+      <column name="CREATED_DATE" type="TIMESTAMP(6)"/>
+      <column name="UPDATED_DATE" type="TIMESTAMP(6)"/>
+      <column name="CREATED_BY_USER_ID" type="NUMBER(19, 0)"/>
+      <column name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)"/>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_GRP_USER TABLE">
+    <createTable remarks="Пользователи групп" tableName="PRJ_GRP_USER">
+      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="PRJ_GRP_ID" remarks="Идентификатор группы" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="USER_ID" remarks="Идентификатор пользователя" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
   <changeSet author="initial" id="RESPONSIBILITIES TABLE">
     <createTable remarks="Респонсибилити" tableName="RESPONSIBILITIES">
       <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
@@ -678,6 +890,9 @@
       <column name="EXT_ATTR_12" remarks="attribute12" type="VARCHAR2(255)"/>
       <column name="EXT_ATTR_13" remarks="attribute13" type="VARCHAR2(255)"/>
       <column name="DEPT_ID" remarks="Идентификатор Департамента" type="NUMBER(19, 0)"/>
+      <column name="DEFAULT_PRJ_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
       <column name="ORIG_DEPT_CODE" remarks="Дочерний департамент" type="VARCHAR2(255)"/>
       <column name="TIMEZONE" type="VARCHAR2(255 BYTE)"/>
       <column name="LOCALE" type="VARCHAR2(20 BYTE)"/>
@@ -727,6 +942,7 @@
       <column name="EXT_ATTR_12" type="VARCHAR2(255)"/>
       <column name="EXT_ATTR_13" type="VARCHAR2(255)"/>
       <column name="DEPT_ID" type="NUMBER(19, 0)"/>
+      <column name="DEFAULT_PRJ_ID" type="NUMBER(19, 0)"/>
       <column name="ORIG_DEPT_CODE" type="VARCHAR2(255)"/>
       <column name="TIMEZONE" type="VARCHAR2(255 BYTE)"/>
       <column name="LOCALE" type="VARCHAR2(20 BYTE)"/>
@@ -741,6 +957,25 @@
         <constraints nullable="false"/>
       </column>
       <column name="ACTIVE" type="BOOLEAN"/>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="USER_ACTIVITY TABLE">
+    <createTable remarks="Лог пользовательской активности" tableName="USER_ACTIVITY">
+      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
+        <constraints primaryKey="true" primaryKeyName="PK_USER_ACTIVITY"/>
+      </column>
+      <column name="CREATED_DATE" remarks="Дата" type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="TYPE_CD" remarks="Тип активности" type="VARCHAR2(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="USER_ID" remarks="Идентификатор пользователя" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="VIEW_NAME" remarks="Название вью" type="VARCHAR2(255)"/>
+      <column name="URL" remarks="URL" type="VARCHAR2(4000)"/>
+      <column name="DURATION" remarks="Продолжительность просмотра вью (миллисекунды)" type="NUMBER(19, 0)"/>
     </createTable>
   </changeSet>
   <changeSet author="initial" id="USER_ROLE TABLE">
@@ -882,6 +1117,160 @@
       </column>
     </createTable>
   </changeSet>
+  <changeSet author="initial" id="WIDGET_PROPERTY TABLE">
+    <createTable tableName="WIDGET_PROPERTY">
+      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
+        <constraints primaryKey="true" primaryKeyName="PK_WIDGET_PROPERTY"/>
+      </column>
+      <column name="WIDGET_ID" remarks="Виджет" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="0" name="IS_CONCLUSION_TYPE"
+        remarks="Является ли виджет виджетом ручного ввода" type="NUMBER(1, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" type="TIMESTAMP(6)"/>
+      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" type="TIMESTAMP(6)"/>
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="ACCESS_LIST">
+    <createTable tableName="ACCESS_LIST" remarks="Списки доступа">
+      <column name="ID" type="NUMBER(19)" remarks="Идентификатор">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="LIST_TYPE" type="NUMBER(1)" remarks="Тип">
+        <constraints nullable="false"/>
+      </column>
+      <column name="NAME" type="VARCHAR2(255)" remarks="Название">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_DATE" type="TIMESTAMP(6)" remarks="Дата создания"
+        defaultValueComputed="current_timestamp">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_BY_USER_ID" type="NUMBER(19)" remarks="Кто создал" defaultValueNumeric="1">
+        <constraints nullable="false" foreignKeyName="FK_ACCESS_LIST_CREATED_BY" references="USERS"/>
+      </column>
+      <column name="UPDATED_DATE" type="TIMESTAMP(6)" remarks="Дата изменения"
+        defaultValueComputed="current_timestamp">
+        <constraints nullable="false"/>
+      </column>
+      <column name="LAST_UPD_BY_USER_ID" type="NUMBER(19)" remarks="Кто изменил" defaultValueNumeric="1">
+        <constraints nullable="false" foreignKeyName="FK_ACCESS_LIST_UPDATED_BY" references="USERS"/>
+      </column>
+      <column name="VSTAMP" type="NUMBER(19)" remarks="Версия" defaultValueNumeric="0">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="ACCESS_RECORD">
+    <createTable tableName="ACCESS_RECORD" remarks="Доступ">
+      <column name="ID" type="NUMBER(19)" remarks="Идентификатор">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="ACCESS_LIST_ID" type="NUMBER(19)" remarks="Список доступа">
+        <constraints nullable="false" foreignKeyName="FK_ACCESS_RECORD_ACCESS_LIST" references="ACCESS_LIST"/>
+      </column>
+      <column name="ACCESSOR_ID" type="NUMBER(19)" remarks="Правополучатель">
+        <constraints nullable="false"/>
+      </column>
+      <column name="ACCESSOR_TYPE" type="NUMBER(1)" remarks="Тип правополучателя" defaultValueNumeric="0">
+        <constraints nullable="false"/>
+      </column>
+      <column name="PERMISSION" type="NUMBER(1)" remarks="Права" defaultValueNumeric="0">
+        <constraints nullable="false"/>
+      </column>
+      <column name="MANDATORY" type="NUMBER(1)" remarks="Обязательность" defaultValueNumeric="0">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_DATE" type="TIMESTAMP(6)" remarks="Дата создания"
+        defaultValueComputed="current_timestamp">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_BY_USER_ID" type="NUMBER(19)" remarks="Кто создал" defaultValueNumeric="1">
+        <constraints nullable="false" foreignKeyName="FK_ACCESS_RECORD_CREATED_BY" references="USERS"/>
+      </column>
+      <column name="UPDATED_DATE" type="TIMESTAMP(6)" remarks="Дата изменения"
+        defaultValueComputed="current_timestamp">
+        <constraints nullable="false"/>
+      </column>
+      <column name="LAST_UPD_BY_USER_ID" type="NUMBER(19)" remarks="Кто изменил" defaultValueNumeric="1">
+        <constraints nullable="false" foreignKeyName="FK_ACCESS_RECORD_UPDATED_BY" references="USERS"/>
+      </column>
+      <column name="VSTAMP" type="NUMBER(19)" remarks="Версия" defaultValueNumeric="0">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="GROUPS">
+    <createTable tableName="GROUPS" remarks="Группы">
+      <column name="ID" type="NUMBER(19)" remarks="Идентификатор">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="NAME" type="VARCHAR2(255)" remarks="Имя группы">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_DATE" type="TIMESTAMP(6)" remarks="Дата создания"
+        defaultValueComputed="current_timestamp">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_BY_USER_ID" type="NUMBER(19)" remarks="Кто создал" defaultValueNumeric="1">
+        <constraints nullable="false" foreignKeyName="FK_GROUPS_CREATED_BY" references="USERS"/>
+      </column>
+      <column name="UPDATED_DATE" type="TIMESTAMP(6)" remarks="Дата изменения"
+        defaultValueComputed="current_timestamp">
+        <constraints nullable="false"/>
+      </column>
+      <column name="LAST_UPD_BY_USER_ID" type="NUMBER(19)" remarks="Кто изменил" defaultValueNumeric="1">
+        <constraints nullable="false" foreignKeyName="FK_GROUPS_UPDATED_BY" references="USERS"/>
+      </column>
+      <column name="VSTAMP" type="NUMBER(19)" remarks="Версия" defaultValueNumeric="0">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="initial" id="GROUP_RELATIONS">
+    <createTable tableName="GROUP_RELATIONS" remarks="Связи правополучателей">
+      <column name="ID" type="NUMBER(19)" remarks="Идентификатор">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="GROUP_ID" type="NUMBER(19)" remarks="Группа">
+        <constraints nullable="false" foreignKeyName="FK_GROUPS_GROUP" references="GROUPS"/>
+      </column>
+      <column name="RELATION_TYPE" type="NUMBER(1)" remarks="Тип связи">
+        <constraints nullable="false"/>
+      </column>
+      <column name="RELATED_ID" type="NUMBER(19)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_DATE" type="TIMESTAMP(6)" remarks="Дата создания"
+        defaultValueComputed="current_timestamp">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_BY_USER_ID" type="NUMBER(19)" remarks="Кто создал" defaultValueNumeric="1">
+        <constraints nullable="false" foreignKeyName="FK_GROUP_RELATION_CREATED_BY" references="USERS"/>
+      </column>
+      <column name="UPDATED_DATE" type="TIMESTAMP(6)" remarks="Дата изменения"
+        defaultValueComputed="current_timestamp">
+        <constraints nullable="false"/>
+      </column>
+      <column name="LAST_UPD_BY_USER_ID" type="NUMBER(19)" remarks="Кто изменил" defaultValueNumeric="1">
+        <constraints nullable="false" foreignKeyName="FK_GROUP_RELATION_UPDATED_BY" references="USERS"/>
+      </column>
+      <column name="VSTAMP" type="NUMBER(19)" remarks="Версия" defaultValueNumeric="0">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
 
   <changeSet author="initial" id="BC_FILTER_GROUPS INDEXES">
     <addUniqueConstraint columnNames="NAME, BC" constraintName="BC_FILTER_GROUPS_UNIQUE"
@@ -969,7 +1358,18 @@
       <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
     </createIndex>
   </changeSet>
-
+  <changeSet author="initial" id="PRJ INDEXES">
+    <addUniqueConstraint columnNames="NAME" constraintName="PRJ_NAME" tableName="PRJ"/>
+    <createIndex indexName="PRJ_NAME_INDEX" tableName="PRJ" unique="true">
+      <column name="NAME"/>
+    </createIndex>
+    <createIndex indexName="PRJ_IND1" tableName="PRJ">
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="PRJ_IND2" tableName="PRJ">
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
+    </createIndex>
+  </changeSet>
   <changeSet author="initial" id="USERS INDEXES">
     <addUniqueConstraint columnNames="LOGIN" constraintName="UK_LOGIN_NAME" tableName="USERS"/>
     <createIndex indexName="UK_LOGIN_NAME_INDEX" tableName="USERS" unique="true">
@@ -1072,6 +1472,71 @@
     </createIndex>
   </changeSet>
 
+  <changeSet author="initial" id="LAYOUTS_VIEWS INDEXES">
+    <createIndex indexName="LAYOUTS_VIEWS_IND1" tableName="LAYOUTS_VIEWS">
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="LAYOUTS_VIEWS_IND2" tableName="LAYOUTS_VIEWS">
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="LAYOUTS_VIEWS_IND3" tableName="LAYOUTS_VIEWS">
+      <column name="USER_ID"/>
+    </createIndex>
+    <createIndex indexName="LAYOUTS_VIEWS_IND4" tableName="LAYOUTS_VIEWS">
+      <column name="VIEW_NAME"/>
+    </createIndex>
+  </changeSet>
+  <changeSet author="initial" id="LAYOUTS_WIDGETS INDEXES">
+    <createIndex indexName="LAYOUTS_WIDGETS_IND1" tableName="LAYOUTS_WIDGETS">
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="LAYOUTS_WIDGETS_IND2" tableName="LAYOUTS_WIDGETS">
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="LAYOUTS_WIDGETS_IND3" tableName="LAYOUTS_WIDGETS">
+      <column name="LAYOUT_ID"/>
+    </createIndex>
+    <createIndex indexName="LAYOUTS_WIDGETS_IND4" tableName="LAYOUTS_WIDGETS">
+      <column name="WIDGET_ID"/>
+    </createIndex>
+  </changeSet>
+  <changeSet author="initial" id="LOGIN_ROLE INDEXES">
+    <createIndex indexName="LOGIN_ROLE_IND1" tableName="LOGIN_ROLE">
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="LOGIN_ROLE_IND2" tableName="LOGIN_ROLE">
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="LOGIN_ROLE_IND3" tableName="LOGIN_ROLE">
+      <column name="PRJ_GRP_ID"/>
+    </createIndex>
+  </changeSet>
+
+  <changeSet author="initial" id="PRJ_GRP INDEXES">
+    <createIndex indexName="PRJ_GRP_IND1" tableName="PRJ_GRP">
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="PRJ_GRP_IND2" tableName="PRJ_GRP">
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="PRJ_GRP_IND3" tableName="PRJ_GRP">
+      <column name="PROJECT_ID"/>
+    </createIndex>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_GRP_USER INDEXES">
+    <createIndex indexName="PRJ_GRP_USER_IND1" tableName="PRJ_GRP_USER">
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="PRJ_GRP_USER_IND2" tableName="PRJ_GRP_USER">
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
+    </createIndex>
+    <createIndex indexName="PRJ_GRP_USER_IND3" tableName="PRJ_GRP_USER">
+      <column name="PRJ_GRP_ID"/>
+    </createIndex>
+    <createIndex indexName="PRJ_GRP_USER_IND4" tableName="PRJ_GRP_USER">
+      <column name="USER_ID"/>
+    </createIndex>
+  </changeSet>
   <changeSet author="initial" id="RESPONSIBILITIES INDEXES">
     <createIndex indexName="RESPONSIBILITIES_IND1" tableName="RESPONSIBILITIES">
       <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
@@ -1101,6 +1566,11 @@
       <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
     </createIndex>
     <createIndex indexName="VIEW_WIDGETS_IND3" tableName="VIEW_WIDGETS">
+      <column name="WIDGET_ID"/>
+    </createIndex>
+  </changeSet>
+  <changeSet author="initial" id="WIDGET_PROPERTY INDEXES">
+    <createIndex indexName="WIDGET_PROPERTY_WIDGET_IDX" tableName="WIDGET_PROPERTY">
       <column name="WIDGET_ID"/>
     </createIndex>
   </changeSet>
@@ -1139,6 +1609,12 @@
     <addForeignKeyConstraint baseColumnNames="REV" baseTableName="DEPT_AUD" constraintName="DEPT_AUD_REV_FK"
       deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
       referencedColumnNames="ID" referencedTableName="REVINFO" validate="true"/>
+  </changeSet>
+  <changeSet author="initial" id="USER_ACTIVITY CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_ACTIVITY"
+      constraintName="FK_AUTH_LOG_USER" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
   </changeSet>
   <changeSet author="initial" id="VIEW_WIDGETS CONSTRAINTS">
     <addForeignKeyConstraint baseColumnNames="WIDGET_ID" baseTableName="VIEW_WIDGETS"
@@ -1292,7 +1768,82 @@
       referencedTableName="USERS" validate="true"/>
   </changeSet>
 
+  <changeSet author="initial" id="LAYOUTS_VIEWS CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="LAYOUTS_VIEWS"
+      constraintName="FK_LAYOUTSVIEWS_CREATED_BY" deferrable="false"
+      initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="LAYOUTS_VIEWS"
+      constraintName="FK_LAYOUTSVIEWS_UPDATED_BY" deferrable="false"
+      initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="LAYOUTS_VIEWS" constraintName="FK_USERS"
+      deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="VIEW_NAME" baseTableName="LAYOUTS_VIEWS" constraintName="FK_VIEWS"
+      deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="NAME" referencedTableName="VIEWS" validate="true"/>
+  </changeSet>
+  <changeSet author="initial" id="LOGIN_ROLE CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="LOGIN_ROLE"
+      constraintName="FK_LOGIN_ROLE_CREATED_BY" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="PRJ_GRP_ID" baseTableName="LOGIN_ROLE"
+      constraintName="FK_LOGIN_ROLE_PRG_GRP" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="PRJ_GRP" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="DEPT_ID" baseTableName="LOGIN_ROLE"
+      constraintName="FK_LOGIN_ROLE_TO_DEPT" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="DEPT" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="LOGIN_ROLE"
+      constraintName="FK_LOGIN_ROLE_UPDATED_BY" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
+  </changeSet>
 
+  <changeSet author="initial" id="PRJ CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="PRJ"
+      constraintName="FK_PRJ_CREATED_BY" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="PRJ"
+      constraintName="FK_PRJ_UPDATED_BY" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_GRP CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="PRJ_GRP"
+      constraintName="FK_PRJ_GRP_CREATED_BY" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="PRJ_GRP"
+      constraintName="FK_PRJ_GRP_UPDATED_BY" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="PROJECT_ID" baseTableName="PRJ_GRP" constraintName="PRJ_GRP_PRJ_FK"
+      deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="PRJ" validate="true"/>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_GRP_USER CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="PRJ_GRP_USER"
+      constraintName="FK_PRJ_GRP_USER_CREATED_BY" deferrable="false"
+      initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="PRJ_GRP_USER"
+      constraintName="FK_PRJ_GRP_USER_UPDATED_BY" deferrable="false"
+      initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="PRJ_GRP_ID" baseTableName="PRJ_GRP_USER"
+      constraintName="PRJ_GRP_USER_PRJ_GRP_FK" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="PRJ_GRP" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="PRJ_GRP_USER"
+      constraintName="PRJ_GRP_USER_USERS_FK" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="USERS" validate="true"/>
+  </changeSet>
   <changeSet author="initial" id="RESPONSIBILITIES CONSTRAINTS">
     <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="RESPONSIBILITIES"
       constraintName="FK_RESPONSIBILITIES_CREATED_BY" deferrable="false"
@@ -1372,7 +1923,22 @@
       onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
       referencedTableName="NAVIGATION_GROUP" validate="true"/>
   </changeSet>
-
+  <changeSet author="initial" id="LAYOUTS_WIDGETS CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="WIDGET_ID" baseTableName="LAYOUTS_WIDGETS" constraintName="FK_WIDGETS"
+      deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="WIDGET" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="LAYOUTS_WIDGETS"
+      constraintName="FK_LAYOUTSWIDGETS_CREATED_BY" deferrable="false"
+      initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="LAYOUTS_WIDGETS"
+      constraintName="FK_LAYOUTSWIDGETS_UPDATED_BY" deferrable="false"
+      initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="LAYOUT_ID" baseTableName="LAYOUTS_WIDGETS" constraintName="FK_LAYOUTS"
+      deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="LAYOUTS_VIEWS" validate="true"/>
+  </changeSet>
   <changeSet author="initial" id="WIDGET CONSTRAINTS">
     <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="WIDGET"
       constraintName="FK_WIDGET_CREATED_BY" deferrable="false" initiallyDeferred="false"
@@ -1382,6 +1948,30 @@
       constraintName="FK_WIDGET_UPDATED_BY" deferrable="false" initiallyDeferred="false"
       onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
       referencedTableName="USERS" validate="true"/>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_AUD CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="REV" baseTableName="PRJ_AUD" constraintName="PRJ_AUD_REV_FK"
+      deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="REVINFO" validate="true"/>
+  </changeSet>
+  <changeSet author="initial" id="PRJ_GRP_AUD CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="REV" baseTableName="PRJ_GRP_AUD" constraintName="PRJ_GRP_AUD_REV_FK"
+      deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="REVINFO" validate="true"/>
+  </changeSet>
+  <changeSet author="initial" id="WIDGET_PROPERTY CONSTRAINTS">
+    <addForeignKeyConstraint baseColumnNames="WIDGET_ID" baseTableName="WIDGET_PROPERTY"
+      constraintName="PROPERTY_WIDGET_ID" deferrable="false" initiallyDeferred="false"
+      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
+      referencedTableName="WIDGET" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="WIDGET_PROPERTY"
+      constraintName="WIDGET_PTY_USER_ID_CREATED" deferrable="false"
+      initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
+    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="WIDGET_PROPERTY"
+      constraintName="WIDGET_PTY_USER_ID_UPDATED" deferrable="false"
+      initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+      referencedColumnNames="ID" referencedTableName="USERS" validate="true"/>
   </changeSet>
   <changeSet author="initial" id="REVINFO CONSTRAINTS">
     <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="REVINFO" constraintName="REVINFO_USERS_FK"
@@ -1420,6 +2010,7 @@
       <column header="FULL_USER_NAME" name="FULL_USER_NAME" type="STRING"/>
       <column header="TITLE" name="TITLE" type="STRING"/>
       <column header="DEPT_ID" name="DEPT_ID" type="NUMERIC"/>
+      <column header="DEFAULT_PRJ_ID" name="DEFAULT_PRJ_ID" type="NUMERIC"/>
       <column header="ORIG_DEPT_CODE" name="ORIG_DEPT_CODE" type="STRING"/>
       <column header="TIMEZONE" name="TIMEZONE" type="STRING"/>
     </loadData>
@@ -1485,6 +2076,15 @@
       select ID, 'ru' as LANGUAGE, VALUE as VALUE
       from DICTIONARY_ITEM;
     </sql>
+  </changeSet>
+
+
+  <changeSet author="initial" id="PROJECTS">
+    <loadData tableName="PRJ" encoding="UTF-8" separator=";" quotchar="&quot;"
+      file="db/data/TESLER-PRJ.csv">
+      <column header="ID" name="ID" type="NUMERIC"/>
+      <column header="NAME" name="NAME" type="STRING"/>
+    </loadData>
   </changeSet>
 
 </databaseChangeLog>
