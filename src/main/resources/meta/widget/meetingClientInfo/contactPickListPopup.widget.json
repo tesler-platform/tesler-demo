@@ -1,0 +1,16 @@
+{
+  "name": "contactPickListPopup",
+  "title": "List of names",
+  "type": "PickListPopup",
+  "bc": "contactPickListPopup",
+  "showCondition": [],
+  "fields": [
+     {
+       "title": "Name",
+       "key": "fullName",
+       "type": "input"
+     }
+  ],
+  "axisFields": [],
+  "chart": []
+}

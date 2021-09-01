@@ -1,0 +1,45 @@
+{
+  "name": "meetingResultEdit",
+  "title": "Meeting Results",
+  "type": "Form",
+  "bc": "meetingEdit",
+  "fields": [
+    {
+      "label": "Notes",
+      "key": "notes",
+      "type": "input"
+    },
+    {
+      "label": "Results",
+      "key": "result",
+      "type": "input"
+    }
+  ],
+  "options": {
+    "actionGroups": {
+      "include": [
+        "save"
+      ]
+    },
+    "layout": {
+      "rows": [
+        {
+          "cols": [
+            {
+              "fieldKey": "notes",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "result",
+              "span": 12
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

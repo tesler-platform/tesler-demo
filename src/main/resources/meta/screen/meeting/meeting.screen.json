@@ -1,0 +1,26 @@
+{
+  "name": "meeting",
+  "title": "",
+  "primaryViewName": "meetinglist",
+  "primaryViews": [
+    "meetinglist"
+  ],
+  "navigation": {
+    "menu": [
+      {
+        "title": "Meetings",
+        "child": [
+          {
+            "viewName": "meetinglist"
+          },
+          {
+            "viewName": "meetingedit"
+          },
+          {
+            "viewName": "meetingview"
+          }
+        ]
+      }
+    ]
+  }
+}
