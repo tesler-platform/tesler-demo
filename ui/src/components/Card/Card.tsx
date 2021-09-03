@@ -29,12 +29,7 @@ function Card({ meta, children }: CardProps) {
                     )}
                     {type === WidgetTypes.Form && children}
                     {showOperations.includes(type as WidgetTypes) && (
-                        <Operations
-                            operations={operations}
-                            bcName={bcName}
-                            widgetMeta={meta}
-                            hiddenGroups={meta.options?.hideActionGroups}
-                        />
+                        <Operations operations={operations} bcName={bcName} widgetMeta={meta} />
                     )}
                     {type !== WidgetTypes.Form && children}
                 </div>

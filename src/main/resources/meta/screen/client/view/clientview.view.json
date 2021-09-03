@@ -15,7 +15,7 @@
       "gridWidth": 4
     },
     {
-      "widgetName": "clientViewButtons",
+      "widgetName": "clientViewOperations",
       "position": 2,
       "gridWidth": 4
     },

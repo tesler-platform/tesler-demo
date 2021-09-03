@@ -1,5 +1,6 @@
 package io.demo.service;
 
+import io.demo.common.ActionIcon;
 import io.demo.controller.TeslerRestController;
 import io.demo.entity.Client;
 import io.demo.entity.enums.ClientStatus;
@@ -47,7 +48,26 @@ public class ClientReadResponseService extends VersionAwareResponseService<Clien
 	@Override
 	public Actions<ClientReadDTO> getActions() {
 		return Actions.<ClientReadDTO>builder()
-				.create().text("Create Client").add()
+				.create().text("Add").add()
+				.addGroup(
+						"actions",
+						"Actions",
+						0,
+						Actions.<ClientReadDTO>builder().newAction()
+								.action("edit", "Edit")
+								.withoutAutoSaveBefore()
+								.invoker((bc, data) -> new ActionResultDTO<ClientReadDTO>()
+										.setAction(PostAction.drillDown(
+												DrillDownType.INNER,
+												String.format(
+														"/screen/client/view/clientedit/%s/%s",
+														TeslerRestController.clientEdit,
+														bc.getId()
+												)
+										)))
+								.add()
+						.build()
+				).withIcon(ActionIcon.MENU, false)
 				.newAction()
 				.action("edit", "Edit")
 				.withoutAutoSaveBefore()
