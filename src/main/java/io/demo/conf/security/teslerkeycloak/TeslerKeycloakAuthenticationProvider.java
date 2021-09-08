@@ -1,5 +1,7 @@
 package io.demo.conf.security.teslerkeycloak;
 
+import io.demo.repository.DepartmentRepository;
+import io.demo.repository.UserRepository;
 import io.tesler.api.data.dictionary.LOV;
 import io.tesler.api.service.session.InternalAuthorizationService;
 import io.tesler.api.service.tx.TransactionService;
@@ -28,6 +30,12 @@ import static io.tesler.api.service.session.InternalAuthorizationService.VANILLA
 @Component
 @Slf4j
 public class TeslerKeycloakAuthenticationProvider extends KeycloakAuthenticationProvider {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	private DepartmentRepository departmentRepository;
 
 	@Autowired
 	private JpaDao jpaDao;
@@ -96,8 +104,8 @@ public class TeslerKeycloakAuthenticationProvider extends KeycloakAuthentication
 						try {
 							User newUser = new User();
 							updateUser(accessToken, role, newUser);
-							Long id = txService.invokeNoTx(() -> jpaDao.save(newUser));
-							return jpaDao.findById(User.class, id);
+							Long id = txService.invokeNoTx(() -> userRepository.save(newUser).getId());
+							return userRepository.findById(id);
 						} catch (Exception ex) {
 							if (SQLExceptions.isUniqueConstraintViolation(ex)) {
 								log.error(ex.getLocalizedMessage(), ex);
@@ -114,10 +122,9 @@ public class TeslerKeycloakAuthenticationProvider extends KeycloakAuthentication
 	}
 
 	private User getUserByLogin(String login) {
-		return jpaDao.getSingleResultOrNull(
-				User.class,
+		return userRepository.findOne(
 				(root, cq, cb) -> cb.equal(cb.upper(root.get(User_.login)), login.toUpperCase())
-		);
+		).orElse(null);
 	}
 
 	private void updateUser(AccessToken accessToken, String role, User user) {
@@ -134,7 +141,7 @@ public class TeslerKeycloakAuthenticationProvider extends KeycloakAuthentication
 		user.setEmail(accessToken.getEmail());
 		user.setPhone(accessToken.getPhoneNumber());
 		user.setActive(true);
-		user.setDepartment(jpaDao.findById(Department.class, 0L));
+		user.setDepartment(departmentRepository.findById(0L).orElse(null));
 	}
 
 }

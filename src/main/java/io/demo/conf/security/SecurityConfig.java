@@ -3,9 +3,9 @@ package io.demo.conf.security;
 
 import io.tesler.api.service.session.TeslerAuthenticationService;
 
+import io.tesler.core.config.properties.UIProperties;
 import io.tesler.core.metahotreload.conf.properties.MetaConfigurationProperties;
 import lombok.RequiredArgsConstructor;
-import io.demo.conf.ApplicationConfigProperties;
 import io.demo.conf.security.teslerkeycloak.TeslerKeycloakAuthenticationProvider;
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
@@ -40,7 +40,7 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 	private TeslerAuthenticationService teslerAuthenticationService;
 
 	@Autowired
-	private ApplicationConfigProperties applicationConfigProperties;
+	private UIProperties uiProperties;
 
 	@Autowired
 	private TeslerKeycloakAuthenticationProvider teslerKeycloakAuthenticationProvider;
@@ -63,7 +63,7 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 				.authorizeRequests(authorizeRequests -> authorizeRequests
 						.antMatchers("/rest/**").permitAll()
 						.antMatchers("/css/**").permitAll()
-						.antMatchers(applicationConfigProperties.getUiPath() + "/**").permitAll()
+						.antMatchers(uiProperties.getPath() + "/**").permitAll()
 						.antMatchers("/api/v1/files/**").permitAll()
 						.antMatchers("/**").fullyAuthenticated());
 	}
