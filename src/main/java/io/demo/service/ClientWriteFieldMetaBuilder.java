@@ -24,7 +24,9 @@ public class ClientWriteFieldMetaBuilder extends FieldMetaBuilder<ClientWriteDTO
 				ClientWriteDTO_.building,
 				ClientWriteDTO_.description,
 				ClientWriteDTO_.importance,
-				ClientWriteDTO_.fieldOfActivity
+				ClientWriteDTO_.fieldOfActivity,
+				ClientWriteDTO_.fileId,
+				ClientWriteDTO_.fileName
 		);
 		fields.setRequired(
 				ClientWriteDTO_.fullName,

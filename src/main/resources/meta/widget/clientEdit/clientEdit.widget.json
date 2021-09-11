@@ -38,6 +38,17 @@
       "label": "Field of Activity",
       "key": "fieldOfActivity",
       "type": "multipleSelect"
+    },
+    {
+      "label": "fileId",
+      "key": "fileId",
+      "type": "hidden"
+    },
+    {
+      "label": "file",
+      "key": "fileName",
+      "type": "fileUpload",
+      "fileIdKey": "fileId"
     }
   ],
   "options": {
@@ -100,6 +111,14 @@
           "cols": [
             {
               "fieldKey": "fieldOfActivity",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "fileName",
               "span": 12
             }
           ]

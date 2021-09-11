@@ -43,4 +43,8 @@ public class Client extends BaseEntity {
 	@Enumerated(value = EnumType.STRING)
 	private ClientStatus status;
 
+	private String fileName;
+
+	private String fileId;
+
 }
