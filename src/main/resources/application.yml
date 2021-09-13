@@ -2,6 +2,9 @@ app:
   ui-path: /ui
 
 tesler:
+  bean:
+    multipart-resolver:
+      enabled: false
   meta:
     dev-panel-enabled: ${DEV_PANEL_ENABLED:true}
     directory: ${META_DIRECTORY:file:./src/main/resources/meta}
@@ -24,8 +27,10 @@ server:
         http-only: true
 
 spring:
-  application:
-    name: ${APPLICATION_NAME:example}
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: -1
   datasource:
     name: primaryDS
     driver-class-name: ${DATABASE_DRIVER:org.postgresql.Driver}
@@ -33,9 +38,8 @@ spring:
     username: ${DATABASE_USER:postgres}
     password: ${DATABASE_PASSWORD:postgres}
   liquibase:
-    change-log: classpath:/db/db.changelog-master.xml
-    enabled: true
     drop-first: true
+    change-log: classpath:/db/db.changelog-master.xml
   cache:
     type: None
   jpa:
@@ -57,7 +61,6 @@ spring:
     hibernate:
       naming:
         physical-strategy: io.tesler.model.core.hbn.ImprovedPhysicalNamingStrategy
-    database:
   main:
     allow-bean-definition-overriding: true
     banner-mode: off
@@ -69,3 +72,13 @@ keycloak:
   bearer-only: true
   public-client: true
   use-resource-role-mappings: false
+springdoc:
+  packages-to-scan: io.demo
+
+minio:
+  access:
+    name: 4eb6a7db8b58994ea61b
+    secret: prCv8t9LGRH18FB5pLr5jqDZ/dixZkb9cFajueGW
+  url: http://localhost:9000
+  bucket:
+    name: edcs3gnsadevb

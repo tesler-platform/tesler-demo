@@ -33,6 +33,8 @@
       <column name="BUILDING" type="VARCHAR(50)"/>
       <column name="IMPORTANCE" type="VARCHAR(20)"/>
       <column name="STATUS" type="VARCHAR(20)"/>
+      <column name="FILE_NAME" type="VARCHAR(500)"/>
+      <column name="FILE_ID" type="VARCHAR(500)"/>
     </createTable>
 
     <createTable tableName="CONTACT">
