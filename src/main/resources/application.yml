@@ -1,3 +1,6 @@
+app:
+  ui-path: /ui
+
 tesler:
   bean:
     multipart-resolver:
