@@ -20,6 +20,10 @@ public class ClientWriteDTO extends ClientAbstractDTO {
 
 	private MultivalueField fieldOfActivity;
 
+	private String fileName;
+
+	private String fileId;
+
 	public ClientWriteDTO(Client client) {
 		super(client);
 		this.city = client.getCity();
@@ -31,6 +35,9 @@ public class ClientWriteDTO extends ClientAbstractDTO {
 						Enum::name,
 						FieldOfActivity::getValue
 				));
+
+		this.fileName = client.getFileName();
+		this.fileId = client.getFileId();
 	}
 
 }

@@ -21,8 +21,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @RequiredArgsConstructor
 @Import({
-		PersistenceJPAConfig.class,
 		CoreApplicationConfig.class,
+		PersistenceJPAConfig.class,
 		UIConfig.class,
 		APIConfig.class
 })

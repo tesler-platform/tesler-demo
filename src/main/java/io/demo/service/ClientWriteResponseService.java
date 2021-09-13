@@ -60,6 +60,13 @@ public class ClientWriteResponseService extends VersionAwareResponseService<Clie
 		if (data.isFieldChanged(ClientWriteDTO_.city)) {
 			entity.setCity(data.getCity());
 		}
+		if (data.isFieldChanged(ClientWriteDTO_.fileName)) {
+			entity.setFileName(data.getFileName());
+		}
+		if (data.isFieldChanged(ClientWriteDTO_.fileId)) {
+			entity.setFileId(data.getFileId());
+		}
+
 		return new ActionResultDTO<>(entityToDto(bc, entity));
 	}
 
