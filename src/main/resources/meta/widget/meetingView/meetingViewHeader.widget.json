@@ -1,0 +1,7 @@
+{
+  "name": "meetingViewHeader",
+  "title": "Meeting Overview",
+  "type": "HeaderWidget",
+  "bc": "meetingEdit",
+  "fields": []
+}
