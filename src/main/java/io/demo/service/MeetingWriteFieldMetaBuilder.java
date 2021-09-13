@@ -1,4 +1,4 @@
-package io.demo.service.Meeting;
+package io.demo.service;
 
 import io.demo.dto.MeetingDTO;
 import io.demo.dto.MeetingDTO_;
@@ -13,15 +13,19 @@ import org.springframework.stereotype.Service;
 public class MeetingWriteFieldMetaBuilder extends FieldMetaBuilder<MeetingDTO> {
 
 	@Override
-	public void buildRowDependentMeta(RowDependentFieldsMeta<MeetingDTO> fields, InnerBcDescription bcDescription, Long id, Long parentId) {
+	public void buildRowDependentMeta(RowDependentFieldsMeta<MeetingDTO> fields, InnerBcDescription bcDescription,
+			Long id, Long parentId) {
 		fields.setEnabled(
 				MeetingDTO_.agenda,
 				MeetingDTO_.startDateTime,
 				MeetingDTO_.endDateTime,
 				MeetingDTO_.address,
 				MeetingDTO_.responsibleName,
+				MeetingDTO_.responsibleId,
 				MeetingDTO_.clientName,
-				MeetingDTO_.client_id
+				MeetingDTO_.clientId,
+				MeetingDTO_.contactName,
+				MeetingDTO_.contactId
 		);
 		fields.setRequired(
 				MeetingDTO_.agenda,
@@ -29,23 +33,25 @@ public class MeetingWriteFieldMetaBuilder extends FieldMetaBuilder<MeetingDTO> {
 				MeetingDTO_.endDateTime,
 				MeetingDTO_.address
 		);
-		if(fields.get(MeetingDTO_.status).getCurrentValue() == MeetingStatus.Completed){
+		if (MeetingStatus.Completed.equals(fields.get(MeetingDTO_.status).getCurrentValue())) {
 			fields.setEnabled(
 					MeetingDTO_.notes,
 					MeetingDTO_.result
-					);
+			);
 		}
-		if(fields.get(MeetingDTO_.client_id).getCurrentValue() != null){
+		if (fields.get(MeetingDTO_.clientId).getCurrentValue() != null) {
 			fields.setEnabled(
-					MeetingDTO_.contactName
+					MeetingDTO_.contactName,
+					MeetingDTO_.contactId
 			);
 		}
 	}
 
 	@Override
 	public void buildIndependentMeta(FieldsMeta<MeetingDTO> fields, InnerBcDescription bcDescription, Long parentId) {
-		fields.setForceActive(MeetingDTO_.client_id);
+		fields.setForceActive(MeetingDTO_.clientId);
 		fields.setForceActive(MeetingDTO_.startDateTime);
 		fields.setForceActive(MeetingDTO_.endDateTime);
 	}
+
 }

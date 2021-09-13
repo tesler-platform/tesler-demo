@@ -2,14 +2,18 @@ package io.demo.entity;
 
 import io.demo.entity.enums.MeetingStatus;
 import io.tesler.model.core.entity.BaseEntity;
+import io.tesler.model.core.entity.User;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
 
 @Entity
 @Table(name = "MEETING")
@@ -24,7 +28,8 @@ public class Meeting extends BaseEntity {
 
 	private Date endDateTime;
 
-	private MeetingStatus status;
+	@Enumerated(EnumType.STRING)
+	private MeetingStatus status = MeetingStatus.NotStarted;
 
 	private String address;
 
@@ -32,32 +37,16 @@ public class Meeting extends BaseEntity {
 
 	private String result;
 
-	private String responsibleName;
+	@ManyToOne
+	@JoinColumn(name = "RESPONSIBLE_ID")
+	private User responsible;
 
-	private String contactName;
+	@ManyToOne
+	@JoinColumn(name = "CONTACT_ID")
+	private Contact contact;
 
 	@ManyToOne
 	@JoinColumn(name = "CLIENT_ID")
 	private Client client;
-
-	private void updateStatus() {
-		Date date = new Date();
-		if (startDateTime != null && endDateTime != null) {
-			if (date.before(startDateTime)) {
-				this.status = MeetingStatus.NotStarted;
-			} else if (date.after(endDateTime)) {
-				this.status = MeetingStatus.Completed;
-			} else {
-				this.status = MeetingStatus.InProgress;
-			}
-		} else {
-			this.status = MeetingStatus.Error;
-		}
-	}
-
-	public MeetingStatus getStatus() {
-		updateStatus();
-		return status;
-	}
 
 }

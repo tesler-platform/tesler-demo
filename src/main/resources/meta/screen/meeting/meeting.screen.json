@@ -2,11 +2,7 @@
   "name": "meeting",
   "icon": "team",
   "order": 1,
-  "title": "Meetings",
-  "primaryViewName": "meetinglist",
-  "primaryViews": [
-    "meetinglist"
-  ],
+  "title": "Meeting",
   "navigation": {
     "menu": [
       {

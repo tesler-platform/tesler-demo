@@ -14,6 +14,7 @@ public class ResponsibleDTO extends DataResponseDTO {
 	private String name;
 
 	public ResponsibleDTO(User user) {
+		this.id = user.getId().toString();
 		this.name = user.getFullName();
 	}
 
