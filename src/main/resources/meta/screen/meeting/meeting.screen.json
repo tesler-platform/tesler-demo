@@ -1,0 +1,28 @@
+{
+  "name": "meeting",
+  "icon": "team",
+  "order": 1,
+  "title": "Meetings",
+  "primaryViewName": "meetinglist",
+  "primaryViews": [
+    "meetinglist"
+  ],
+  "navigation": {
+    "menu": [
+      {
+        "title": "Meetings",
+        "child": [
+          {
+            "viewName": "meetinglist"
+          },
+          {
+            "viewName": "meetingedit"
+          },
+          {
+            "viewName": "meetingview"
+          }
+        ]
+      }
+    ]
+  }
+}

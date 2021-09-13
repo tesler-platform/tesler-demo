@@ -4,12 +4,19 @@ import io.demo.entity.enums.ClientImportance;
 import io.demo.entity.enums.ClientStatus;
 import io.demo.entity.enums.FieldOfActivity;
 import io.tesler.model.core.entity.BaseEntity;
+import java.util.Set;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "CLIENT")
@@ -36,6 +43,9 @@ public class Client extends BaseEntity {
 
 	@OneToMany(mappedBy = "client")
 	private Set<Contact> contacts;
+
+	@OneToMany(mappedBy = "client")
+	private Set<Meeting> meetings;
 
 	@Enumerated(value = EnumType.STRING)
 	private ClientImportance importance;

@@ -1,0 +1,93 @@
+{
+  "name": "meetingEdit",
+  "title": "General information",
+  "type": "Form",
+  "bc": "meetingEdit",
+  "fields": [
+    {
+      "label": "Agenda",
+      "key": "agenda",
+      "type": "input"
+    },
+    {
+      "label": "Start Date and Time",
+      "key": "startDateTime",
+      "type": "dateTime"
+    },
+    {
+      "label": "End Date and Time",
+      "key": "endDateTime",
+      "type": "dateTime"
+    },
+     {
+       "label": "Status",
+       "key": "status",
+       "type": "input"
+     },
+    {
+      "label": "Address",
+      "key": "address",
+      "type": "input"
+    },
+    {
+      "label": "Responsible",
+      "key": "responsibleName",
+      "type": "pickList",
+      "popupBcName": "responsiblePickListPopup",
+      "pickMap": {
+        "responsibleName": "name"
+      }
+    }
+  ],
+  "options": {
+    "actionGroups": {
+      "include": [
+
+      ]
+    },
+    "layout": {
+      "rows": [
+        {
+          "cols": [
+            {
+              "fieldKey": "agenda",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "startDateTime",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "endDateTime",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "address",
+              "span": 12
+            }
+          ]
+        },
+       {
+         "cols": [
+           {
+             "fieldKey": "responsibleName",
+             "span": 12
+           }
+         ]
+       }
+      ]
+    }
+  }
+}

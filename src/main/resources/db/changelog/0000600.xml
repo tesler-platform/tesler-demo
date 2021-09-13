@@ -72,4 +72,96 @@
     </createTable>
   </changeSet>
 
+  <changeSet id="meeting table" author="kuzin">
+    <createTable tableName="MEETING">
+      <column name="ID" remarks="Identifier" type="NUMBER(19, 0)">
+        <constraints primaryKey="true"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="meeting table fix" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column name="AGENDA" type="VARCHAR(200)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="meeting adding columns" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Creation date"
+        type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Last updated date"
+        type="TIMESTAMP(6)">
+        <constraints nullable="false"/>
+      </column>
+      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false" foreignKeyName="MEETING_CREATED_BY" referencedColumnNames="ID" referencedTableName="USERS"/>
+      </column>
+      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
+        <constraints nullable="false" foreignKeyName="MEETING_LAST_UPD_BY" referencedColumnNames="ID" referencedTableName="USERS"/>
+      </column>
+      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="date and time added" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column name="DATE_TIME" type="DATETIME"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="start and end dateTime" author="kuzin">
+    <renameColumn tableName="MEETING" oldColumnName="DATE_TIME" newColumnName="START_DATE_TIME"></renameColumn>
+    <addColumn tableName="MEETING">
+      <column name="END_DATE_TIME" type="TIMESTAMP(6)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="adding columns to meeting table" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column name="ADDRESS" type="VARCHAR(200)"></column>
+      <column name="NOTES" type="VARCHAR(200)"></column>
+      <column name="RESULT" type="VARCHAR(200)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="adding status" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column name="STATUS" type="VARCHAR(200)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="adding responsible" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column name="RESPONSIBLE" type="VARCHAR(200)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="rename responsible" author="kuzin">
+    <renameColumn tableName="MEETING" oldColumnName="RESPONSIBLE" newColumnName="RESPONSIBLE_NAME"></renameColumn>
+  </changeSet>
+
+  <changeSet id="adding client and contact columns" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column name="CLIENT_NAME" type="VARCHAR(200)"></column>
+      <column name="CONTACT_NAME" type="VARCHAR(200)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="adding clientID column" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column name="CLIENT_ID" type="NUMBER(19, 0)"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="deleting clientName column" author="kuzin">
+      <dropColumn tableName="MEETING">
+        <column  name="CLIENT_NAME"/>
+      </dropColumn>
+  </changeSet>
+
 </databaseChangeLog>
