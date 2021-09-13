@@ -1,7 +1,6 @@
 app:
   ui-path: /ui
 
-
 tesler:
   meta:
     dev-panel-enabled: ${DEV_PANEL_ENABLED:true}
@@ -10,6 +9,12 @@ tesler:
   widget:
     fields:
       include-packages: io.tesler.core.ui.model.json.field.subtypes, io.demo.conf.tesler.meta
+  api:
+    path: /api/v1
+    use-servlet-context-path: false
+  ui:
+    path: /ui
+    use-servlet-context-path: false
 
 server:
   forward-headers-strategy: framework
@@ -36,12 +41,23 @@ spring:
   jpa:
     properties:
       hibernate:
+        synonyms: true
         default_batch_fetch_size: 100
         order_updates: true
         order_inserts: true
         batch_versioned_data: true
+        batch_fetch_style: DYNAMIC
+        criteria:
+          literal_handling_mode: BIND
+        connection:
+          includeSynonyms: true
+          charSet: UTF-8
         jdbc:
           batch_size: 100
+    hibernate:
+      naming:
+        physical-strategy: io.tesler.model.core.hbn.ImprovedPhysicalNamingStrategy
+    database:
   main:
     allow-bean-definition-overriding: true
     banner-mode: off
