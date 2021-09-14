@@ -12,6 +12,7 @@ import Info from '../widgets/Info/Info'
 import Table from '../widgets/Table/Table'
 import { FieldType } from '@tesler-ui/core/interfaces/view'
 import Dictionary from '../../fields/Dictionary/Dictionary'
+import Steps from '../widgets/Steps/Steps'
 
 const skipWidgetTypes = [WidgetTypes.SecondLevelMenu]
 
@@ -24,7 +25,8 @@ const customWidgets: Partial<Record<CustomWidgetTypes | WidgetTypes, CustomWidge
     [WidgetTypes.Form]: { component: Form },
     [WidgetTypes.Info]: { component: Info },
     [WidgetTypes.List]: { component: Table },
-    [WidgetTypes.HeaderWidget]: { component: Header, card: EmptyCard }
+    [WidgetTypes.HeaderWidget]: { component: Header, card: EmptyCard },
+    [CustomWidgetTypes.Steps]: { component: Steps, card: EmptyCard }
 }
 
 function View() {
