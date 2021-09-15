@@ -5,6 +5,11 @@
   "url": "/screen/meeting/view/meetingedit",
   "widgets": [
     {
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
       "widgetName": "meetingCreationHeader",
       "position": 1,
       "gridWidth": 4

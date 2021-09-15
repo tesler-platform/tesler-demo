@@ -7,12 +7,12 @@
     {
       "label": "Notes",
       "key": "notes",
-      "type": "input"
+      "type": "text"
     },
     {
       "label": "Results",
       "key": "result",
-      "type": "input"
+      "type": "text"
     }
   ],
   "options": {

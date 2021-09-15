@@ -16,13 +16,8 @@
       "type": "input"
     },
     {
-      "title": "Start Date and Time",
+      "title": "Start Date",
       "key": "startDateTime",
-      "type": "dateTime"
-    },
-    {
-      "title": "End Date and Time",
-      "key": "endDateTime",
       "type": "dateTime"
     },
     {
@@ -31,13 +26,13 @@
       "type": "input"
     },
     {
-      "title": "Client ID",
-      "key": "client_id",
+      "title": "clientId",
+      "key": "clientId",
       "type": "input",
       "hidden": "true"
     },
     {
-      "title": "Client",
+      "title": "Client Name",
       "key": "clientName",
       "type": "input",
       "drillDown": "true"

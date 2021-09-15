@@ -1,4 +1,4 @@
-package io.demo.service.Meeting.PickListPopup;
+package io.demo.service;
 
 import io.demo.dto.ContactDTO;
 import io.demo.entity.Contact;
@@ -28,8 +28,10 @@ public class ContactPickListPopupService extends VersionAwareResponseService<Con
 		Meeting meeting = meetingRepository.getById(bc.getParentIdAsLong());
 		return (root, cq, cb) -> cb.and(
 				super.getParentSpecification(bc).toPredicate(root, cq, cb),
-				cb.equal(root.get(Contact_.client).get(BaseEntity_.id),
-						meeting.getClient()!=null ? meeting.getClient().getId() : null)
+				cb.equal(
+						root.get(Contact_.client).get(BaseEntity_.id),
+						meeting.getClient() != null ? meeting.getClient().getId() : null
+				)
 		);
 	}
 

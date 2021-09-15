@@ -1,4 +1,4 @@
-package io.demo.common;
+package io.demo.conf.tesler.icon;
 
 import io.tesler.core.service.action.ActionIconSpecifier;
 import lombok.AllArgsConstructor;

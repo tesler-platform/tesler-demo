@@ -5,13 +5,13 @@
   "bc": "meetingEdit",
   "fields": [
     {
-      "label": "Client",
+      "label": "Client Name",
       "key": "clientName",
       "type": "pickList",
       "popupBcName": "clientPickListPopup",
       "pickMap": {
         "clientName": "fullName",
-        "client_id": "id"
+        "clientId": "id"
       }
     },
     {
@@ -20,7 +20,8 @@
       "type": "pickList",
       "popupBcName": "contactPickListPopup",
       "pickMap": {
-        "contactName": "fullName"
+        "contactName": "fullName",
+        "contactId": "id"
       }
     }
   ],

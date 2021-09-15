@@ -10,12 +10,12 @@
       "type": "input"
     },
     {
-      "label": "Start Date and Time",
+      "label": "Start Date",
       "key": "startDateTime",
       "type": "dateTime"
     },
     {
-      "label": "End Date and Time",
+      "label": "End Date",
       "key": "endDateTime",
       "type": "dateTime"
     },
@@ -27,6 +27,11 @@
     {
       "label": "Address",
       "key": "address",
+      "type": "text"
+    },
+    {
+      "label": "Status",
+      "key": "status",
       "type": "input"
     },
     {
@@ -35,7 +40,8 @@
       "type": "pickList",
       "popupBcName": "responsiblePickListPopup",
       "pickMap": {
-        "responsibleName": "name"
+        "responsibleName": "name",
+        "responsibleId": "id"
       }
     }
   ],
@@ -59,15 +65,11 @@
           "cols": [
             {
               "fieldKey": "startDateTime",
-              "span": 12
-            }
-          ]
-        },
-        {
-          "cols": [
+              "span": 6
+            },
             {
               "fieldKey": "endDateTime",
-              "span": 12
+              "span": 6
             }
           ]
         },
