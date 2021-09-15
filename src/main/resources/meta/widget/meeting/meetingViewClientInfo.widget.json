@@ -5,21 +5,15 @@
   "bc": "meeting",
   "fields": [
     {
-      "blockId": "1",
-      "name": "Client Information",
-      "fields": [
-        {
-          "label": "Client Name",
-          "key": "clientName",
-          "type": "input",
-          "drillDown": "true"
-        },
-        {
-          "label": "Contact",
-          "key": "contactName",
-          "type": "input"
-        }
-      ]
+      "label": "Client Name",
+      "key": "clientName",
+      "type": "input",
+      "drillDown": "true"
+    },
+    {
+      "label": "Contact",
+      "key": "contactName",
+      "type": "input"
     }
   ],
   "options": {

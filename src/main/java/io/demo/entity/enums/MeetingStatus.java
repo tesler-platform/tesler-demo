@@ -1,17 +1,72 @@
 package io.demo.entity.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.common.collect.Lists;
+import io.demo.entity.Meeting;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import javax.persistence.criteria.CriteriaBuilder.In;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NonNull;
 
 @Getter
 @AllArgsConstructor
 public enum MeetingStatus {
-	InProgress("In progress"),
-	NotStarted("Not started"),
-	Completed("Completed"),
-	Error("Error");
+	Completed("Completed", "Finish") {
+		@Override
+		public List<MeetingStatus> available(@NonNull Meeting meeting) {
+			return Arrays.asList(InProgress);
+		}
+
+		@Override
+		public void transition(@NonNull MeetingStatus meetingStatus, @NonNull Meeting meeting) {
+			meeting.setStatus(meetingStatus);
+		}
+	},
+	InProgress("In progress", "Start Meeting") {
+		@Override
+		public List<MeetingStatus> available(@NonNull Meeting meeting) {
+			return Arrays.asList(Completed, Cancelled);
+		}
+
+		@Override
+		public void transition(@NonNull MeetingStatus meetingStatus, @NonNull Meeting meeting) {
+			meeting.setStatus(meetingStatus);
+		}
+	},
+	NotStarted("Not started", "") {
+		@Override
+		public List<MeetingStatus> available(@NonNull Meeting meeting) {
+			return Arrays.asList(Cancelled, InProgress);
+		}
+
+		@Override
+		public void transition(@NonNull MeetingStatus meetingStatus, @NonNull Meeting meeting) {
+			meeting.setStatus(meetingStatus);
+		}
+	},
+	Cancelled("Cancelled", "Cancel Meeting") {
+		@Override
+		public List<MeetingStatus> available(@NonNull Meeting meeting) {
+			return Arrays.asList(InProgress);
+		}
+
+		@Override
+		public void transition(@NonNull MeetingStatus meetingStatus, @NonNull Meeting meeting) {
+			meeting.setStatus(meetingStatus);
+		}
+	};
 
 	@JsonValue
 	private final String value;
+
+	private final String button;
+
+	public abstract List<MeetingStatus> available(@NonNull Meeting meeting);
+
+	public abstract void transition(@NonNull MeetingStatus meetingStatus, @NonNull Meeting meeting);
 }

@@ -9,19 +9,19 @@
       "name": "General Information",
       "fields": [
         {
-          "label": "Meeting",
+          "label": "Agenda",
           "key": "agenda",
           "type": "input"
         },
         {
-          "label": "Start Date and Time",
-          "key": "startDateTime",
-          "type": "dateTime"
+          "label": "Date and time",
+          "key": "period",
+          "type": "input"
         },
         {
-          "label": "End Date and Time",
-          "key": "endDateTime",
-          "type": "dateTime"
+          "label": "Status",
+          "key": "status",
+          "type": "input"
         },
         {
           "label": "Status",
@@ -60,7 +60,7 @@
         {
           "cols": [
             {
-              "fieldKey": "startDateTime",
+              "fieldKey": "period",
               "span": 12
             }
           ]
@@ -68,7 +68,7 @@
         {
           "cols": [
             {
-              "fieldKey": "endDateTime",
+              "fieldKey": "status",
               "span": 12
             }
           ]

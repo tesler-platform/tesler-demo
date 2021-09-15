@@ -1,4 +1,4 @@
-package io.demo.service.Meeting.PickListPopup;
+package io.demo.service;
 
 import io.demo.dto.ClientReadDTO;
 import io.demo.entity.Client;

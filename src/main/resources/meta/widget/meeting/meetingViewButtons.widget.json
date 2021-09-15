@@ -7,7 +7,7 @@
   "options": {
     "actionGroups": {
       "include": [
-       "edit"
+        "actions"
       ]
     }
   }

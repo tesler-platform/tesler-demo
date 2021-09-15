@@ -5,6 +5,11 @@
   "url": "/screen/client/view/clientedit",
   "widgets": [
     {
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
       "widgetName": "clientCreationHeader",
       "position": 1,
       "gridWidth": 4

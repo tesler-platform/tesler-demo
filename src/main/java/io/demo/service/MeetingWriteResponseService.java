@@ -1,11 +1,13 @@
-package io.demo.service.Meeting;
+package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
 import io.demo.dto.MeetingDTO;
 import io.demo.dto.MeetingDTO_;
 import io.demo.entity.Meeting;
 import io.demo.repository.ClientRepository;
+import io.demo.repository.ContactRepository;
 import io.demo.repository.MeetingRepository;
+import io.demo.repository.UserRepository;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.DrillDownType;
@@ -22,11 +24,16 @@ public class MeetingWriteResponseService extends VersionAwareResponseService<Mee
 
 	private final ClientRepository clientRepository;
 
+	private final ContactRepository contactRepository;
 
-	public MeetingWriteResponseService(MeetingRepository meetingRepository, ClientRepository clientRepository) {
+	private final UserRepository userRepository;
+
+	public MeetingWriteResponseService(MeetingRepository meetingRepository, ClientRepository clientRepository, ContactRepository contactRepository, UserRepository userRepository) {
 		super(MeetingDTO.class, Meeting.class, null, MeetingWriteFieldMetaBuilder.class);
 		this.meetingRepository = meetingRepository;
 		this.clientRepository = clientRepository;
+		this.contactRepository = contactRepository;
+		this.userRepository = userRepository;
 	}
 
 	@Override
@@ -35,20 +42,9 @@ public class MeetingWriteResponseService extends VersionAwareResponseService<Mee
 		return new CreateResult<>(entityToDto(bc, entity)).setAction(PostAction.drillDown(
 				DrillDownType.INNER,
 				"/screen/meeting/view/meetingedit/"
-						+ TeslerRestController.responsiblePickListPopup
+						+ TeslerRestController.meetingEdit
 						+ "/" + entity.getId()
-		)).setAction(PostAction.drillDown(
-				DrillDownType.INNER,
-				"/screen/meeting/view/meetingedit/"
-						+ TeslerRestController.clientPickListPopup
-						+ "/" + entity.getId()
-		)).setAction(PostAction.drillDown(
-				DrillDownType.INNER,
-				"/screen/meeting/view/meetingedit/"
-						+ TeslerRestController.contactPickListPopup
-						+ "/" + entity.getId()
-		))
-				;
+		));
 	}
 
 	@Override
@@ -71,19 +67,27 @@ public class MeetingWriteResponseService extends VersionAwareResponseService<Mee
 		if (data.isFieldChanged(MeetingDTO_.result)) {
 			entity.setResult(data.getResult());
 		}
-		if (data.isFieldChanged(MeetingDTO_.responsibleName)) {
-			entity.setResponsibleName(data.getResponsibleName());
+		if (data.isFieldChanged(MeetingDTO_.responsibleId)) {
+			if (data.getResponsibleId() != null) {
+				entity.setResponsible(userRepository.getById(data.getResponsibleId()));
+			} else {
+				entity.setResponsible(null);
+			}
 		}
-		if (data.isFieldChanged(MeetingDTO_.client_id)) {
-			if (data.getClient_id() != null) {
-				entity.setClient(clientRepository.getById(data.getClient_id()));
+		if (data.isFieldChanged(MeetingDTO_.clientId)) {
+			if (data.getClientId() != null) {
+				entity.setClient(clientRepository.getById(data.getClientId()));
 			} else {
 				entity.setClient(null);
 			}
-			entity.setContactName(null);
+			entity.setContact(null);
 		}
-		if (data.isFieldChanged(MeetingDTO_.contactName)) {
-			entity.setContactName(data.getContactName());
+		if (data.isFieldChanged(MeetingDTO_.contactId)) {
+			if (data.getContactId() != null) {
+				entity.setContact(contactRepository.getById(data.getContactId()));
+			} else {
+				entity.setContact(null);
+			}
 		}
 		meetingRepository.save(entity);
 		return new ActionResultDTO<>(entityToDto(bc, entity));

@@ -1,4 +1,4 @@
-package io.demo.service.Meeting.PickListPopup;
+package io.demo.service;
 
 import io.demo.dto.ResponsibleDTO;
 import io.tesler.core.crudma.bc.BusinessComponent;
