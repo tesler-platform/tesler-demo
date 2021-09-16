@@ -42,6 +42,12 @@
       "key": "contactName",
       "type": "input"
     }
-  ]
+  ],
+  "options": {
+    "actionGroups": {
+      "include": [
+        "create"
+      ]
+    }
+  }
 }
-

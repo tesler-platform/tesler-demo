@@ -13,18 +13,10 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class ClientReadDTO extends ClientAbstractDTO {
 
-	private String address;
-
 	private String fieldOfActivity;
 
 	public ClientReadDTO(Client client) {
 		super(client);
-		this.address = String.join(
-				", ",
-				client.getStreet(),
-				client.getBuilding(),
-				client.getCity()
-		);
 		this.fieldOfActivity = client.getFieldOfActivities()
 				.stream()
 				.map(FieldOfActivity::getValue)

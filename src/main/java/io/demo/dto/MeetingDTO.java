@@ -11,7 +11,6 @@ import io.tesler.model.core.entity.BaseEntity;
 import io.tesler.model.core.entity.User;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Optional;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

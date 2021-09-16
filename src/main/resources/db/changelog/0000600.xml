@@ -27,14 +27,11 @@
         <constraints nullable="false"/>
       </column>
       <column name="FULL_NAME" type="VARCHAR(200)"/>
-      <column name="DESCRIPTION" type="TEXT"/>
-      <column name="CITY" type="VARCHAR(50)"/>
-      <column name="STREET" type="VARCHAR(150)"/>
-      <column name="BUILDING" type="VARCHAR(50)"/>
+      <column name="ADDRESS" type="VARCHAR(500)"/>
       <column name="IMPORTANCE" type="VARCHAR(20)"/>
-      <column name="STATUS" type="VARCHAR(20)"/>
-      <column name="FILE_NAME" type="VARCHAR(500)"/>
-      <column name="FILE_ID" type="VARCHAR(500)"/>
+      <column name="EDIT_STEP" type="VARCHAR(200)"/>
+      <column name="BREIF" type="VARCHAR(500)"/>
+      <column name="BREIF_ID" type="VARCHAR(500)"/>
     </createTable>
 
     <createTable tableName="CONTACT">
