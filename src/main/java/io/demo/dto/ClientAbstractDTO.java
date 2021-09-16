@@ -3,7 +3,6 @@ package io.demo.dto;
 import io.demo.entity.Client;
 import io.demo.entity.enums.ClientEditStep;
 import io.demo.entity.enums.ClientImportance;
-import io.demo.entity.enums.ClientStatus;
 import io.tesler.api.data.dto.DataResponseDTO;
 import java.util.Optional;
 import lombok.Getter;
