@@ -1,0 +1,27 @@
+{
+  "name": "clienteditcreatecontact",
+  "title": "Client Edit",
+  "template": "DashboardView",
+  "url": "/screen/client/view/clienteditcreatecontact",
+  "widgets": [
+    {
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },{
+      "widgetName": "clientContactCreation",
+      "position": 1,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "contactEditForm",
+      "position": 5,
+      "gridWidth": 4
+    }
+  ],
+  "rolesAllowed": [
+    "ADMIN",
+    "ROLE_ADMIN",
+    "ROLE_USER"
+  ]
+}

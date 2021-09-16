@@ -1,6 +1,6 @@
 {
   "name": "meeting",
-  "icon": "team",
+  "icon": "calendar",
   "order": 1,
   "title": "Meeting",
   "navigation": {

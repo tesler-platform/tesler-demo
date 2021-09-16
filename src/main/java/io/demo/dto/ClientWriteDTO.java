@@ -12,32 +12,16 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ClientWriteDTO extends ClientAbstractDTO {
 
-	private String city;
-
-	private String street;
-
-	private String building;
-
 	private MultivalueField fieldOfActivity;
-
-	private String fileName;
-
-	private String fileId;
 
 	public ClientWriteDTO(Client client) {
 		super(client);
-		this.city = client.getCity();
-		this.street = client.getStreet();
-		this.building = client.getBuilding();
 		this.fieldOfActivity = client.getFieldOfActivities()
 				.stream()
 				.collect(MultivalueField.toMultivalueField(
 						Enum::name,
 						FieldOfActivity::getValue
 				));
-
-		this.fileName = client.getFileName();
-		this.fileId = client.getFileId();
 	}
 
 }

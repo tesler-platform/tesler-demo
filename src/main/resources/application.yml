@@ -39,6 +39,7 @@ spring:
     password: ${DATABASE_PASSWORD:postgres}
   liquibase:
     change-log: classpath:/db/db.changelog-master.xml
+    drop-first: true
   cache:
     type: None
   jpa:

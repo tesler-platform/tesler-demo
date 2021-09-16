@@ -5,13 +5,8 @@
   "bc": "clientEdit",
   "fields": [
     {
-      "label": "Full Name",
+      "label": "Client Name",
       "key": "fullName",
-      "type": "input"
-    },
-    {
-      "label": "Description",
-      "key": "description",
       "type": "input"
     },
     {
@@ -20,18 +15,8 @@
       "type": "dictionary"
     },
     {
-      "label": "City",
-      "key": "city",
-      "type": "input"
-    },
-    {
-      "label": "Street",
-      "key": "street",
-      "type": "input"
-    },
-    {
-      "label": "Building",
-      "key": "building",
+      "label": "Address",
+      "key": "address",
       "type": "input"
     },
     {
@@ -40,21 +25,20 @@
       "type": "multipleSelect"
     },
     {
-      "label": "fileId",
-      "key": "fileId",
+      "label": "breifId",
+      "key": "breifId",
       "type": "hidden"
     },
     {
-      "label": "file",
-      "key": "fileName",
+      "label": "Breif",
+      "key": "breif",
       "type": "fileUpload",
-      "fileIdKey": "fileId"
+      "fileIdKey": "breifId"
     }
   ],
   "options": {
     "actionGroups": {
       "include": [
-        "save"
       ]
     },
     "layout": {
@@ -70,14 +54,6 @@
         {
           "cols": [
             {
-              "fieldKey": "description",
-              "span": 12
-            }
-          ]
-        },
-        {
-          "cols": [
-            {
               "fieldKey": "importance",
               "span": 12
             }
@@ -86,23 +62,7 @@
         {
           "cols": [
             {
-              "fieldKey": "city",
-              "span": 12
-            }
-          ]
-        },
-        {
-          "cols": [
-            {
-              "fieldKey": "street",
-              "span": 12
-            }
-          ]
-        },
-        {
-          "cols": [
-            {
-              "fieldKey": "building",
+              "fieldKey": "address",
               "span": 12
             }
           ]
@@ -118,7 +78,7 @@
         {
           "cols": [
             {
-              "fieldKey": "fileName",
+              "fieldKey": "breif",
               "span": 12
             }
           ]
