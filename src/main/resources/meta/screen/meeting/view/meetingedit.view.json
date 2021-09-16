@@ -43,7 +43,12 @@
        "widgetName": "contactPickListPopup",
        "position": 1,
        "gridWidth": 2
-     }
+     },
+    {
+      "widgetName": "meetingEditButtons",
+      "position": 6,
+      "gridWidth": 2
+    }
   ],
   "rolesAllowed": [
     "ADMIN",

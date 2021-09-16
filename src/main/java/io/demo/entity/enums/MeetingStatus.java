@@ -1,14 +1,9 @@
 package io.demo.entity.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.google.common.collect.Lists;
 import io.demo.entity.Meeting;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import javax.persistence.criteria.CriteriaBuilder.In;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;

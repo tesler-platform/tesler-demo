@@ -15,36 +15,39 @@ public class MeetingWriteFieldMetaBuilder extends FieldMetaBuilder<MeetingDTO> {
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<MeetingDTO> fields, InnerBcDescription bcDescription,
 			Long id, Long parentId) {
-		fields.setEnabled(
-				MeetingDTO_.agenda,
-				MeetingDTO_.startDateTime,
-				MeetingDTO_.endDateTime,
-				MeetingDTO_.address,
-				MeetingDTO_.responsibleName,
-				MeetingDTO_.responsibleId,
-				MeetingDTO_.clientName,
-				MeetingDTO_.clientId,
-				MeetingDTO_.contactName,
-				MeetingDTO_.contactId
-		);
+		if (MeetingStatus.Completed.equals(fields.get(MeetingDTO_.status).getCurrentValue())) {
+			fields.setEnabled(
+					MeetingDTO_.notes,
+					MeetingDTO_.result
+			);
+		} else {
+			fields.setEnabled(
+					MeetingDTO_.agenda,
+					MeetingDTO_.startDateTime,
+					MeetingDTO_.endDateTime,
+					MeetingDTO_.address,
+					MeetingDTO_.responsibleName,
+					MeetingDTO_.responsibleId,
+					MeetingDTO_.clientName,
+					MeetingDTO_.clientId,
+					MeetingDTO_.contactName,
+					MeetingDTO_.contactId
+			);
+			if (fields.get(MeetingDTO_.clientId).getCurrentValue() != null) {
+				fields.setEnabled(
+						MeetingDTO_.contactName,
+						MeetingDTO_.contactId
+				);
+			}
+		}
+
 		fields.setRequired(
 				MeetingDTO_.agenda,
 				MeetingDTO_.startDateTime,
 				MeetingDTO_.endDateTime,
 				MeetingDTO_.address
 		);
-		if (MeetingStatus.Completed.equals(fields.get(MeetingDTO_.status).getCurrentValue())) {
-			fields.setEnabled(
-					MeetingDTO_.notes,
-					MeetingDTO_.result
-			);
-		}
-		if (fields.get(MeetingDTO_.clientId).getCurrentValue() != null) {
-			fields.setEnabled(
-					MeetingDTO_.contactName,
-					MeetingDTO_.contactId
-			);
-		}
+
 	}
 
 	@Override

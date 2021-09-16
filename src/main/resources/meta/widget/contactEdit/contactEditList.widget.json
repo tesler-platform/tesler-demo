@@ -25,7 +25,9 @@
     "actionGroups": {
       "include": [
         "create",
-        "save"
+        "save",
+        "add",
+        "add2"
       ]
     }
   }

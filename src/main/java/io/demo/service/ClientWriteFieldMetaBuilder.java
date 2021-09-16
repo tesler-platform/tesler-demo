@@ -1,9 +1,10 @@
 package io.demo.service;
 
+import io.demo.dto.ClientWriteDTO_;
+import io.demo.entity.enums.ClientEditStep;
 import io.demo.entity.enums.ClientImportance;
 import io.demo.entity.enums.FieldOfActivity;
 import io.demo.dto.ClientWriteDTO;
-import io.demo.dto.ClientWriteDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;
@@ -19,28 +20,28 @@ public class ClientWriteFieldMetaBuilder extends FieldMetaBuilder<ClientWriteDTO
 			Long id, Long parentId) {
 		fields.setEnabled(
 				ClientWriteDTO_.fullName,
-				ClientWriteDTO_.city,
-				ClientWriteDTO_.street,
-				ClientWriteDTO_.building,
-				ClientWriteDTO_.description,
+				ClientWriteDTO_.address,
 				ClientWriteDTO_.importance,
 				ClientWriteDTO_.fieldOfActivity,
-				ClientWriteDTO_.fileId,
-				ClientWriteDTO_.fileName
+				ClientWriteDTO_.breifId,
+				ClientWriteDTO_.breif,
+				ClientWriteDTO_.editStep
 		);
 		fields.setRequired(
 				ClientWriteDTO_.fullName,
 				ClientWriteDTO_.importance,
-				ClientWriteDTO_.description,
-				ClientWriteDTO_.city,
+				ClientWriteDTO_.address,
 				ClientWriteDTO_.fieldOfActivity
 		);
 
 		fields.setEnumValues(ClientWriteDTO_.importance, ClientImportance.values());
 
+		fields.setEnumValues(ClientWriteDTO_.editStep, ClientEditStep.values());
+
 		fields.setDictionaryTypeWithCustomValues(
 				ClientWriteDTO_.fieldOfActivity,
-				Arrays.stream(FieldOfActivity.values()).map(FieldOfActivity::getValue)
+				Arrays.stream(FieldOfActivity.values())
+						.map(FieldOfActivity::getValue)
 						.toArray(String[]::new)
 		);
 	}

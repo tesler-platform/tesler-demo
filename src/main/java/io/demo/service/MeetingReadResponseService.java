@@ -15,6 +15,7 @@ import io.tesler.core.dto.rowmeta.PostAction;
 import io.tesler.core.service.action.ActionScope;
 import io.tesler.core.service.action.Actions;
 import io.tesler.core.service.action.ActionsBuilder;
+import io.tesler.core.util.session.SessionService;
 import java.util.Arrays;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +24,17 @@ public class MeetingReadResponseService extends VersionAwareResponseService<Meet
 
 	private final MeetingRepository meetingRepository;
 
-	public MeetingReadResponseService(MeetingRepository meetingRepository) {
+	private final SessionService sessionService;
+
+	public MeetingReadResponseService(MeetingRepository meetingRepository, SessionService sessionService) {
 		super(MeetingDTO.class, Meeting.class, null, MeetingReadFieldMetaBuilder.class);
 		this.meetingRepository = meetingRepository;
+		this.sessionService = sessionService;
 	}
 
 	@Override
 	protected CreateResult<MeetingDTO> doCreateEntity(Meeting entity, BusinessComponent bc) {
+		entity.setResponsible(sessionService.getSessionUser());
 		meetingRepository.save(entity);
 		return new CreateResult<>(entityToDto(bc, entity))
 				.setAction(PostAction.drillDown(
@@ -74,6 +79,7 @@ public class MeetingReadResponseService extends VersionAwareResponseService<Meet
 										bc.getId()
 								)
 						)))
+				.scope(ActionScope.BC)
 				.add();
 	}
 
@@ -83,9 +89,20 @@ public class MeetingReadResponseService extends VersionAwareResponseService<Meet
 					.invoker((bc, dto) -> {
 						Meeting meeting = meetingRepository.getById(Long.parseLong(bc.getId()));
 						meeting.getStatus().transition(status, meeting);
+						if (meeting.getStatus().equals(MeetingStatus.Completed)) {
+							return new ActionResultDTO<MeetingDTO>().setAction(PostAction.drillDown(
+									DrillDownType.INNER,
+									"/screen/meeting/view/meetingedit/"
+											+ TeslerRestController.meetingEdit
+											+ "/" + meeting.getId()
+							));
+						}
 						return new ActionResultDTO<MeetingDTO>().setAction(PostAction.refreshBc(bc.getDescription()));
 					})
 					.available(bc -> {
+						if (bc.getId() == null) {
+							return false;
+						}
 						Meeting meeting = meetingRepository.getById(Long.parseLong(bc.getId()));
 						return meeting.getStatus().available(meeting).contains(status);
 					})

@@ -1,8 +1,8 @@
 {
-  "name": "clientview",
-  "title": "Client View",
+  "name": "clienteditoverview",
+  "title": "Client Edit",
   "template": "DashboardView",
-  "url": "/screen/client/view/clientview",
+  "url": "/screen/client/view/clienteditoverview",
   "widgets": [
     {
       "widgetName": "SecondLevelMenu",
@@ -10,13 +10,13 @@
       "gridWidth": 4
     },
     {
-      "widgetName": "clientViewHeader",
-      "position": 1,
+      "widgetName": "clientEditStep",
+      "position": 0,
       "gridWidth": 4
     },
     {
-      "widgetName": "clientViewOperations",
-      "position": 2,
+      "widgetName": "clientViewHeader",
+      "position": 1,
       "gridWidth": 4
     },
     {
@@ -31,6 +31,11 @@
     },
     {
       "widgetName": "contactViewList",
+      "position": 4,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEditButtons",
       "position": 4,
       "gridWidth": 4
     }
