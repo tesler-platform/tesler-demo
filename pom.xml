@@ -34,8 +34,8 @@
     <repository>
       <id>snapshots-repo</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        <releases/>
-        <snapshots/>
+      <releases/>
+      <snapshots/>
     </repository>
   </repositories>
 
@@ -135,10 +135,22 @@
     </dependencies>
   </dependencyManagement>
   <build>
+    <finalName>tesler-demo</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>io.demo.Application</mainClass>
+          <classifier>exec</classifier>
+        </configuration>
       </plugin>
 
       <plugin>

@@ -72,13 +72,14 @@ keycloak:
   bearer-only: true
   public-client: true
   use-resource-role-mappings: false
+  ssl-required: none
 springdoc:
   packages-to-scan: io.demo
 
 minio:
   access:
-    name: 4eb6a7db8b58994ea61b
-    secret: prCv8t9LGRH18FB5pLr5jqDZ/dixZkb9cFajueGW
-  url: http://localhost:9000
+    name: ${MINIO_ACCESS_KEY:4eb6a7db8b58994ea61b}
+    secret: ${MINIO_SECRET_KEY:prCv8t9LGRH18FB5pLr5jqDZ/dixZkb9cFajueGW}
+  url: ${MINIO_URL:http://localhost:9000}
   bucket:
-    name: edcs3gnsadevb
+    name:  ${MINIO_DEFAULT_BUCKETS:edcs3gnsadevb}
