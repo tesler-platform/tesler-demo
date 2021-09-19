@@ -9,7 +9,7 @@ import io.tesler.core.service.rowmeta.FieldMetaBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ResponsiblePickListPopupBuilder extends FieldMetaBuilder<ResponsibleDTO> {
+public class ResponsiblePickListMeta extends FieldMetaBuilder<ResponsibleDTO> {
 
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<ResponsibleDTO> fields, InnerBcDescription bcDescription,

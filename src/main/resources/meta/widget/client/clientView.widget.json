@@ -19,6 +19,11 @@
           "type": "input"
         },
         {
+          "label": "Status",
+          "key": "status",
+          "type": "dictionary"
+        },
+        {
           "label": "Field of Activity",
           "key": "fieldOfActivity",
           "type": "input"
@@ -68,6 +73,13 @@
           ]
         },
         {
+          "cols": [
+            {
+              "fieldKey": "status",
+              "span": 12
+            }
+          ]
+        },{
           "cols": [
             {
               "fieldKey": "fieldOfActivity",

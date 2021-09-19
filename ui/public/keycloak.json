@@ -1,8 +1,8 @@
 {
-  "realm" : "jhipster",
+  "realm" : "tesler",
   "auth-server-url" : "http://localhost:9080/auth",
-  "ssl-required" : "external",
-  "resource" : "web_app",
+  "ssl-required" : "none",
+  "resource" : "tesler-keycloak-client",
   "public-client" : true,
   "cors": true
 }

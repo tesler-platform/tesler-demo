@@ -10,7 +10,7 @@
       "gridWidth": 4
     },
     {
-      "widgetName": "clientCreationHeader",
+      "widgetName": "clientEditHeader",
       "position": 1,
       "gridWidth": 4
     },
@@ -26,8 +26,6 @@
     }
   ],
   "rolesAllowed": [
-    "ADMIN",
-    "ROLE_ADMIN",
-    "ROLE_USER"
+    "TESLER_USER"
   ]
 }

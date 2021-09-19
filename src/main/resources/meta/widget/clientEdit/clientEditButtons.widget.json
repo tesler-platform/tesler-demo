@@ -9,7 +9,8 @@
       "include": [
         "next",
         "previous",
-        "finish"
+        "finish",
+        "cancel"
       ]
     }
   }

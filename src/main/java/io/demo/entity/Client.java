@@ -2,6 +2,7 @@ package io.demo.entity;
 
 import io.demo.entity.enums.ClientEditStep;
 import io.demo.entity.enums.ClientImportance;
+import io.demo.entity.enums.ClientStatus;
 import io.demo.entity.enums.FieldOfActivity;
 import io.tesler.model.core.entity.BaseEntity;
 import java.util.HashSet;
@@ -44,6 +45,9 @@ public class Client extends BaseEntity {
 
 	@Enumerated(value = EnumType.STRING)
 	private ClientImportance importance = ClientImportance.Low;
+
+	@Enumerated(value = EnumType.STRING)
+	private ClientStatus status = ClientStatus.New;
 
 	@Enumerated(value = EnumType.STRING)
 	private ClientEditStep editStep = ClientEditStep.FillGeneralInformation;

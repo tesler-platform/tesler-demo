@@ -1,0 +1,7 @@
+{
+  "name": "meetingEditHeader",
+  "title": "Meeting",
+  "type": "Header",
+  "bc": "meetingEdit",
+  "fields": []
+}

@@ -25,13 +25,18 @@
       "key": "importance",
       "type": "dictionary",
       "bgColorKey": "color"
+    },
+    {
+      "title": "Status",
+      "key": "status",
+      "type": "dictionary"
     }
   ],
   "options": {
     "actionGroups": {
       "include": [
         "create",
-        "edit"
+        "actions"
       ]
     }
   }

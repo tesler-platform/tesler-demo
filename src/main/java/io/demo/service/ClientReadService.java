@@ -4,6 +4,7 @@ import io.demo.conf.tesler.icon.ActionIcon;
 import io.demo.controller.TeslerRestController;
 import io.demo.entity.Client;
 import io.demo.entity.Meeting;
+import io.demo.entity.enums.ClientStatus;
 import io.demo.repository.ClientRepository;
 import io.demo.dto.ClientReadDTO;
 import io.demo.repository.MeetingRepository;
@@ -18,7 +19,7 @@ import io.tesler.core.util.session.SessionService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientReadResponseService extends VersionAwareResponseService<ClientReadDTO, Client> {
+public class ClientReadService extends VersionAwareResponseService<ClientReadDTO, Client> {
 
 	private final ClientRepository clientRepository;
 
@@ -26,9 +27,9 @@ public class ClientReadResponseService extends VersionAwareResponseService<Clien
 
 	private final SessionService sessionService;
 
-	public ClientReadResponseService(ClientRepository clientRepository, MeetingRepository meetingRepository,
+	public ClientReadService(ClientRepository clientRepository, MeetingRepository meetingRepository,
 			SessionService sessionService) {
-		super(ClientReadDTO.class, Client.class, null, ClientReadFieldMetaBuilder.class);
+		super(ClientReadDTO.class, Client.class, null, ClientReadMeta.class);
 		this.clientRepository = clientRepository;
 		this.meetingRepository = meetingRepository;
 		this.sessionService = sessionService;
@@ -88,6 +89,18 @@ public class ClientReadResponseService extends VersionAwareResponseService<Clien
 															+ TeslerRestController.meetingEdit + "/"
 															+ meeting.getId()
 											));
+								})
+								.available(bc -> false)//TODO>>remove false, after fixing UI error for this drill-down
+								.add()
+								.newAction()
+								.action("deactivate", "Deactivate")
+								.withAutoSaveBefore()
+								.invoker((bc, data) -> {
+									Client client = clientRepository.getById(bc.getIdAsLong());
+									client.setStatus(ClientStatus.Inactive);
+									clientRepository.save(client);
+									return new ActionResultDTO<ClientReadDTO>()
+											.setAction(PostAction.refreshBc(TeslerRestController.client));
 								})
 								.add()
 								.build()

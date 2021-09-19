@@ -20,6 +20,11 @@
       "type": "input"
     },
     {
+      "label": "Status",
+      "key": "status",
+      "type": "dictionary"
+    },
+    {
       "label": "Field of Activity",
       "key": "fieldOfActivity",
       "type": "multipleSelect"
@@ -63,6 +68,14 @@
           "cols": [
             {
               "fieldKey": "address",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "status",
               "span": 12
             }
           ]

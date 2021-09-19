@@ -10,7 +10,7 @@ import io.tesler.core.service.rowmeta.FieldMetaBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MeetingWriteFieldMetaBuilder extends FieldMetaBuilder<MeetingDTO> {
+public class MeetingWriteMeta extends FieldMetaBuilder<MeetingDTO> {
 
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<MeetingDTO> fields, InnerBcDescription bcDescription,

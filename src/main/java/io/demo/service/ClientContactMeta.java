@@ -9,20 +9,25 @@ import io.tesler.core.service.rowmeta.FieldMetaBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ContactPickListPopupBuilder extends FieldMetaBuilder<ContactDTO> {
-
+public class ClientContactMeta extends FieldMetaBuilder<ContactDTO> {
 
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<ContactDTO> fields, InnerBcDescription bcDescription,
 			Long id, Long parentId) {
 		fields.setEnabled(
-				ContactDTO_.fullName
+				ContactDTO_.fullName,
+				ContactDTO_.email,
+				ContactDTO_.phoneNumber
+		);
+		fields.setRequired(
+				ContactDTO_.fullName,
+				ContactDTO_.email,
+				ContactDTO_.phoneNumber
 		);
 	}
 
 	@Override
-	public void buildIndependentMeta(FieldsMeta<ContactDTO> fields, InnerBcDescription bcDescription,
-			Long parentId) {
+	public void buildIndependentMeta(FieldsMeta<ContactDTO> fields, InnerBcDescription bcDescription, Long parentId) {
 
 	}
 
