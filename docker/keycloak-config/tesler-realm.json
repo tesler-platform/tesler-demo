@@ -2,7 +2,7 @@
   "id" : "tesler",
   "realm" : "tesler",
   "displayName" : "Tesler Demo",
-  "displayNameHtml" : "<div><b>Tesler Demo</b> <p style=\"text-transform: lowercase;\"> username: demo / password: demo</p></div>",
+  "displayNameHtml" : "<div><b>Tesler Demo</b> <p></p></div><div style=\"text-transform: lowercase;\"><a href=\"https://github.com/tesler-platform/tesler-demo\">Github</a></div><p style=\"text-transform: lowercase;\"> username: demo / password: demo</p>",
   "notBefore" : 0,
   "revokeRefreshToken" : false,
   "refreshTokenMaxReuse" : 0,
