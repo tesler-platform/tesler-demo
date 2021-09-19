@@ -40,6 +40,7 @@ spring:
   liquibase:
     change-log: classpath:/db/db.changelog-master.xml
     drop-first: true
+    contexts: local
   cache:
     type: None
   jpa:
@@ -67,11 +68,11 @@ spring:
 
 keycloak:
   auth-server-url: ${AUTH_SERVER_URL:http://localhost:9080/auth}
-  realm: jhipster
-  resource: web_app
+  realm: tesler
+  resource: tesler-keycloak-client
   bearer-only: true
   public-client: true
-  use-resource-role-mappings: false
+  use-resource-role-mappings: true
   ssl-required: none
 springdoc:
   packages-to-scan: io.demo

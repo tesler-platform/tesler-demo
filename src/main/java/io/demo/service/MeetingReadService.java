@@ -20,14 +20,14 @@ import java.util.Arrays;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MeetingReadResponseService extends VersionAwareResponseService<MeetingDTO, Meeting> {
+public class MeetingReadService extends VersionAwareResponseService<MeetingDTO, Meeting> {
 
 	private final MeetingRepository meetingRepository;
 
 	private final SessionService sessionService;
 
-	public MeetingReadResponseService(MeetingRepository meetingRepository, SessionService sessionService) {
-		super(MeetingDTO.class, Meeting.class, null, MeetingReadFieldMetaBuilder.class);
+	public MeetingReadService(MeetingRepository meetingRepository, SessionService sessionService) {
+		super(MeetingDTO.class, Meeting.class, null, MeetingReadMeta.class);
 		this.meetingRepository = meetingRepository;
 		this.sessionService = sessionService;
 	}
@@ -67,19 +67,18 @@ public class MeetingReadResponseService extends VersionAwareResponseService<Meet
 	}
 
 	private ActionsBuilder<MeetingDTO> addEditAction(ActionsBuilder<MeetingDTO> builder) {
-		return builder.newAction()
+		return builder
+				.newAction()
 				.action("edit", "Edit")
+				.scope(ActionScope.RECORD)
 				.withoutAutoSaveBefore()
 				.invoker((bc, data) -> new ActionResultDTO<MeetingDTO>()
 						.setAction(PostAction.drillDown(
 								DrillDownType.INNER,
-								String.format(
-										"/screen/meeting/view/meetingedit/%s/%s",
-										TeslerRestController.meetingEdit,
+										"/screen/meeting/view/meetingedit/" +
+										TeslerRestController.meetingEdit + "/" +
 										bc.getId()
-								)
 						)))
-				.scope(ActionScope.BC)
 				.add();
 	}
 
@@ -93,8 +92,8 @@ public class MeetingReadResponseService extends VersionAwareResponseService<Meet
 							return new ActionResultDTO<MeetingDTO>().setAction(PostAction.drillDown(
 									DrillDownType.INNER,
 									"/screen/meeting/view/meetingedit/"
-											+ TeslerRestController.meetingEdit
-											+ "/" + meeting.getId()
+											+ TeslerRestController.meetingEdit + "/"
+											+ meeting.getId()
 							));
 						}
 						return new ActionResultDTO<MeetingDTO>().setAction(PostAction.refreshBc(bc.getDescription()));

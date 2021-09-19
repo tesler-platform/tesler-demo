@@ -4,10 +4,10 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd"
                    logicalFilePath="db/changelog/0000200_tesler_sequences.xml">
     <changeSet author="initial" id="APP_SEQ SEQUENCE">
-        <createSequence maxValue="9223372036854775807" sequenceName="APP_SEQ" startValue="1000000"/>
+        <createSequence maxValue="9223372036854775807" sequenceName="APP_SEQ" startValue="1100000"/>
     </changeSet>
     <changeSet author="initial" id="META_SEQ SEQUENCE">
-        <createSequence maxValue="9223372036854775807" sequenceName="META_SEQ" startValue="1000000" incrementBy="100"/>
+        <createSequence maxValue="9223372036854775807" sequenceName="META_SEQ" startValue="1100000" incrementBy="100"/>
     </changeSet>
     <changeSet author="initial" id="APP_BATCH_SEQ SEQUENCE">
         <createSequence maxValue="9223372036854775807" sequenceName="APP_BATCH_SEQ" startValue="2000000000"

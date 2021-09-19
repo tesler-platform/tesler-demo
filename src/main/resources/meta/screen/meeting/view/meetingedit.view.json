@@ -10,7 +10,7 @@
       "gridWidth": 4
     },
     {
-      "widgetName": "meetingCreationHeader",
+      "widgetName": "meetingEditHeader",
       "position": 1,
       "gridWidth": 4
     },
@@ -51,8 +51,6 @@
     }
   ],
   "rolesAllowed": [
-    "ADMIN",
-    "ROLE_ADMIN",
-    "ROLE_USER"
+   "TESLER_USER"
   ]
 }

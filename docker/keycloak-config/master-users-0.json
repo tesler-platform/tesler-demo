@@ -1,24 +1,24 @@
 {
   "realm" : "master",
   "users" : [ {
-    "id" : "455f282d-1364-44d8-ab1f-65c44ef30cf9",
-    "createdTimestamp" : 1623176024812,
+    "id" : "56e2635b-656a-4eb2-9598-2346902019cb",
+    "createdTimestamp" : 1629367691838,
     "username" : "admin",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : false,
     "credentials" : [ {
-      "id" : "8b88e560-9f25-4601-a2ca-8ac28a5ffbe3",
+      "id" : "42750876-6b59-4778-a344-92e090f28e14",
       "type" : "password",
-      "createdDate" : 1623176024854,
-      "secretData" : "{\"value\":\"CNc/8bcWNayxjDPwt3Q9+8Vl0C9s60zzPoM6oKsc3xkH+yvfjrfMJehSY6u3iODDZ+K4Q1RiHyCHxiG65itwIQ==\",\"salt\":\"l3MHC70ueZw7rgsb4C/8Gg==\",\"additionalParameters\":{}}",
+      "createdDate" : 1629367692005,
+      "secretData" : "{\"value\":\"FlYfA4R36A1POPad7gtxGgYiaFjaAnyr5KAJegpNmo1e95VhHUi3VbZQNqk06DB+cPH2ODVWOHNmDo/MIY3zQQ==\",\"salt\":\"8jL1clVfWoIL3/BCnTdxRg==\",\"additionalParameters\":{}}",
       "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "admin", "uma_authorization", "offline_access" ],
+    "realmRoles" : [ "offline_access", "admin", "uma_authorization" ],
     "clientRoles" : {
-      "account" : [ "view-profile", "manage-account" ]
+      "account" : [ "manage-account", "view-profile" ]
     },
     "notBefore" : 0,
     "groups" : [ ]

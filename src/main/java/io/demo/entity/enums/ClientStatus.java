@@ -6,13 +6,11 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ClientImportance {
-	High("High", "#EC3F3F"),
-	Middle("Middle", "#FCA546"),
-	Low("Low", "#008C3E");
+public enum ClientStatus {
+	New("New"),
+	Inactive("Inactive"),
+	InProgress("In progress");
 
 	@JsonValue
 	private final String value;
-
-	private final String color;
 }

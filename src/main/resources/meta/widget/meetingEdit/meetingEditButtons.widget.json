@@ -9,7 +9,8 @@
     "actionGroups": {
       "include": [
         "save",
-        "saveAndContinue"
+        "saveAndContinue",
+        "cancel"
       ]
     }
   }

@@ -13,8 +13,14 @@ For more details about this options see [docs](https://www.keycloak.org/docs/lat
 For more details about this options see [docs](https://www.keycloak.org/docs/latest/securing_apps/#_spring_boot_adapter)
 
 ##### 3 Adding new user
-Create user [docs](https://www.keycloak.org/docs/latest/getting_started/#creating-a-realm-and-a-user)
-, then add at least one user role [docs](https://wjw465150.gitbooks.io/keycloak-documentation/content/server_admin/topics/roles/user-role-mappings.html)
+1) We use `use-resource-role-mappings: true` in `application.yml`, so roles must be added at "client" level. To add new role go to Configure -> Clients, then drill-down in "tesler-keycloak-client", select tab "Roles" and press "Add role"
+2) Create user [docs](https://www.keycloak.org/docs/latest/getting_started/#creating-a-realm-and-a-user)
+3) In "Client Roles" select "tesler-keycloak-client" and add at least one role  [docs](https://wjw465150.gitbooks.io/keycloak-documentation/content/server_admin/topics/roles/user-role-mappings.html)
+4) Add new roles in dictionary, e.g. add them in TESLER-DICTIONARY_ITEM.csv. For example, if you added role "NEW_ROLE", then csv will have this line:
+```
+ID;DICTIONARY_TYPE_ID;TYPE;KEY;VALUE;ACTIVE;DISPLAY_ORDER;DESCRIPTION
+"100";1;"INTERNAL_ROLE";"NEW_ROLE";"New Role";true;0;null
+```
 
 ##### 4 Saving keycloak configuration changes to git (realm, client, users and so on)
 Keycloak in docker-compose.yml is configured to import configuration from `/docker/keycloak-config` on container startup using `keycloak.migration.action=import` [docs](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.0/html/server_administration_guide/export_import)

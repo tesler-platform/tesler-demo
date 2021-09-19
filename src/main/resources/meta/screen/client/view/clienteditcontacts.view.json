@@ -26,8 +26,6 @@
     }
   ],
   "rolesAllowed": [
-    "ADMIN",
-    "ROLE_ADMIN",
-    "ROLE_USER"
+   "TESLER_USER"
   ]
 }

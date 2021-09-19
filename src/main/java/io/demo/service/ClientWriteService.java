@@ -13,6 +13,8 @@ import io.tesler.core.dto.DrillDownType;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
 import io.tesler.core.dto.rowmeta.CreateResult;
 import io.tesler.core.dto.rowmeta.PostAction;
+import io.tesler.core.service.action.ActionIcon;
+import io.tesler.core.service.action.ActionIconSpecifier;
 import io.tesler.core.service.action.ActionScope;
 import io.tesler.core.service.action.Actions;
 import java.util.Arrays;
@@ -21,12 +23,12 @@ import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 
 @Service
-public class ClientWriteResponseService extends VersionAwareResponseService<ClientWriteDTO, Client> {
+public class ClientWriteService extends VersionAwareResponseService<ClientWriteDTO, Client> {
 
 	private final ClientRepository clientRepository;
 
-	public ClientWriteResponseService(ClientRepository clientRepository) {
-		super(ClientWriteDTO.class, Client.class, null, ClientWriteFieldMetaBuilder.class);
+	public ClientWriteService(ClientRepository clientRepository) {
+		super(ClientWriteDTO.class, Client.class, null, ClientWriteMeta.class);
 		this.clientRepository = clientRepository;
 	}
 
@@ -50,6 +52,9 @@ public class ClientWriteResponseService extends VersionAwareResponseService<Clie
 		}
 		if (data.isFieldChanged(ClientWriteDTO_.importance)) {
 			entity.setImportance(data.getImportance());
+		}
+		if (data.isFieldChanged(ClientWriteDTO_.status)) {
+			entity.setStatus(data.getStatus());
 		}
 		if (data.isFieldChanged(ClientWriteDTO_.address)) {
 			entity.setAddress(data.getAddress());
@@ -123,6 +128,15 @@ public class ClientWriteResponseService extends VersionAwareResponseService<Clie
 					Client client = clientRepository.getById(bc.getIdAsLong());
 					return ClientEditStep.getPreviousEditStep(client).isPresent();
 				})
+				.add()
+				.action("cancel", "Cancel")
+				.scope(ActionScope.BC)
+				.withoutAutoSaveBefore()
+				.invoker((bc, dto) -> new ActionResultDTO<ClientWriteDTO>().setAction(
+						PostAction.drillDown(
+								DrillDownType.INNER,
+								"/screen/client"
+						)))
 				.add()
 				.build();
 	}

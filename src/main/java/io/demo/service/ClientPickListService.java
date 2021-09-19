@@ -9,10 +9,10 @@ import io.tesler.core.dto.rowmeta.CreateResult;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientPickListPopupService extends VersionAwareResponseService<ClientReadDTO, Client> {
+public class ClientPickListService extends VersionAwareResponseService<ClientReadDTO, Client> {
 
-	public ClientPickListPopupService() {
-		super(ClientReadDTO.class, Client.class, null, ClientPickListPopupBuilder.class);
+	public ClientPickListService() {
+		super(ClientReadDTO.class, Client.class, null, ClientPickListMeta.class);
 	}
 
 	@Override
