@@ -9,10 +9,10 @@ import io.tesler.model.core.entity.User;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ResponsiblePickListPopupService extends VersionAwareResponseService<ResponsibleDTO, User> {
+public class ResponsiblePickListService extends VersionAwareResponseService<ResponsibleDTO, User> {
 
-	public ResponsiblePickListPopupService() {
-		super(ResponsibleDTO.class, User.class, null, ResponsiblePickListPopupBuilder.class);
+	public ResponsiblePickListService() {
+		super(ResponsibleDTO.class, User.class, null, ResponsiblePickListMeta.class);
 	}
 
 	@Override

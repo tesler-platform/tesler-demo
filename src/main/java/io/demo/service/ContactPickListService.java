@@ -14,12 +14,12 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ContactPickListPopupService extends VersionAwareResponseService<ContactDTO, Contact> {
+public class ContactPickListService extends VersionAwareResponseService<ContactDTO, Contact> {
 
 	private final MeetingRepository meetingRepository;
 
-	public ContactPickListPopupService(MeetingRepository meetingRepository) {
-		super(ContactDTO.class, Contact.class, null, ContactPickListPopupBuilder.class);
+	public ContactPickListService(MeetingRepository meetingRepository) {
+		super(ContactDTO.class, Contact.class, null, ContactPickListMeta.class);
 		this.meetingRepository = meetingRepository;
 	}
 

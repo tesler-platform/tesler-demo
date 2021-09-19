@@ -7,6 +7,9 @@ import io.demo.entity.Contact;
 import io.demo.entity.Meeting;
 import io.demo.entity.enums.MeetingStatus;
 import io.tesler.api.data.dto.DataResponseDTO;
+import io.tesler.core.util.filter.SearchParameter;
+import io.tesler.core.util.filter.provider.impl.DateTimeValueProvider;
+import io.tesler.core.util.filter.provider.impl.EnumValueProvider;
 import io.tesler.model.core.entity.BaseEntity;
 import io.tesler.model.core.entity.User;
 import java.text.SimpleDateFormat;
@@ -20,16 +23,20 @@ import lombok.Setter;
 @NoArgsConstructor
 public class MeetingDTO extends DataResponseDTO {
 
+	@SearchParameter(name = "agenda")
 	private String agenda;
 
+	@SearchParameter(name = "startDateTime", provider = DateTimeValueProvider.class)
 	private Date startDateTime;
 
 	private Date endDateTime;
 
 	private String period;
 
+	@SearchParameter(name = "status", provider = EnumValueProvider.class)
 	private MeetingStatus status;
 
+	@SearchParameter(name = "address")
 	private String address;
 
 	private String notes;
@@ -38,14 +45,17 @@ public class MeetingDTO extends DataResponseDTO {
 
 	private Long responsibleId;
 
+	@SearchParameter(name = "responsible.fullName")
 	private String responsibleName;
 
+	@SearchParameter(name = "client.fullName")
 	private String clientName;
 
 	private Long clientId;
 
 	private Long contactId;
 
+	@SearchParameter(name = "contact.fullName")
 	private String contactName;
 
 	public MeetingDTO(Meeting meeting) {

@@ -34,8 +34,7 @@
     {
       "title": "Client Name",
       "key": "clientName",
-      "type": "input",
-      "drillDown": "true"
+      "type": "input"
     },
     {
       "title": "Contact",
@@ -46,7 +45,8 @@
   "options": {
     "actionGroups": {
       "include": [
-        "create"
+        "create",
+        "actions"
       ]
     }
   }

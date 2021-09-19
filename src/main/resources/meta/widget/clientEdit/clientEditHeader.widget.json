@@ -1,5 +1,5 @@
 {
-  "name": "clientCreationHeader",
+  "name": "clientEditHeader",
   "title": "Client Creation",
   "type": "HeaderWidget",
   "bc": "clientEdit",

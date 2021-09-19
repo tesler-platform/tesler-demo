@@ -19,7 +19,7 @@ import io.tesler.core.service.action.Actions;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MeetingWriteResponseService extends VersionAwareResponseService<MeetingDTO, Meeting> {
+public class MeetingWriteService extends VersionAwareResponseService<MeetingDTO, Meeting> {
 
 	private final MeetingRepository meetingRepository;
 
@@ -29,9 +29,9 @@ public class MeetingWriteResponseService extends VersionAwareResponseService<Mee
 
 	private final UserRepository userRepository;
 
-	public MeetingWriteResponseService(MeetingRepository meetingRepository, ClientRepository clientRepository,
+	public MeetingWriteService(MeetingRepository meetingRepository, ClientRepository clientRepository,
 			ContactRepository contactRepository, UserRepository userRepository) {
-		super(MeetingDTO.class, Meeting.class, null, MeetingWriteFieldMetaBuilder.class);
+		super(MeetingDTO.class, Meeting.class, null, MeetingWriteMeta.class);
 		this.meetingRepository = meetingRepository;
 		this.clientRepository = clientRepository;
 		this.contactRepository = contactRepository;
@@ -106,6 +106,16 @@ public class MeetingWriteResponseService extends VersionAwareResponseService<Mee
 						PostAction.drillDown(
 								DrillDownType.INNER,
 								"/screen/meeting/view/meetingview/" + TeslerRestController.meeting + "/" + bc.getId()
+						)))
+				.add()
+				.newAction()
+				.action("cancel", "Cancel")
+				.scope(ActionScope.BC)
+				.withoutAutoSaveBefore()
+				.invoker((bc, dto) -> new ActionResultDTO<MeetingDTO>().setAction(
+						PostAction.drillDown(
+								DrillDownType.INNER,
+								"/screen/meeting/"
 						)))
 				.add()
 				.build();

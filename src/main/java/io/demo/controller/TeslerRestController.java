@@ -1,13 +1,13 @@
 package io.demo.controller;
 
 import io.demo.service.ClientContactService;
-import io.demo.service.ClientReadResponseService;
-import io.demo.service.ClientWriteResponseService;
-import io.demo.service.MeetingReadResponseService;
-import io.demo.service.MeetingWriteResponseService;
-import io.demo.service.ClientPickListPopupService;
-import io.demo.service.ContactPickListPopupService;
-import io.demo.service.ResponsiblePickListPopupService;
+import io.demo.service.ClientReadService;
+import io.demo.service.ClientWriteService;
+import io.demo.service.ContactPickListService;
+import io.demo.service.MeetingReadService;
+import io.demo.service.MeetingWriteService;
+import io.demo.service.ClientPickListService;
+import io.demo.service.ResponsiblePickListService;
 import io.tesler.core.crudma.bc.BcIdentifier;
 import io.tesler.core.crudma.bc.EnumBcIdentifier;
 import io.tesler.core.crudma.bc.impl.AbstractEnumBcSupplier;
@@ -26,15 +26,15 @@ import org.springframework.stereotype.Component;
 public enum TeslerRestController implements EnumBcIdentifier {
 	// @formatter:on
 
-	client(ClientReadResponseService.class),
+	client(ClientReadService.class),
 		contact(client, ClientContactService.class),
-	clientEdit(ClientWriteResponseService.class),
+	clientEdit(ClientWriteService.class),
 		contactEdit(clientEdit, ClientContactService.class),
-	meeting(MeetingReadResponseService.class),
-	meetingEdit(MeetingWriteResponseService.class),
-		responsiblePickListPopup(meetingEdit, ResponsiblePickListPopupService.class),
-		clientPickListPopup(meetingEdit, ClientPickListPopupService.class),
-		contactPickListPopup(meetingEdit, ContactPickListPopupService.class);
+	meeting(MeetingReadService.class),
+	meetingEdit(MeetingWriteService.class),
+		responsiblePickListPopup(meetingEdit, ResponsiblePickListService.class),
+		clientPickListPopup(meetingEdit, ClientPickListService.class),
+		contactPickListPopup(meetingEdit, ContactPickListService.class);
 	// @formatter:on
 
 	public static final EnumBcIdentifier.Holder<TeslerRestController> Holder = new Holder<>(TeslerRestController.class);
