@@ -15,7 +15,7 @@
       "type": "dateTime"
     },
     {
-      "label": "End Date",
+      "label": "\u00A0",
       "key": "endDateTime",
       "type": "dateTime"
     },
