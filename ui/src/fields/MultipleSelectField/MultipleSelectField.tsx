@@ -5,8 +5,9 @@ import { buildBcUrl } from '@tesler-ui/core'
 import { connect } from 'react-redux'
 import { MultivalueSingleValue } from '@tesler-ui/core/interfaces/data'
 import { SelectProps } from 'antd/lib/select'
-//import styles from './MultipleSelectField.module.css'
-import checkbox from './img/checkbox.svg'
+import styles from './MultipleSelectField.module.css'
+import checkbox from '../../assets/icons/checkbox.svg'
+import checkboxEmpty from '../../assets/icons/checkboxEmpty.svg'
 import { AppState } from '../../interfaces/storeSlices'
 
 interface MultipleSelectFieldProps {
@@ -17,7 +18,6 @@ interface MultipleSelectFieldProps {
     onChange?: (value: MultivalueSingleValue[]) => void
 }
 
-//todo: it's just dirty copy from client project. refactoring is needed
 const MultipleSelectField: React.FunctionComponent<MultipleSelectFieldProps> = props => {
     const { value, values, onChange } = props
     const { Option } = Select
@@ -27,8 +27,8 @@ const MultipleSelectField: React.FunctionComponent<MultipleSelectFieldProps> = p
             const valueIndex = value?.findIndex(v => v.value === item.value)
             return (
                 <Option key={item.value} label={item.value}>
-                    {valueIndex >= 0 ? <img alt="checkbox" src={checkbox} /> : <span />}
-                    <span>{item.value}</span>
+                    {valueIndex >= 0 ? <img alt="checkbox" src={checkbox} /> : <img alt="checkboxEmpty" src={checkboxEmpty} />}
+                    <span className={styles.span}>{item.value}</span>
                 </Option>
             )
         })
@@ -45,15 +45,18 @@ const MultipleSelectField: React.FunctionComponent<MultipleSelectFieldProps> = p
 
     const extendedProps: SelectProps<string[]> = {
         ...props,
-        /* className: styles.container,
-        dropdownClassName: styles.dropDownMenu,*/
+        dropdownClassName: styles.dropDownMenu,
         mode: 'multiple',
         optionLabelProp: 'label',
         value: value?.map(i => i.value),
         onChange: handleOnChange
     }
 
-    return <Select {...extendedProps}>{currentValues}</Select>
+    return (
+        <Select showArrow {...extendedProps}>
+            {currentValues}
+        </Select>
+    )
 }
 
 export function mapStateToProps(state: AppState, ownProps: MultipleSelectFieldProps) {
