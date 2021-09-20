@@ -21,3 +21,7 @@
 .formContainer :global(.ant-form .ant-row > .ant-row > .ant-col .ant-select-dropdown-menu-item) {
     color: main-light-mode;
 }
+
+.formContainer :global(.ant-form .ant-row > .ant-row > .ant-col:last-child) {
+    padding: 0 24px 0 0;
+}

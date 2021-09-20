@@ -34,7 +34,8 @@
     {
       "title": "Client Name",
       "key": "clientName",
-      "type": "input"
+      "type": "input",
+      "drillDown": "true"
     },
     {
       "title": "Contact",

@@ -90,7 +90,6 @@ public class ClientReadService extends VersionAwareResponseService<ClientReadDTO
 															+ meeting.getId()
 											));
 								})
-								.available(bc -> false)//TODO>>remove false, after fixing UI error for this drill-down
 								.add()
 								.newAction()
 								.action("deactivate", "Deactivate")
