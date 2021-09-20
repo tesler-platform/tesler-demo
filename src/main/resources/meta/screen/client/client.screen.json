@@ -12,6 +12,47 @@
             "viewName": "clientlist"
           },
           {
+            "title": "second level",
+            "child": [
+              {
+                "viewName": "clientedit"
+              },
+              {
+                "viewName": "clientedit1"
+              },
+              {
+                "title": "third level",
+                "child": [
+                  {
+                    "title": "fourth level",
+                    "child": [
+                      {
+                        "viewName": "clientedit5"
+                      },
+                      {
+                        "viewName": "clientedit6"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "fourth level 222",
+                    "child": [
+                      {
+                        "viewName": "clientedit7"
+                      },
+                      {
+                        "viewName": "clientedit8"
+                      },
+                      {
+                        "viewName": "clientedit9"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "viewName": "clienteditgeneral"
           },
           {

@@ -1,8 +1,8 @@
 {
-  "name": "clientedit",
+  "name": "clientedit2",
   "title": "Client Edit",
   "template": "DashboardView",
-  "url": "/screen/client/view/clientedit",
+  "url": "/screen/client/view/clientedit2",
   "widgets": [
     {
       "widgetName": "viewNavigation",
@@ -15,7 +15,17 @@
       "gridWidth": 4
     },
     {
-      "widgetName": "clientEditHeader",
+      "widgetName": "ThirdLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "FourthLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientCreationHeader",
       "position": 1,
       "gridWidth": 4
     },
@@ -25,12 +35,14 @@
       "gridWidth": 4
     },
     {
-      "widgetName": "contactEditList",
-      "position": 3,
+      "widgetName": "contactEditList1",
+      "position": 4,
       "gridWidth": 4
     }
   ],
   "rolesAllowed": [
-    "TESLER_USER"
+    "ADMIN",
+    "ROLE_ADMIN",
+    "ROLE_USER"
   ]
 }

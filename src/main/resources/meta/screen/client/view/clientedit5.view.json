@@ -1,0 +1,48 @@
+{
+  "name": "clientedit5",
+  "title": "Client Edit",
+  "template": "DashboardView",
+  "url": "/screen/client/view/clientedit5",
+  "widgets": [
+    {
+      "widgetName": "viewNavigation",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "SecondLevelMenu",
+      "position": 1,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "ThirdLevelMenu",
+      "position": 2,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "FourthLevelMenu",
+      "position": 3,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientCreationHeader",
+      "position": 4,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEdit",
+      "position": 5,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "contactEditList1",
+      "position": 6,
+      "gridWidth": 4
+    }
+  ],
+  "rolesAllowed": [
+    "ADMIN",
+    "ROLE_ADMIN",
+    "ROLE_USER"
+  ]
+}

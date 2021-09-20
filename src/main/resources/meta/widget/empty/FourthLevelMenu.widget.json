@@ -1,6 +1,9 @@
 {
   "name": "FourthLevelMenu",
-  "title": "DeepNavigation",
-  "type": "FourthLevelMenu",
-  "fields": []
+  "title": "",
+  "type": "NavigationTabs",
+  "fields": [],
+  "options": {
+    "navigationLevel": 4
+  }
 }

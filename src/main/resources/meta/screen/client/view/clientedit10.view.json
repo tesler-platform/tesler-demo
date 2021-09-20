@@ -1,0 +1,28 @@
+{
+  "name": "clientedit10",
+  "title": "Client Edit",
+  "template": "DashboardView",
+  "url": "/screen/client/view/clientedit10",
+  "widgets": [
+    {
+      "widgetName": "clientCreationHeader",
+      "position": 1,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEdit",
+      "position": 2,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "contactEditList1",
+      "position": 4,
+      "gridWidth": 4
+    }
+  ],
+  "rolesAllowed": [
+    "ADMIN",
+    "ROLE_ADMIN",
+    "ROLE_USER"
+  ]
+}

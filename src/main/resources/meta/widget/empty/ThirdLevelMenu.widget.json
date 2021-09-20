@@ -1,6 +1,9 @@
 {
   "name": "ThirdLevelMenu",
-  "title": "Navigation",
-  "type": "ThirdLevelMenu",
-  "fields": []
+  "title": "",
+  "type": "NavigationTabs",
+  "fields": [],
+  "options": {
+    "navigationLevel": 3
+  }
 }
