@@ -13,6 +13,7 @@
               <option value="clean" />
               <option value="install" />
               <option value="-PUI" />
+              <option value="-U" />
             </list>
           </option>
           <option name="pomFileName" />

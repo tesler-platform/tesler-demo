@@ -5,7 +5,12 @@
   "url": "/screen/client/view/clientedit",
   "widgets": [
     {
-      "widgetName": "clientCreationHeader",
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEditHeader",
       "position": 1,
       "gridWidth": 4
     },
@@ -21,8 +26,6 @@
     }
   ],
   "rolesAllowed": [
-    "ADMIN",
-    "ROLE_ADMIN",
-    "ROLE_USER"
+    "TESLER_USER"
   ]
 }

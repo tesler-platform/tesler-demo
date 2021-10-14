@@ -10,7 +10,7 @@
   <parent>
     <groupId>io.tesler</groupId>
     <artifactId>tesler-starter-parent</artifactId>
-    <version>3.0.3</version>
+    <version>3.0.4-SNAPSHOT</version>
   </parent>
 
   <properties>
@@ -24,14 +24,18 @@
     <!--delete after fix https://github.com/spring-projects/spring-security/issues/9787-->
     <spring-security.version>5.5.1</spring-security.version>
     <spring-security-crypto.version>5.5.0</spring-security-crypto.version>
+    <minio.version>8.3.0</minio.version>
+
+    <!--minio compatible version-->
+    <okhttp3.version>4.8.1</okhttp3.version>
   </properties>
 
   <repositories>
     <repository>
       <id>snapshots-repo</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        <releases/>
-        <snapshots/>
+      <releases/>
+      <snapshots/>
     </repository>
   </repositories>
 
@@ -60,6 +64,18 @@
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-crypto</artifactId>
       <version>${spring-security-crypto.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.minio</groupId>
+      <artifactId>minio</artifactId>
+      <version>${minio.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-ui</artifactId>
+      <version>1.5.2</version>
     </dependency>
 
     <dependency>
@@ -119,10 +135,22 @@
     </dependencies>
   </dependencyManagement>
   <build>
+    <finalName>tesler-demo</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>io.demo.Application</mainClass>
+          <classifier>exec</classifier>
+        </configuration>
       </plugin>
 
       <plugin>
@@ -171,6 +199,14 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
       </plugin>
     </plugins>
   </build>

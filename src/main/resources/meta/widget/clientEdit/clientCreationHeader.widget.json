@@ -1,7 +1,0 @@
-{
-  "name": "clientCreationHeader",
-  "title": "Client Creation",
-  "type": "Header",
-  "bc": "clientEdit",
-  "fields": []
-}

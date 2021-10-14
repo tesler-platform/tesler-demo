@@ -1,8 +1,13 @@
 package io.demo.controller;
 
 import io.demo.service.ClientContactService;
-import io.demo.service.ClientReadResponseService;
-import io.demo.service.ClientWriteResponseService;
+import io.demo.service.ClientReadService;
+import io.demo.service.ClientWriteService;
+import io.demo.service.ContactPickListService;
+import io.demo.service.MeetingReadService;
+import io.demo.service.MeetingWriteService;
+import io.demo.service.ClientPickListService;
+import io.demo.service.ResponsiblePickListService;
 import io.tesler.core.crudma.bc.BcIdentifier;
 import io.tesler.core.crudma.bc.EnumBcIdentifier;
 import io.tesler.core.crudma.bc.impl.AbstractEnumBcSupplier;
@@ -10,13 +15,26 @@ import io.tesler.core.crudma.bc.impl.BcDescription;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
+/**
+ * This is actually an analog of a usual @RestController.
+ * When you add enum, you just add rest endpoints, that tesler UI can call.
+ * We could actually make a usual @RestController and make it Generic,
+ * but current enum approach shows, that it is less error-prone in huge enterprise projects
+ * (because single line in this enum creates >5 rest endpoints)
+ */
 @Getter
 public enum TeslerRestController implements EnumBcIdentifier {
 	// @formatter:on
-	client(ClientReadResponseService.class),
+
+	client(ClientReadService.class),
 		contact(client, ClientContactService.class),
-	clientEdit(ClientWriteResponseService.class),
-		contactEdit(clientEdit, ClientContactService.class);
+	clientEdit(ClientWriteService.class),
+		contactEdit(clientEdit, ClientContactService.class),
+	meeting(MeetingReadService.class),
+	meetingEdit(MeetingWriteService.class),
+		responsiblePickListPopup(meetingEdit, ResponsiblePickListService.class),
+		clientPickListPopup(meetingEdit, ClientPickListService.class),
+		contactPickListPopup(meetingEdit, ContactPickListService.class);
 	// @formatter:on
 
 	public static final EnumBcIdentifier.Holder<TeslerRestController> Holder = new Holder<>(TeslerRestController.class);

@@ -5,13 +5,8 @@
   "bc": "clientEdit",
   "fields": [
     {
-      "label": "Full Name",
+      "label": "Client Name",
       "key": "fullName",
-      "type": "input"
-    },
-    {
-      "label": "Description",
-      "key": "description",
       "type": "input"
     },
     {
@@ -20,30 +15,35 @@
       "type": "dictionary"
     },
     {
-      "label": "City",
-      "key": "city",
+      "label": "Address",
+      "key": "address",
       "type": "input"
     },
     {
-      "label": "Street",
-      "key": "street",
-      "type": "input"
-    },
-    {
-      "label": "Building",
-      "key": "building",
-      "type": "input"
+      "label": "Status",
+      "key": "status",
+      "type": "dictionary"
     },
     {
       "label": "Field of Activity",
       "key": "fieldOfActivity",
       "type": "multipleSelect"
+    },
+    {
+      "label": "breifId",
+      "key": "breifId",
+      "type": "hidden"
+    },
+    {
+      "label": "Breif",
+      "key": "breif",
+      "type": "fileUpload",
+      "fileIdKey": "breifId"
     }
   ],
   "options": {
     "actionGroups": {
       "include": [
-        "save"
       ]
     },
     "layout": {
@@ -59,14 +59,6 @@
         {
           "cols": [
             {
-              "fieldKey": "description",
-              "span": 12
-            }
-          ]
-        },
-        {
-          "cols": [
-            {
               "fieldKey": "importance",
               "span": 12
             }
@@ -75,7 +67,7 @@
         {
           "cols": [
             {
-              "fieldKey": "city",
+              "fieldKey": "address",
               "span": 12
             }
           ]
@@ -83,15 +75,7 @@
         {
           "cols": [
             {
-              "fieldKey": "street",
-              "span": 12
-            }
-          ]
-        },
-        {
-          "cols": [
-            {
-              "fieldKey": "building",
+              "fieldKey": "status",
               "span": 12
             }
           ]
@@ -100,6 +84,14 @@
           "cols": [
             {
               "fieldKey": "fieldOfActivity",
+              "span": 12
+            }
+          ]
+        },
+        {
+          "cols": [
+            {
+              "fieldKey": "breif",
               "span": 12
             }
           ]

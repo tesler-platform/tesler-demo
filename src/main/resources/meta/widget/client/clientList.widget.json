@@ -31,6 +31,15 @@
       "key": "status",
       "type": "dictionary"
     }
-  ]
+  ],
+  "options": {
+    "actionGroups": {
+      "include": [
+        "create",
+        "actions"
+      ]
+    }
+  }
+
 }
 

@@ -342,7 +342,7 @@
       <column name="DEPT_ID" remarks="Департамент пользователя" type="NUMBER(19, 0)"/>
       <column name="BC_NAME" remarks="Имя БК" type="VARCHAR2(255)"/>
       <column name="FIELD_TYPE" remarks="Тип справочника связанного поля" type="VARCHAR2(255)"/>
-      <column name="FIELD_BOOLEAN_VALUE" type="NUMBER(1, 0)"/>
+      <column name="FIELD_BOOLEAN_VALUE" type="BOOLEAN"/>
       <column defaultValueNumeric="0" name="RULE_INVERSION_FLG" remarks="Инверсия результата выполнения условия"
         type="NUMBER(1)">
         <constraints nullable="false"/>
@@ -435,80 +435,6 @@
       </column>
       <column defaultValueNumeric="0" name="CHECK_GU_FLG" remarks="Принадлежность к ГУ" type="NUMBER(1, 0)"/>
       <column name="HEAD_OFFICE_CD" remarks="Наименование оргструктуры" type="VARCHAR2(255)"/>
-    </createTable>
-  </changeSet>
-
-  <changeSet author="initial" id="FILE_DATASOURCE TABLE">
-    <createTable remarks="Конфигурация источников файлов" tableName="FILE_DATASOURCE">
-      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
-        <constraints primaryKey="true" primaryKeyName="PK_FILE_DATASOURCE"/>
-      </column>
-      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Дата создания"
-        type="TIMESTAMP(6)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" remarks="Кто создал" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Дата изменения"
-        type="TIMESTAMP(6)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" remarks="Кто изменил" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="0" name="VSTAMP" remarks="Версия" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="NAME" remarks="Название источника" type="VARCHAR2(30 BYTE)"/>
-      <column name="SOURCE_TABLE" remarks="Поле - название таблицы" type="VARCHAR2(30 BYTE)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="ID_FIELD" remarks="Поле - id файла" type="VARCHAR2(30 BYTE)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="CONTENT_FIELD" remarks="Поле - Содержимое файла" type="VARCHAR2(30 BYTE)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="NAME_FIELD" remarks="Поле - Имя файла" type="VARCHAR2(30 BYTE)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="TYPE_FIELD" remarks="Поле - Mime - тип файла" type="VARCHAR2(30 BYTE)"/>
-      <column name="SIZE_FIELD" remarks="Поле - Размер файла" type="VARCHAR2(30 BYTE)"/>
-    </createTable>
-  </changeSet>
-  <changeSet author="initial" id="FILE_ENTITY TABLE">
-    <createTable remarks="Хранилище файлов" tableName="FILE_ENTITY">
-      <column name="ID" remarks="Идентификатор" type="NUMBER(19, 0)">
-        <constraints primaryKey="true"/>
-      </column>
-      <column defaultValue="DB" name="FILE_STORAGE_CD" remarks="Тип хранения файлов" type="VARCHAR2(255 BYTE)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="FILE_CONTENT" remarks="Содержимое файла" type="BLOB"/>
-      <column name="FILE_NAME" remarks="Название файла" type="VARCHAR2(255 BYTE)"/>
-      <column name="FILE_TYPE" remarks="Тип содержимого" type="VARCHAR2(255 BYTE)"/>
-      <column name="FILE_SIZE" remarks="Размер файла" type="NUMBER(19, 0)"/>
-      <column name="IS_TEMPORARY" remarks="Признак временного файла" type="NUMBER(1, 0)"/>
-      <column name="FILE_URL" remarks="Ссылка на файл" type="VARCHAR2(255 BYTE)"/>
-      <column defaultValueNumeric="0" name="RESTRICTED_FLG" type="NUMBER(1, 0)"/>
-      <column defaultValueComputed="current_timestamp" name="CREATED_DATE" remarks="Дата создания"
-        type="TIMESTAMP(6)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueComputed="current_timestamp" name="UPDATED_DATE" remarks="Дата изменения"
-        type="TIMESTAMP(6)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
-      <column defaultValueNumeric="0" name="VSTAMP" type="NUMBER(19, 0)">
-        <constraints nullable="false"/>
-      </column>
     </createTable>
   </changeSet>
 
@@ -1063,15 +989,6 @@
     </createIndex>
   </changeSet>
 
-  <changeSet author="initial" id="FILE_ENTITY INDEXES">
-    <createIndex indexName="FILE_ENTITY_IND1" tableName="FILE_ENTITY">
-      <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
-    </createIndex>
-    <createIndex indexName="FILE_ENTITY_IND2" tableName="FILE_ENTITY">
-      <column defaultValueNumeric="1" name="LAST_UPD_BY_USER_ID"/>
-    </createIndex>
-  </changeSet>
-
   <changeSet author="initial" id="RESPONSIBILITIES INDEXES">
     <createIndex indexName="RESPONSIBILITIES_IND1" tableName="RESPONSIBILITIES">
       <column defaultValueNumeric="1" name="CREATED_BY_USER_ID"/>
@@ -1267,27 +1184,6 @@
       referencedTableName="CUSTOMIZABLE_RESPONSE_SERVICE" validate="true"/>
     <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="DICTIONARY_LNK_RULE"
       constraintName="FK_DLNKRULE_UB" deferrable="false" initiallyDeferred="false"
-      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
-      referencedTableName="USERS" validate="true"/>
-  </changeSet>
-
-  <changeSet author="initial" id="FILE_DATASOURCE CONSTRAINTS">
-    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="FILE_DATASOURCE"
-      constraintName="FK_FILE_DATASOURCE_CB" deferrable="false" initiallyDeferred="false"
-      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
-      referencedTableName="USERS" validate="true"/>
-    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="FILE_DATASOURCE"
-      constraintName="FK_FILE_DATASOURCE_UB" deferrable="false" initiallyDeferred="false"
-      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
-      referencedTableName="USERS" validate="true"/>
-  </changeSet>
-  <changeSet author="initial" id="FILE_ENTITY CONSTRAINTS">
-    <addForeignKeyConstraint baseColumnNames="CREATED_BY_USER_ID" baseTableName="FILE_ENTITY"
-      constraintName="FK_FILE_ENTITY_CREATED_BY" deferrable="false" initiallyDeferred="false"
-      onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
-      referencedTableName="USERS" validate="true"/>
-    <addForeignKeyConstraint baseColumnNames="LAST_UPD_BY_USER_ID" baseTableName="FILE_ENTITY"
-      constraintName="FK_FILE_ENTITY_UPDATED_BY" deferrable="false" initiallyDeferred="false"
       onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID"
       referencedTableName="USERS" validate="true"/>
   </changeSet>

@@ -2,11 +2,7 @@
   "name": "client",
   "icon": "team",
   "order": 0,
-  "title": "Clients",
-  "primaryViewName": "clientlist",
-  "primaryViews": [
-    "clientlist"
-  ],
+  "title": "Client",
   "navigation": {
     "menu": [
       {
@@ -16,10 +12,19 @@
             "viewName": "clientlist"
           },
           {
-            "viewName": "clientedit"
+            "viewName": "clienteditgeneral"
+          },
+          {
+            "viewName": "clienteditcontacts"
+          },
+          {
+            "viewName": "clienteditoverview"
           },
           {
             "viewName": "clientview"
+          },
+          {
+            "viewName": "clienteditcreatecontact"
           }
         ]
       }

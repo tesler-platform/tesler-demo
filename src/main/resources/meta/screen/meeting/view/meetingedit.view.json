@@ -1,0 +1,56 @@
+{
+  "name": "meetingedit",
+  "title": "Meeting Edit",
+  "template": "DashboardView",
+  "url": "/screen/meeting/view/meetingedit",
+  "widgets": [
+    {
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "meetingEditHeader",
+      "position": 1,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "meetingEdit",
+      "position": 2,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "meetingClientInfo",
+      "position": 4,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "meetingResultEdit",
+      "position": 5,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "responsiblePickListPopup",
+      "position": 1,
+      "gridWidth": 2
+    },
+     {
+       "widgetName": "clientPickListPopup",
+       "position": 1,
+       "gridWidth": 2
+     },
+     {
+       "widgetName": "contactPickListPopup",
+       "position": 1,
+       "gridWidth": 2
+     },
+    {
+      "widgetName": "meetingEditButtons",
+      "position": 6,
+      "gridWidth": 2
+    }
+  ],
+  "rolesAllowed": [
+   "TESLER_USER"
+  ]
+}

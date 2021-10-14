@@ -1,0 +1,17 @@
+{
+  "name": "meetingEditButtons",
+  "title": "",
+  "type": "Form",
+  "bc": "meetingEdit",
+  "fields": [
+  ],
+  "options": {
+    "actionGroups": {
+      "include": [
+        "save",
+        "saveAndContinue",
+        "cancel"
+      ]
+    }
+  }
+}

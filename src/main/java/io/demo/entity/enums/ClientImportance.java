@@ -8,7 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ClientImportance {
 	High("High", "#EC3F3F"),
-	Medium("Medium", "#FCA546"),
+	Middle("Middle", "#FCA546"),
 	Low("Low", "#008C3E");
 
 	@JsonValue

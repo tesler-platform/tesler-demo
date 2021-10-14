@@ -33,6 +33,14 @@ export class CustomActionTypes extends TeslerActionPayloadTypes {
     changeLocation: TeslerActionPayloadTypes['changeLocation'] & {
         customPayloadField?: number
     } = z
+
+    /**
+     * Set the number of records for BC
+     */
+    setBcCount: {
+        count: number
+        bcName: string
+    } = z
 }
 
 /**

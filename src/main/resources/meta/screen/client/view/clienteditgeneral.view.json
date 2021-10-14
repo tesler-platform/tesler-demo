@@ -1,0 +1,36 @@
+{
+  "name": "clienteditgeneral",
+  "title": "Client Edit",
+  "template": "DashboardView",
+  "url": "/screen/client/view/clienteditgeneral",
+  "widgets": [
+    {
+      "widgetName": "SecondLevelMenu",
+      "position": 0,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEditHeader",
+      "position": 1,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEditStep",
+      "position": 2,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEdit",
+      "position": 3,
+      "gridWidth": 4
+    },
+    {
+      "widgetName": "clientEditButtons",
+      "position": 5,
+      "gridWidth": 4
+    }
+  ],
+  "rolesAllowed": [
+   "TESLER_USER"
+  ]
+}

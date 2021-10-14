@@ -1,7 +1,20 @@
+import { WidgetMeta, WidgetTypes } from '@tesler-ui/core/interfaces/widget'
+import { WidgetOptions } from '@tesler-ui/schema'
 export enum CustomFieldTypes {
     MultipleSelect = 'multipleSelect'
 }
 
 export enum CustomWidgetTypes {
-    Header = 'Header'
+    Steps = 'Steps'
+}
+
+export const removeRecordOperationWidgets: Array<WidgetTypes | string> = [WidgetTypes.List]
+
+export interface StepsWidgetMeta extends WidgetMeta {
+    type: CustomWidgetTypes.Steps
+    options: WidgetOptions & {
+        stepsOptions: {
+            stepsDictionaryKey: string
+        }
+    }
 }

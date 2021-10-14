@@ -1,11 +1,11 @@
 {
   "name": "contactViewList",
-  "title": "",
+  "title": "Contacts",
   "type": "List",
   "bc": "contact",
   "fields": [
     {
-      "title": "Contact Full Name",
+      "title": "Name",
       "key": "fullName",
       "type": "input",
       "drillDown": "true"
@@ -16,7 +16,7 @@
       "type": "input"
     },
     {
-      "title": "Email",
+      "title": "E-mail",
       "key": "email",
       "type": "input"
     }
