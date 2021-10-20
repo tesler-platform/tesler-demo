@@ -34,7 +34,7 @@ export default function dataReducer(
  *
  * @param loc
  */
-export function keycloakAwareParseLocation(loc: Location): Route {
+export function keycloakAwareParseLocation(loc: typeof historyObj.location): Route {
     let path: string = loc.pathname
     if (path.startsWith('/')) {
         path = path.substring(1)
