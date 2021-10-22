@@ -12,8 +12,8 @@ import io.tesler.core.util.filter.provider.impl.DateTimeValueProvider;
 import io.tesler.core.util.filter.provider.impl.EnumValueProvider;
 import io.tesler.model.core.entity.BaseEntity;
 import io.tesler.model.core.entity.User;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,9 +27,9 @@ public class MeetingDTO extends DataResponseDTO {
 	private String agenda;
 
 	@SearchParameter(name = "startDateTime", provider = DateTimeValueProvider.class)
-	private Date startDateTime;
+	private LocalDateTime startDateTime;
 
-	private Date endDateTime;
+	private LocalDateTime endDateTime;
 
 	private String period;
 
@@ -59,14 +59,14 @@ public class MeetingDTO extends DataResponseDTO {
 	private String contactName;
 
 	public MeetingDTO(Meeting meeting) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy hh:mm");
 
 		this.id = meeting.getId().toString();
 		this.agenda = meeting.getAgenda();
 		this.startDateTime = meeting.getStartDateTime();
 		this.endDateTime = meeting.getEndDateTime();
-		this.period = ofNullable(meeting.getStartDateTime()).map(simpleDateFormat::format).orElse("")
-				+ " - " + ofNullable(meeting.getEndDateTime()).map(simpleDateFormat::format).orElse("");
+		this.period = ofNullable(meeting.getStartDateTime()).map(dateTimeFormatter::format).orElse("")
+				+ " - " + ofNullable(meeting.getEndDateTime()).map(dateTimeFormatter::format).orElse("");
 		this.address = meeting.getAddress();
 		this.status = meeting.getStatus();
 		this.notes = meeting.getNotes();

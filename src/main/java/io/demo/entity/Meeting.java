@@ -3,8 +3,7 @@ package io.demo.entity;
 import io.demo.entity.enums.MeetingStatus;
 import io.tesler.model.core.entity.BaseEntity;
 import io.tesler.model.core.entity.User;
-import java.time.Instant;
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -24,9 +23,9 @@ public class Meeting extends BaseEntity {
 
 	private String agenda;
 
-	private Date startDateTime = Date.from(Instant.now());
+	private LocalDateTime startDateTime = LocalDateTime.now();
 
-	private Date endDateTime = Date.from(Instant.now());
+	private LocalDateTime endDateTime = LocalDateTime.now();
 
 	@Enumerated(EnumType.STRING)
 	private MeetingStatus status = MeetingStatus.NotStarted;
