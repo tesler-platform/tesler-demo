@@ -6,14 +6,17 @@ import Operations from '../Operations/Operations'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../interfaces/storeSlices'
 import styles from './Card.module.css'
+import { CustomWidgetTypes } from '../../interfaces/widget'
+import cn from 'classnames'
 
 export interface CardProps {
     children: React.ReactNode
     meta: WidgetMeta
+    className?: string
 }
-const showOperations = [WidgetTypes.List, WidgetTypes.DataGrid, WidgetTypes.Form]
+const showOperations = [WidgetTypes.List, WidgetTypes.DataGrid, WidgetTypes.Form, CustomWidgetTypes.ActionButton]
 
-function Card({ meta, children }: CardProps) {
+function Card({ meta, children, className }: CardProps) {
     const { type, bcName } = meta
     const bcUrl = useSelector((state: AppState) => state.screen.bo.bc[bcName] && buildBcUrl(bcName, true))
     const operations = useSelector((state: AppState) => state.view.rowMeta?.[bcName]?.[bcUrl]?.actions)
@@ -21,7 +24,7 @@ function Card({ meta, children }: CardProps) {
     return (
         <Row justify="center">
             <Col span={22} offset={1}>
-                <div className={styles.container}>
+                <div className={cn(styles.container, className)}>
                     {meta.title && (
                         <h2 className={styles.widgetTitle}>
                             <TemplatedTitle widgetName={meta.name} title={meta.title} />
