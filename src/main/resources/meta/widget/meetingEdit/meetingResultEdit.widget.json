@@ -18,6 +18,9 @@
   "options": {
     "actionGroups": {
       "include": [
+        "save",
+        "saveAndContinue",
+        "cancel"
       ]
     },
     "layout": {

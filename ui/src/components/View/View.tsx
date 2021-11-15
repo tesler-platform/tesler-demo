@@ -12,9 +12,9 @@ import Info from '../widgets/Info/Info'
 import Table from '../widgets/Table/Table'
 import { FieldType } from '@tesler-ui/core/interfaces/view'
 import Dictionary from '../../fields/Dictionary/Dictionary'
-import ActionButtons from '../widgets/ActionButtons/ActionButtons'
-import TinyMarginCard from '../TinyMarginCard/TinyMarginCard'
 import Steps from '../widgets/Steps/Steps'
+import TinyMarginCard from '../TinyMarginCard/TinyMarginCard'
+import EmptyWidget from '../widgets/EmptyWidget/EmptyWidget'
 
 const skipWidgetTypes = [WidgetTypes.SecondLevelMenu]
 
@@ -29,7 +29,7 @@ const customWidgets: Partial<Record<CustomWidgetTypes | WidgetTypes, CustomWidge
     [WidgetTypes.List]: { component: Table },
     [WidgetTypes.HeaderWidget]: { component: Header, card: EmptyCard },
     [CustomWidgetTypes.Steps]: { component: Steps, card: EmptyCard },
-    [CustomWidgetTypes.ActionButton]: { component: ActionButtons, card: TinyMarginCard }
+    [CustomWidgetTypes.EmptyWidget]: { component: EmptyWidget, card: TinyMarginCard }
 }
 
 function View() {
