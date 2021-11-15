@@ -5,7 +5,8 @@ export enum CustomFieldTypes {
 }
 
 export enum CustomWidgetTypes {
-    Steps = 'Steps'
+    Steps = 'Steps',
+    ActionButton = 'ActionButton'
 }
 
 export const removeRecordOperationWidgets: Array<WidgetTypes | string> = [WidgetTypes.List]

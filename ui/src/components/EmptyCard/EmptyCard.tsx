@@ -1,5 +1,6 @@
 import React from 'react'
 import { Col, Row } from 'antd'
+import styles from './EmptyCard.module.css'
 
 interface EmptyCardProps {
     children?: React.ReactNode
@@ -7,7 +8,7 @@ interface EmptyCardProps {
 
 function EmptyCard({ children }: EmptyCardProps) {
     return (
-        <Row justify="center">
+        <Row justify="center" className={styles.container}>
             <Col span={22} offset={1}>
                 {children}
             </Col>
