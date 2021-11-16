@@ -14,7 +14,7 @@ export interface CardProps {
     meta: WidgetMeta
     className?: string
 }
-const showOperations = [WidgetTypes.List, WidgetTypes.DataGrid, WidgetTypes.Form, CustomWidgetTypes.ActionButton]
+const showOperations = [WidgetTypes.List, WidgetTypes.DataGrid, WidgetTypes.Form, CustomWidgetTypes.EmptyWidget]
 
 function Card({ meta, children, className }: CardProps) {
     const { type, bcName } = meta
