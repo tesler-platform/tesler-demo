@@ -44,6 +44,10 @@
   "options": {
     "actionGroups": {
       "include": [
+        "next",
+        "previous",
+        "finish",
+        "cancel"
       ]
     },
     "layout": {

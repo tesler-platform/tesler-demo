@@ -23,11 +23,6 @@
       "widgetName": "clientEdit",
       "position": 3,
       "gridWidth": 4
-    },
-    {
-      "widgetName": "clientEditButtons",
-      "position": 5,
-      "gridWidth": 4
     }
   ],
   "rolesAllowed": [

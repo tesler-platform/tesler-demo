@@ -6,7 +6,6 @@ import Operations from '../Operations/Operations'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../interfaces/storeSlices'
 import styles from './Card.module.css'
-import { CustomWidgetTypes } from '../../interfaces/widget'
 import cn from 'classnames'
 
 export interface CardProps {
@@ -14,7 +13,7 @@ export interface CardProps {
     meta: WidgetMeta
     className?: string
 }
-const showOperations = [WidgetTypes.List, WidgetTypes.DataGrid, WidgetTypes.Form, CustomWidgetTypes.EmptyWidget]
+const showOperations = [WidgetTypes.List, WidgetTypes.DataGrid, WidgetTypes.Form]
 
 function Card({ meta, children, className }: CardProps) {
     const { type, bcName } = meta
