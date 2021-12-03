@@ -1,0 +1,11 @@
+{
+  "name": "another",
+  "title": "Another",
+  "template": "DashboardView",
+  "url": "/screen/another/view/another",
+  "widgets": [
+  ],
+  "rolesAllowed": [
+    "TESLER_USER"
+  ]
+}
