@@ -1,5 +1,6 @@
 package io.demo.service;
 
+import com.google.common.collect.ImmutableMap;
 import io.demo.conf.tesler.icon.ActionIcon;
 import io.demo.controller.TeslerRestController;
 import io.demo.dto.MeetingDTO;
@@ -12,6 +13,8 @@ import io.tesler.core.dto.DrillDownType;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
 import io.tesler.core.dto.rowmeta.CreateResult;
 import io.tesler.core.dto.rowmeta.PostAction;
+import io.tesler.core.dto.rowmeta.PreAction;
+import io.tesler.core.dto.rowmeta.PreActionType;
 import io.tesler.core.service.action.ActionScope;
 import io.tesler.core.service.action.Actions;
 import io.tesler.core.service.action.ActionsBuilder;
@@ -75,7 +78,7 @@ public class MeetingReadService extends VersionAwareResponseService<MeetingDTO, 
 				.invoker((bc, data) -> new ActionResultDTO<MeetingDTO>()
 						.setAction(PostAction.drillDown(
 								DrillDownType.INNER,
-										"/screen/meeting/view/meetingedit/" +
+								"/screen/meeting/view/meetingedit/" +
 										TeslerRestController.meetingEdit + "/" +
 										bc.getId()
 						)))
@@ -105,6 +108,10 @@ public class MeetingReadService extends VersionAwareResponseService<MeetingDTO, 
 						Meeting meeting = meetingRepository.getById(Long.parseLong(bc.getId()));
 						return meeting.getStatus().available(meeting).contains(status);
 					})
+					.withPreAction(PreAction.builder().preActionType(PreActionType.CONFIRMATION)
+							.message("Do You confirm the action on the meeting?")
+							.customParameters(ImmutableMap.of("okText", status.getButton(), "cancelText", "Back to meeting list"))
+							.build())
 					.scope(ActionScope.RECORD)
 					.add();
 		});
