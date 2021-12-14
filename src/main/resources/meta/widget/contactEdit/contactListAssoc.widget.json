@@ -1,14 +1,14 @@
 {
-  "name": "contactEditList",
+  "name": "contactListAssoc",
   "title": "Contacts",
-  "type": "List",
-  "bc": "contactEdit",
+  "type": "AssocListPopup",
+  "bc": "contactEditAssoc",
+  "showCondition": [],
   "fields": [
     {
       "title": "Contact Full Name",
       "key": "fullName",
-      "type": "input",
-      "drillDown": "true"
+      "type": "input"
     },
     {
       "title": "Phone Number",
@@ -21,15 +21,6 @@
       "type": "input"
     }
   ],
-  "options": {
-    "actionGroups": {
-      "include": [
-        "create",
-        "save",
-        "add",
-        "edit",
-        "associate"
-      ]
-    }
-  }
+  "axisFields": [],
+  "chart": []
 }

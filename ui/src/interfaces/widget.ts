@@ -1,5 +1,4 @@
-import { WidgetMeta, WidgetTypes } from '@tesler-ui/core/interfaces/widget'
-import { WidgetOptions } from '@tesler-ui/schema'
+import { WidgetMeta, WidgetTypes, WidgetOptions } from '@tesler-ui/core/interfaces/widget'
 export enum CustomFieldTypes {
     MultipleSelect = 'multipleSelect'
 }
