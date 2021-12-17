@@ -24,6 +24,11 @@ public class ClientReadMeta extends FieldMetaBuilder<ClientReadDTO> {
 				DrillDownType.INNER,
 				"/screen/client/view/clientview/" + TeslerRestController.client + "/" + id
 		);
+		fields.setDrilldown(
+				ClientReadDTO_.drillDown,
+				DrillDownType.EXTERNAL,
+				null
+		);
 	}
 
 	@Override

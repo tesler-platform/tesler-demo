@@ -11,6 +11,13 @@
       "drillDown": "true"
     },
     {
+      "title": "DRILLDOWN",
+      "key": "drillDown",
+      "type": "input",
+      "drillDown": true,
+      "drillDownKey": "drillDownKey"
+    },
+    {
       "title": "Address",
       "key": "address",
       "type": "input"
