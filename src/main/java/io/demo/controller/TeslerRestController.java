@@ -30,6 +30,7 @@ public enum TeslerRestController implements EnumBcIdentifier {
 		contact(client, ClientContactService.class),
 	clientEdit(ClientWriteService.class),
 		contactEdit(clientEdit, ClientContactService.class),
+		contactEditAssoc(clientEdit, ClientContactService.class),
 	meeting(MeetingReadService.class),
 	meetingEdit(MeetingWriteService.class),
 		responsiblePickListPopup(meetingEdit, ResponsiblePickListService.class),

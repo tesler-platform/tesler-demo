@@ -6,12 +6,13 @@ import { ColumnProps } from 'antd/es/table'
 import { DataItem } from '@tesler-ui/core/interfaces/data'
 import MenuColumn from './components/MenuColumn'
 import Pagination from '../../ui/Pagination/Pagination'
+import { TableWidgetOwnProps } from '@tesler-ui/core/components/widgets/TableWidget/TableWidget'
 
-interface TableProps {
+interface TableProps extends TableWidgetOwnProps {
     meta: WidgetTableMeta
 }
 
-function Table({ meta }: TableProps) {
+function Table({ meta, ...rest }: TableProps) {
     const menuColumn: ColumnProps<DataItem> = React.useMemo(() => {
         return {
             title: '',
@@ -30,7 +31,7 @@ function Table({ meta }: TableProps) {
 
     return (
         <div className={styles.tableContainer}>
-            <TableWidget meta={meta} controlColumns={controlColumns} disablePagination />
+            <TableWidget meta={meta} controlColumns={controlColumns} disablePagination {...rest} />
             <Pagination meta={meta} />
         </div>
     )

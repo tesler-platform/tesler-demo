@@ -4,9 +4,9 @@ import UserMenu from './components/UserMenu/UserMenu'
 import styles from './AppBar.module.css'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../interfaces/storeSlices'
-import { WidgetTypes } from '@tesler-ui/schema'
 import { Layout } from 'antd'
 import cn from 'classnames'
+import { WidgetTypes } from '@tesler-ui/core/interfaces/widget'
 
 function AppBar() {
     const widgets = useSelector((state: AppState) => state.view.widgets)

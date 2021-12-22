@@ -23,6 +23,11 @@
       "widgetName": "clientEditButtons",
       "position": 5,
       "gridWidth": 4
+    },
+    {
+      "widgetName": "contactListAssoc",
+      "position": 6,
+      "gridWidth": 1
     }
   ],
   "rolesAllowed": [

@@ -8,15 +8,19 @@ import io.demo.entity.Contact_;
 import io.demo.repository.ClientRepository;
 import io.demo.repository.ContactRepository;
 import io.demo.dto.ContactDTO;
+import io.tesler.api.data.dto.AssociateDTO;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.DrillDownType;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
+import io.tesler.core.dto.rowmeta.AssociateResultDTO;
 import io.tesler.core.dto.rowmeta.CreateResult;
 import io.tesler.core.dto.rowmeta.PostAction;
 import io.tesler.core.service.action.ActionScope;
 import io.tesler.core.service.action.Actions;
 import io.tesler.model.core.entity.BaseEntity_;
+import java.util.Collections;
+import java.util.List;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -73,10 +77,19 @@ public class ClientContactService extends VersionAwareResponseService<ContactDTO
 	}
 
 	@Override
+	protected AssociateResultDTO doAssociate(List<AssociateDTO> data, BusinessComponent bc) {
+		return new AssociateResultDTO(Collections.emptyList())
+				.setAction(PostAction.refreshBc(bc));
+	}
+
+	@Override
 	public Actions<ContactDTO> getActions() {
 		return Actions.<ContactDTO>builder()
 				.create()
 				.text("Add contact")
+				.add()
+				.associate()
+				.text("Add Existing")
 				.add()
 				.newAction()
 				.action("save_and_go_to_client_edit_contacts", "save")

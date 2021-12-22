@@ -6,6 +6,8 @@ import { CustomFieldTypes, CustomWidgetTypes } from '../../interfaces/widget'
 import MultipleSelectField from '../../fields/MultipleSelectField/MultipleSelectField'
 import Form from '../widgets/Form/Form'
 import Header from '../widgets/Header/Header'
+import AssocListPopup from '../widgets/AssocListPopup/AssocListPopup'
+import PickListPopup from '../widgets/PickListPopup/PickListPopup'
 import EmptyCard from '../EmptyCard/EmptyCard'
 import styles from './View.module.css'
 import Info from '../widgets/Info/Info'
@@ -26,7 +28,9 @@ const customWidgets: Partial<Record<CustomWidgetTypes | WidgetTypes, CustomWidge
     [WidgetTypes.Info]: { component: Info },
     [WidgetTypes.List]: { component: Table },
     [WidgetTypes.HeaderWidget]: { component: Header, card: EmptyCard },
-    [CustomWidgetTypes.Steps]: { component: Steps, card: EmptyCard }
+    [CustomWidgetTypes.Steps]: { component: Steps, card: EmptyCard },
+    [WidgetTypes.AssocListPopup]: AssocListPopup,
+    [WidgetTypes.PickListPopup]: PickListPopup
 }
 
 function View() {

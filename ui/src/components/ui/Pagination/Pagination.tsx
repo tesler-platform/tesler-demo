@@ -19,8 +19,8 @@ function Pagination({ meta }: PaginationProps) {
     const limit = metaLimit || bcLimit
 
     const handlePageChange = React.useCallback(
-        (page: number) => {
-            dispatch($do.bcChangePage({ bcName, page }))
+        (p: number) => {
+            dispatch($do.bcChangePage({ bcName, page: p }))
         },
         [dispatch, bcName]
     )
