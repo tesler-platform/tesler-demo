@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { AssocListPopup as CoreAssocListPopup, useAssocRecords } from '@tesler-ui/core'
+import { AssocListPopup as CoreAssocListPopup, useAssocRecords, useTranslation } from '@tesler-ui/core'
 import { WidgetTableMeta } from '@tesler-ui/core/interfaces/widget'
 import tableStyles from '../Table/Table.module.css'
 import styles from './AssocListPopup.module.css'
@@ -118,6 +118,7 @@ function AssocListPopup({ meta }: AssocListPopupProps) {
         onClose()
     }, [onFilter, onRemoveFilter, bcFilters, onClose, calleeBCName, associateFieldKey, selectedRecords, calleeWidgetName, viewName])
 
+    const { t } = useTranslation()
     return (
         <CoreAssocListPopup
             className={cn(tableStyles.tableContainer, styles.container)}
@@ -127,8 +128,8 @@ function AssocListPopup({ meta }: AssocListPopupProps) {
                     <>
                         <Pagination meta={meta} />
                         <div className={styles.actions}>
-                            <OperationButton onClick={isFilter ? filterData : saveData}>Save</OperationButton>
-                            <OperationButton onClick={onCancel}>Cancel</OperationButton>
+                            <OperationButton onClick={isFilter ? filterData : saveData}>{t('Save')}</OperationButton>
+                            <OperationButton onClick={onCancel}>{t('Cancel')}</OperationButton>
                         </div>
                     </>
                 )
