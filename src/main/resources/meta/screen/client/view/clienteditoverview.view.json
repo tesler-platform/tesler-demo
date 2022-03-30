@@ -7,37 +7,37 @@
     {
       "widgetName": "SecondLevelMenu",
       "position": 0,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "clientEditStep",
       "position": 0,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "clientViewHeader",
       "position": 1,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "clientView",
       "position": 3,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "contactListHeader",
       "position": 4,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "contactViewList",
       "position": 4,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "clientEditButtons",
       "position": 4,
-      "gridWidth": 4
+      "gridWidth": 24
     }
   ],
   "rolesAllowed": [

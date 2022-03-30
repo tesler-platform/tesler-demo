@@ -7,42 +7,42 @@
     {
       "widgetName": "SecondLevelMenu",
       "position": 0,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingEditHeader",
       "position": 1,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingEdit",
       "position": 2,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingClientInfo",
       "position": 4,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingResultEdit",
       "position": 5,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "responsiblePickListPopup",
       "position": 1,
-      "gridWidth": 2
+      "gridWidth": 24
     },
      {
        "widgetName": "clientPickListPopup",
        "position": 1,
-       "gridWidth": 2
+       "gridWidth": 24
      },
      {
        "widgetName": "contactPickListPopup",
        "position": 1,
-       "gridWidth": 2
+       "gridWidth": 24
      }
   ],
   "rolesAllowed": [

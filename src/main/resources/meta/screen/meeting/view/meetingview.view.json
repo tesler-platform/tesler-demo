@@ -7,32 +7,32 @@
     {
       "widgetName": "SecondLevelMenu",
       "position": 0,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingViewHeader",
       "position": 1,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingViewButtons",
       "position": 2,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingView",
       "position": 3,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingViewClientInfo",
       "position": 4,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingViewResult",
       "position": 5,
-      "gridWidth": 4
+      "gridWidth": 24
     }
   ],
   "rolesAllowed": [

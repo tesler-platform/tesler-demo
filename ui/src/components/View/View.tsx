@@ -15,6 +15,7 @@ import Table from '../widgets/Table/Table'
 import { FieldType } from '@tesler-ui/core/interfaces/view'
 import Dictionary from '../../fields/Dictionary/Dictionary'
 import Steps from '../widgets/Steps/Steps'
+import { DashboardLayout } from '../ui/DashboardLayout/DashboardLayout'
 
 const skipWidgetTypes = [WidgetTypes.SecondLevelMenu]
 
@@ -41,6 +42,7 @@ function View() {
                 customFields={customFields}
                 card={Card as any}
                 skipWidgetTypes={skipWidgetTypes}
+                customLayout={DashboardLayout}
             />
         </div>
     )

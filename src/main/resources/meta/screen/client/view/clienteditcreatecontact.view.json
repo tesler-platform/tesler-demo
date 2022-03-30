@@ -7,16 +7,16 @@
     {
       "widgetName": "SecondLevelMenu",
       "position": 0,
-      "gridWidth": 4
+      "gridWidth": 24
     },{
       "widgetName": "clientContactEdit",
       "position": 1,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "contactEditForm",
       "position": 5,
-      "gridWidth": 4
+      "gridWidth": 24
     }
   ],
   "rolesAllowed": [

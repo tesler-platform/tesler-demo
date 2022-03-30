@@ -7,22 +7,22 @@
     {
       "widgetName": "SecondLevelMenu",
       "position": 0,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "clientEditHeader",
       "position": 1,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "clientEditStep",
       "position": 2,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "clientEdit",
       "position": 3,
-      "gridWidth": 4
+      "gridWidth": 24
     }
   ],
   "rolesAllowed": [

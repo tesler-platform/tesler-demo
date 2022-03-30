@@ -751,7 +751,7 @@
       <column name="DESCRIPTION" type="CLOB"/>
       <column name="SNIPPET" type="CLOB"/>
       <column name="PAGE_LIMIT" remarks="Лимит" type="NUMBER(10, 0)"/>
-      <column defaultValueNumeric="1" name="GRID_WIDTH" type="NUMBER(1, 0)">
+      <column defaultValueNumeric="1" name="GRID_WIDTH" type="NUMBER(2, 0)">
         <constraints nullable="false"/>
       </column>
       <column defaultValueNumeric="0" name="GRID_BREAK" type="NUMBER(1, 0)">
