@@ -61,11 +61,7 @@
             {
               "fieldKey": "fullName",
               "span": 12
-            }
-          ]
-        },
-        {
-          "cols": [
+            },
             {
               "fieldKey": "address",
               "span": 12
@@ -77,10 +73,7 @@
             {
               "fieldKey": "status",
               "span": 12
-            }
-          ]
-        },{
-          "cols": [
+            },
             {
               "fieldKey": "fieldOfActivity",
               "span": 12
@@ -91,11 +84,7 @@
             {
               "fieldKey": "importance",
               "span": 12
-            }
-          ]
-        },
-        {
-          "cols": [
+            },
             {
               "fieldKey": "breif",
               "span": 12
