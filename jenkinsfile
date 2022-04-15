@@ -1,0 +1,11 @@
+pipeline {
+  agent any
+  stages {
+    stage('test') {
+      steps {
+        //         sh 'mkdir dd2'
+        sh("echo 'text here2' >> text.txt")
+      }
+    }
+  }
+}
