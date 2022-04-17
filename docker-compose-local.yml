@@ -2,25 +2,6 @@ version: '2.1'
 
 services:
 
-  app:
-    build: .
-    environment:
-      - FRONTEND_AUTH_SERVER_URL=http://demo.tesler.io:9080/auth
-      - BAKEND_AUTH_SERVER_URL=http://demo.tesler.io:9080/auth
-      - DEV_PANEL_ENABLED=true
-      - META_DIRECTORY=classpath:meta
-      - DATABASE_DRIVER=org.postgresql.Driver
-      - DATABASE_URL=jdbc:postgresql://tesler_postgres:5432/postgres
-      - DATABASE_USER=postgres
-      - DATABASE_PASSWORD=postgres
-      - MINIO_ACCESS_KEY=4eb6a7db8b58994ea61b
-      - MINIO_SECRET_KEY=prCv8t9LGRH18FB5pLr5jqDZ/dixZkb9cFajueGW
-      - MINIO_URL=http://tesler_minio:9000
-      - MINIO_DEFAULT_BUCKETS=edcs3gnsadevb
-    expose:
-      - 80
-    ports:
-      - 80:80
   tesler_postgres:
     image: postgres:12.0
     environment:
