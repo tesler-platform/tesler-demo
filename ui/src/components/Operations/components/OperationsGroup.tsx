@@ -1,10 +1,10 @@
 import React from 'react'
 import { Operation, OperationGroup } from '@tesler-ui/core/interfaces/operation'
 import { Dropdown, Icon, Menu } from 'antd'
-import OperationButton from '../../ui/OperationButton/OperationButton'
+import OperationButton from './OperationButton'
 import styles from './OperationsGroup.module.css'
+import { WidgetTypes } from '@tesler-ui/schema'
 import { removeRecordOperationWidgets } from '../../../interfaces/widget'
-import { WidgetTypes } from '@tesler-ui/core/interfaces/widget'
 
 interface OperationsGroupProps {
     group: OperationGroup

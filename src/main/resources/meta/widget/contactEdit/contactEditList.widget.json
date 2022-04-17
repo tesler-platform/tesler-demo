@@ -27,8 +27,7 @@
         "create",
         "save",
         "add",
-        "edit",
-        "associate"
+        "edit"
       ]
     }
   }
