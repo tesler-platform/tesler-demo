@@ -14,7 +14,7 @@ login: `demo`, password: `demo`
 ##### 1 Start infrastructure locally with docker
 `docker-compose up`
 ##### 2 Build project
-`mvn clean install -PUI`
+`mvn clean install -P UI`
 ##### 3 Run
 `mvn spring-boot:run`
 

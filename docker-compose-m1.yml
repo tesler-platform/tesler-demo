@@ -10,7 +10,7 @@ services:
     ports:
       - 5432:5432
   tesler_keycloak:
-    image: jboss/keycloak:12.0.4
+    image: wizzn/keycloak:12
     command:
       [
           '-b',
@@ -33,13 +33,3 @@ services:
       - 9080:9080
       - 9443:9443
       - 10990:10990
-  tesler_minio:
-    image: bitnami/minio:latest
-    expose:
-      - 9000
-    ports:
-      - "9000:9000"
-    environment:
-      MINIO_ACCESS_KEY: 4eb6a7db8b58994ea61b
-      MINIO_SECRET_KEY: prCv8t9LGRH18FB5pLr5jqDZ/dixZkb9cFajueGW
-      MINIO_DEFAULT_BUCKETS: 'edcs3gnsadevb'

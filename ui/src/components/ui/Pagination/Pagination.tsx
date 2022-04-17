@@ -14,19 +14,13 @@ function Pagination({ meta }: PaginationProps) {
     const dispatch = useDispatch()
 
     const { bcName, limit: metaLimit } = meta
-    const { bcLimit, page } = useSelector((state: AppState) => {
-        const bc = state.screen.bo.bc[bcName]
-        return {
-            bcLimit: bc?.limit,
-            page: bc?.page
-        }
-    })
+    const { limit: bcLimit, page } = useSelector((state: AppState) => state.screen.bo.bc[bcName])
     const total = useSelector((state: AppState) => state.view.bcRecordsCount[bcName]?.count)
     const limit = metaLimit || bcLimit
 
     const handlePageChange = React.useCallback(
-        (p: number) => {
-            dispatch($do.bcChangePage({ bcName, page: p }))
+        (page: number) => {
+            dispatch($do.bcChangePage({ bcName, page }))
         },
         [dispatch, bcName]
     )

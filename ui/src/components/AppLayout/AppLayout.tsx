@@ -8,13 +8,10 @@ import DevPanel from '../DevPanel/DevPanel'
 import { SSO_AUTH } from '../../actions/types'
 import styles from './AppLayout.module.css'
 import View from '../View/View'
-import ModalInvoke from '../ModalInvoke/ModalInvoke'
-import SystemNotifications from '../SystemNotifications/SystemNotifications'
 
 export const AppLayout: React.FC = () => {
     const sessionActive = useSelector((state: AppState) => state.session.active)
     const logoutRequested = useSelector((state: AppState) => state.session.logout)
-    const modalInvoke = useSelector((state: AppState) => state.view.modalInvoke)
     const dispatch = useDispatch()
 
     React.useEffect(() => {
@@ -26,8 +23,6 @@ export const AppLayout: React.FC = () => {
     return sessionActive ? (
         <Layout>
             <DevPanel />
-            {modalInvoke?.operation && <ModalInvoke />}
-            <SystemNotifications />
             <Layout className={styles.appLayout}>
                 <AppSide />
                 <Layout.Content>

@@ -11,11 +11,9 @@ import io.demo.repository.MeetingRepository;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
 import io.tesler.core.dto.DrillDownType;
-import io.tesler.core.dto.MessageType;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
 import io.tesler.core.dto.rowmeta.CreateResult;
 import io.tesler.core.dto.rowmeta.PostAction;
-import io.tesler.core.dto.rowmeta.PreAction;
 import io.tesler.core.service.action.Actions;
 import io.tesler.core.util.session.SessionService;
 import org.springframework.stereotype.Service;
@@ -97,13 +95,12 @@ public class ClientReadService extends VersionAwareResponseService<ClientReadDTO
 								.newAction()
 								.action("deactivate", "Deactivate")
 								.withAutoSaveBefore()
-								.withPreAction(PreAction.confirm("Are You sure You want to deactivate the client?"))
 								.invoker((bc, data) -> {
 									Client client = clientRepository.getById(bc.getIdAsLong());
 									client.setStatus(ClientStatus.Inactive);
 									clientRepository.save(client);
 									return new ActionResultDTO<ClientReadDTO>()
-											.setAction(PostAction.showMessage(MessageType.INFO, "Client deactivated!"));
+											.setAction(PostAction.refreshBc(TeslerRestController.client));
 								})
 								.add()
 								.build()
