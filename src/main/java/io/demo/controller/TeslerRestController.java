@@ -1,13 +1,18 @@
 package io.demo.controller;
 
+import io.demo.service.ClientActivitiesService;
 import io.demo.service.ClientContactService;
 import io.demo.service.ClientReadService;
 import io.demo.service.ClientWriteService;
 import io.demo.service.ContactPickListService;
+import io.demo.service.DashboardFilterService;
 import io.demo.service.MeetingReadService;
 import io.demo.service.MeetingWriteService;
 import io.demo.service.ClientPickListService;
 import io.demo.service.ResponsiblePickListService;
+import io.demo.service.DashboardService;
+import io.demo.service.SaleReadService;
+import io.demo.service.SaleWriteService;
 import io.tesler.core.crudma.bc.BcIdentifier;
 import io.tesler.core.crudma.bc.EnumBcIdentifier;
 import io.tesler.core.crudma.bc.impl.AbstractEnumBcSupplier;
@@ -24,6 +29,7 @@ import org.springframework.stereotype.Component;
  */
 @Getter
 public enum TeslerRestController implements EnumBcIdentifier {
+
 	// @formatter:on
 
 	client(ClientReadService.class),
@@ -35,7 +41,15 @@ public enum TeslerRestController implements EnumBcIdentifier {
 	meetingEdit(MeetingWriteService.class),
 		responsiblePickListPopup(meetingEdit, ResponsiblePickListService.class),
 		clientPickListPopup(meetingEdit, ClientPickListService.class),
-		contactPickListPopup(meetingEdit, ContactPickListService.class);
+		contactPickListPopup(meetingEdit, ContactPickListService.class),
+	sale(SaleReadService.class),
+	saleEdit(SaleWriteService.class),
+		clientSalePickListPopup(saleEdit, ClientPickListService.class),
+	dashboardFilter(DashboardFilterService.class),
+		clientActivities(dashboardFilter, ClientActivitiesService.class),
+		salesFunnel(dashboardFilter, DashboardService.class),
+		salesRingProgress(dashboardFilter, DashboardService.class);
+
 	// @formatter:on
 
 	public static final EnumBcIdentifier.Holder<TeslerRestController> Holder = new Holder<>(TeslerRestController.class);
