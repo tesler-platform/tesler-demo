@@ -6,6 +6,7 @@ import io.demo.entity.Client;
 import io.demo.entity.Contact;
 import io.demo.entity.Meeting;
 import io.demo.entity.enums.MeetingStatus;
+import io.demo.entity.enums.MeetingTheme;
 import io.tesler.api.data.dto.DataResponseDTO;
 import io.tesler.core.util.filter.SearchParameter;
 import io.tesler.core.util.filter.provider.impl.DateTimeValueProvider;
@@ -43,6 +44,10 @@ public class MeetingDTO extends DataResponseDTO {
 
 	private String result;
 
+	private MeetingTheme meetingTheme;
+
+	private String meetingName;
+
 	private Long responsibleId;
 
 	@SearchParameter(name = "responsible.fullName")
@@ -71,6 +76,8 @@ public class MeetingDTO extends DataResponseDTO {
 		this.status = meeting.getStatus();
 		this.notes = meeting.getNotes();
 		this.result = meeting.getResult();
+		this.meetingTheme = meeting.getMeetingTheme();
+		this.meetingName = meeting.getMeetingName();
 		this.responsibleName = ofNullable(meeting.getResponsible()).map(User::getFullName).orElse(null);
 		this.responsibleId = ofNullable(meeting.getResponsible()).map(User::getId).orElse(null);
 		this.clientName = ofNullable(meeting.getClient()).map(Client::getFullName).orElse(null);

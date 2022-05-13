@@ -131,7 +131,8 @@
       <column header="edit_step" name="edit_step" type="STRING"/>
       <column header="status" name="status" type="STRING"/>
     </loadUpdateData>
-    <loadUpdateData tableName="FIELD_OF_ACTIVITY" primaryKey="value,client_id" encoding="UTF-8" separator="," quotchar="&quot;"
+    <loadUpdateData tableName="FIELD_OF_ACTIVITY" primaryKey="value,client_id" encoding="UTF-8" separator=","
+      quotchar="&quot;"
       file="db/data/FIELD_OF_ACTIVITY.csv">
       <column header="value" name="value" type="STRING"/>
       <column header="client_id" name="client_id" type="STRING"/>
@@ -161,6 +162,17 @@
       <column header="created_by_user_id" name="created_by_user_id" type="STRING"/>
       <column header="last_upd_by_user_id" name="last_upd_by_user_id" type="STRING"/>
     </loadUpdateData>
+  </changeSet>
+
+  <changeSet id="added meeting fields" author="kuzin">
+    <addColumn tableName="MEETING">
+      <column name="MEETING_THEME" remarks="Theme of meeting"
+        type="VARCHAR(200)">
+      </column>
+      <column name="MEETING_NAME" remarks="Name of meeting"
+        type="VARCHAR(200)">
+      </column>
+    </addColumn>
   </changeSet>
 
 </databaseChangeLog>

@@ -35,6 +35,16 @@
       "type": "input"
     },
     {
+      "label": "Meeting theme",
+      "key": "meetingTheme",
+      "type": "dictionary"
+    },
+    {
+      "label": "Meeting name",
+      "key": "meetingName",
+      "type": "input"
+    },
+    {
       "label": "Responsible",
       "key": "responsibleName",
       "type": "pickList",
@@ -81,14 +91,30 @@
             }
           ]
         },
-       {
+        {
+         "cols": [
+           {
+             "fieldKey": "meetingTheme",
+             "span": 12
+           }
+         ]
+        },
+        {
+         "cols": [
+           {
+             "fieldKey": "meetingName",
+             "span": 12
+           }
+         ]
+        },
+        {
          "cols": [
            {
              "fieldKey": "responsibleName",
              "span": 12
            }
          ]
-       }
+        }
       ]
     }
   }

@@ -4,18 +4,23 @@ import io.demo.controller.TeslerRestController;
 import io.demo.dto.MeetingDTO;
 import io.demo.dto.MeetingDTO_;
 import io.demo.entity.Meeting;
+import io.demo.entity.enums.MeetingTheme;
 import io.demo.repository.ClientRepository;
 import io.demo.repository.ContactRepository;
 import io.demo.repository.MeetingRepository;
 import io.demo.repository.UserRepository;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;
+import io.tesler.core.dto.BusinessError;
+import io.tesler.core.dto.BusinessError.Entity;
 import io.tesler.core.dto.DrillDownType;
 import io.tesler.core.dto.rowmeta.ActionResultDTO;
 import io.tesler.core.dto.rowmeta.CreateResult;
 import io.tesler.core.dto.rowmeta.PostAction;
+import io.tesler.core.exception.BusinessException;
 import io.tesler.core.service.action.ActionScope;
 import io.tesler.core.service.action.Actions;
+import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -51,10 +56,18 @@ public class MeetingWriteService extends VersionAwareResponseService<MeetingDTO,
 
 	@Override
 	protected ActionResultDTO<MeetingDTO> doUpdateEntity(Meeting entity, MeetingDTO data, BusinessComponent bc) {
+		Entity errorEntity = new Entity(bc.getName(), bc.getId());
 		if (data.isFieldChanged(MeetingDTO_.agenda)) {
 			entity.setAgenda(data.getAgenda());
 		}
 		if (data.isFieldChanged(MeetingDTO_.startDateTime)) {
+			LocalDateTime startDateTime = data.getStartDateTime();
+			if (LocalDateTime.now().isAfter(startDateTime)) {
+				errorEntity.addField(
+						MeetingDTO_.startDateTime.getName(),
+						"The start of the meeting can't be earlier than the current date and time"
+				);
+			}
 			entity.setStartDateTime(data.getStartDateTime());
 		}
 		if (data.isFieldChanged(MeetingDTO_.endDateTime)) {
@@ -68,6 +81,15 @@ public class MeetingWriteService extends VersionAwareResponseService<MeetingDTO,
 		}
 		if (data.isFieldChanged(MeetingDTO_.result)) {
 			entity.setResult(data.getResult());
+		}
+		if (data.isFieldChanged(MeetingDTO_.meetingName)) {
+			entity.setMeetingName(data.getMeetingName());
+		}
+		if (data.isFieldChanged(MeetingDTO_.meetingTheme)) {
+			entity.setMeetingTheme(data.getMeetingTheme());
+			if (!MeetingTheme.Other.equals(data.getMeetingTheme()) && data.getMeetingTheme() != null) {
+				entity.setMeetingName(data.getMeetingTheme().getValue());
+			}
 		}
 		if (data.isFieldChanged(MeetingDTO_.responsibleId)) {
 			if (data.getResponsibleId() != null) {
@@ -90,6 +112,9 @@ public class MeetingWriteService extends VersionAwareResponseService<MeetingDTO,
 			} else {
 				entity.setContact(null);
 			}
+		}
+		if (!errorEntity.getFields().isEmpty()) {
+			throw new BusinessException().setEntity(errorEntity);
 		}
 		meetingRepository.save(entity);
 		return new ActionResultDTO<>(entityToDto(bc, entity));

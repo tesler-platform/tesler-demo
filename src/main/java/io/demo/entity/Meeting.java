@@ -1,6 +1,7 @@
 package io.demo.entity;
 
 import io.demo.entity.enums.MeetingStatus;
+import io.demo.entity.enums.MeetingTheme;
 import io.tesler.model.core.entity.BaseEntity;
 import io.tesler.model.core.entity.User;
 import java.time.LocalDateTime;
@@ -35,6 +36,11 @@ public class Meeting extends BaseEntity {
 	private String notes;
 
 	private String result;
+
+	@Enumerated(EnumType.STRING)
+	private MeetingTheme meetingTheme;
+
+	private String meetingName;
 
 	@ManyToOne
 	@JoinColumn(name = "RESPONSIBLE_ID")

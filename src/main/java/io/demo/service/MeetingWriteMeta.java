@@ -3,6 +3,7 @@ package io.demo.service;
 import io.demo.dto.MeetingDTO;
 import io.demo.dto.MeetingDTO_;
 import io.demo.entity.enums.MeetingStatus;
+import io.demo.entity.enums.MeetingTheme;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;
@@ -21,6 +22,7 @@ public class MeetingWriteMeta extends FieldMetaBuilder<MeetingDTO> {
 					MeetingDTO_.result
 			);
 		} else {
+			fields.setEnumValues(MeetingDTO_.meetingTheme, MeetingTheme.values());
 			fields.setEnabled(
 					MeetingDTO_.agenda,
 					MeetingDTO_.startDateTime,
@@ -31,13 +33,17 @@ public class MeetingWriteMeta extends FieldMetaBuilder<MeetingDTO> {
 					MeetingDTO_.clientName,
 					MeetingDTO_.clientId,
 					MeetingDTO_.contactName,
-					MeetingDTO_.contactId
+					MeetingDTO_.contactId,
+					MeetingDTO_.meetingTheme
 			);
 			if (fields.get(MeetingDTO_.clientId).getCurrentValue() != null) {
 				fields.setEnabled(
 						MeetingDTO_.contactName,
 						MeetingDTO_.contactId
 				);
+			}
+			if (MeetingTheme.Other.equals(fields.get(MeetingDTO_.meetingTheme).getCurrentValue())) {
+				fields.setEnabled(MeetingDTO_.meetingName);
 			}
 		}
 
@@ -53,8 +59,8 @@ public class MeetingWriteMeta extends FieldMetaBuilder<MeetingDTO> {
 	@Override
 	public void buildIndependentMeta(FieldsMeta<MeetingDTO> fields, InnerBcDescription bcDescription, Long parentId) {
 		fields.setForceActive(MeetingDTO_.clientId);
-		fields.setForceActive(MeetingDTO_.startDateTime);
 		fields.setForceActive(MeetingDTO_.endDateTime);
+		fields.setForceActive(MeetingDTO_.meetingTheme);
 	}
 
 }
