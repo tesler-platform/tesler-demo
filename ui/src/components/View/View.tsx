@@ -13,6 +13,8 @@ import Table from '../widgets/Table/Table'
 import { FieldType } from '@tesler-ui/core/interfaces/view'
 import Dictionary from '../../fields/Dictionary/Dictionary'
 import Steps from '../widgets/Steps/Steps'
+import { useSelector } from 'react-redux'
+import { AppState } from '../../interfaces/storeSlices'
 
 const skipWidgetTypes = [WidgetTypes.SecondLevelMenu]
 
@@ -30,14 +32,22 @@ const customWidgets: Partial<Record<CustomWidgetTypes | WidgetTypes, CustomWidge
 }
 
 function View() {
+    const path = useSelector((state: AppState) => state.router.path)
+    const showMyApp = path === 'screen/another'
     return (
         <div className={styles.container}>
-            <TeslerView
-                customWidgets={customWidgets as Record<string, CustomWidgetDescriptor>}
-                customFields={customFields}
-                card={Card as any}
-                skipWidgetTypes={skipWidgetTypes}
-            />
+            {showMyApp ? (
+                <div>
+                    <h2>Here is my app</h2>
+                </div>
+            ) : (
+                <TeslerView
+                    customWidgets={customWidgets as Record<string, CustomWidgetDescriptor>}
+                    customFields={customFields}
+                    card={Card as any}
+                    skipWidgetTypes={skipWidgetTypes}
+                />
+            )}
         </div>
     )
 }

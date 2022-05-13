@@ -1,0 +1,13 @@
+{
+  "name": "another",
+  "icon": "team",
+  "order": 0,
+  "title": "My App",
+  "navigation": {
+    "menu": [
+      {
+        "viewName": "another"
+      }
+    ]
+  }
+}
