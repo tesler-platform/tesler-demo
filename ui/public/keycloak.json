@@ -1,8 +1,0 @@
-{
-  "realm" : "tesler",
-  "auth-server-url" : "http://localhost:9080/auth",
-  "ssl-required" : "none",
-  "resource" : "tesler-keycloak-client",
-  "public-client" : true,
-  "cors": true
-}

@@ -9,7 +9,7 @@ import io.tesler.core.service.rowmeta.FieldMetaBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientContactMeta extends FieldMetaBuilder<ContactDTO> {
+public class ClientContactMeta extends FieldMetaBuilder<ContactDTO>  {
 
 	@Override
 	public void buildRowDependentMeta(RowDependentFieldsMeta<ContactDTO> fields, InnerBcDescription bcDescription,

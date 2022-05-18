@@ -1,0 +1,9 @@
+upstream app {
+            #TODO>>remove ip_hash after spring session jdbc added to Tesler
+            ip_hash;
+            server ${TESLER_APP_1};
+            server ${TESLER_APP_2};
+        }
+upstream keycloak {
+            server ${KEYCLOAK_1};
+        }

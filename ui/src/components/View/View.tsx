@@ -15,6 +15,11 @@ import Table from '../widgets/Table/Table'
 import { FieldType } from '@tesler-ui/core/interfaces/view'
 import Dictionary from '../../fields/Dictionary/Dictionary'
 import Steps from '../widgets/Steps/Steps'
+import { DashboardLayout } from '../ui/DashboardLayout/DashboardLayout'
+import Funnel from '../widgets/Funnel/Funnel'
+import RingProgress from '../widgets/RingProgress/RingProgress'
+import DashboardCard from '../DashboardCard/DashboardCard'
+import DashboardList from '../widgets/DashboardList/DashboardList'
 
 const skipWidgetTypes = [WidgetTypes.SecondLevelMenu]
 
@@ -29,6 +34,9 @@ const customWidgets: Partial<Record<CustomWidgetTypes | WidgetTypes, CustomWidge
     [WidgetTypes.List]: { component: Table },
     [WidgetTypes.HeaderWidget]: { component: Header, card: EmptyCard },
     [CustomWidgetTypes.Steps]: { component: Steps, card: EmptyCard },
+    [CustomWidgetTypes.Funnel]: { component: Funnel, card: DashboardCard },
+    [CustomWidgetTypes.RingProgress]: { component: RingProgress, card: DashboardCard },
+    [CustomWidgetTypes.DashboardList]: { component: DashboardList, card: DashboardCard },
     [WidgetTypes.AssocListPopup]: AssocListPopup,
     [WidgetTypes.PickListPopup]: PickListPopup
 }
@@ -41,6 +49,7 @@ function View() {
                 customFields={customFields}
                 card={Card as any}
                 skipWidgetTypes={skipWidgetTypes}
+                customLayout={DashboardLayout}
             />
         </div>
     )

@@ -7,12 +7,12 @@
     {
       "widgetName": "meetingListHeader",
       "position": 1,
-      "gridWidth": 4
+      "gridWidth": 24
     },
     {
       "widgetName": "meetingList",
       "position": 2,
-      "gridWidth": 4
+      "gridWidth": 24
     }
   ],
   "rolesAllowed": [
