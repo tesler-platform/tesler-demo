@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'antd'
-import { CustomWidgetDescriptor, WidgetMeta } from '../../../../../../tesler-ui/dist/interfaces/widget'
 import { Widget } from '@tesler-ui/core'
+import { CustomWidgetDescriptor, WidgetMeta } from '@tesler-ui/core/interfaces/widget'
 
 export interface DashboardLayoutProps {
     widgets: WidgetMeta[]

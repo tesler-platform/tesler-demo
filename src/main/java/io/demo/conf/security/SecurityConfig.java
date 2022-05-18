@@ -1,12 +1,11 @@
 package io.demo.conf.security;
 
 
+import io.demo.conf.security.teslerkeycloak.TeslerKeycloakAuthenticationProvider;
 import io.tesler.api.service.session.TeslerAuthenticationService;
-
 import io.tesler.core.config.properties.UIProperties;
 import io.tesler.core.metahotreload.conf.properties.MetaConfigurationProperties;
 import lombok.RequiredArgsConstructor;
-import io.demo.conf.security.teslerkeycloak.TeslerKeycloakAuthenticationProvider;
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.KeycloakConfiguration;
@@ -61,11 +60,13 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 			http.authorizeRequests().antMatchers("/api/v1/bc-registry/**").denyAll();
 		}
 		http
+				.csrf().disable()
 				.authorizeRequests(authorizeRequests -> authorizeRequests
 						.antMatchers("/rest/**").permitAll()
 						.antMatchers("/css/**").permitAll()
 						.antMatchers(uiProperties.getPath() + "/**").permitAll()
 						.antMatchers("/api/v1/file/**").permitAll()
+						.antMatchers("/api/v1/auth/**").permitAll()
 						.antMatchers("/**").fullyAuthenticated());
 	}
 
