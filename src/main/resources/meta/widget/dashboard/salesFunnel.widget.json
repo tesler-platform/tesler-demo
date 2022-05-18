@@ -1,0 +1,26 @@
+{
+  "name": "salesFunnel",
+  "title": "Sales Funnel",
+  "type": "Funnel",
+  "bc": "salesFunnel",
+  "fields": [
+    {
+      "key": "funnelKey",
+      "type": "input"
+    },
+    {
+      "key": "amount",
+      "type": "number"
+    },
+    {
+      "key": "color",
+      "type": "number"
+    }
+  ],
+  "options": {
+    "funnelOptions": {
+      "dataKey": "salesStatistics"
+    }
+  }
+}
+

@@ -2,11 +2,10 @@ package io.demo.dto;
 
 import io.demo.entity.Client;
 import io.demo.entity.enums.FieldOfActivity;
+import java.util.stream.Collectors;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
