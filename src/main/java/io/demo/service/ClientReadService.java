@@ -3,6 +3,7 @@ package io.demo.service;
 import io.demo.conf.tesler.icon.ActionIcon;
 import io.demo.controller.TeslerRestController;
 import io.demo.entity.Client;
+import io.demo.entity.Client_;
 import io.demo.entity.Meeting;
 import io.demo.entity.enums.ClientStatus;
 import io.demo.repository.ClientRepository;
@@ -18,6 +19,7 @@ import io.tesler.core.dto.rowmeta.PostAction;
 import io.tesler.core.dto.rowmeta.PreAction;
 import io.tesler.core.service.action.Actions;
 import io.tesler.core.util.session.SessionService;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -38,7 +40,16 @@ public class ClientReadService extends VersionAwareResponseService<ClientReadDTO
 	}
 
 	@Override
+	protected Specification<Client> getParentSpecification(BusinessComponent bc) {
+		return (root, cq, cb) -> cb.and(
+				super.getParentSpecification(bc).toPredicate(root, cq, cb),
+				cb.equal(root.get(Client_.draft), false)
+		);
+	}
+
+	@Override
 	protected CreateResult<ClientReadDTO> doCreateEntity(Client entity, BusinessComponent bc) {
+		entity.setDraft(true);
 		clientRepository.save(entity);
 		return new CreateResult<>(entityToDto(bc, entity))
 				.setAction(PostAction.drillDown(
