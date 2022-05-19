@@ -20,7 +20,7 @@
       "include": [
         "save",
         "saveAndContinue",
-        "cancel"
+        "cancel-create"
       ]
     },
     "layout": {
