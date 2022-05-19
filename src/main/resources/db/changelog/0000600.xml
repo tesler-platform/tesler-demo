@@ -33,6 +33,7 @@
       <column name="EDIT_STEP" type="VARCHAR(200)"/>
       <column name="BREIF" type="VARCHAR(500)"/>
       <column name="BREIF_ID" type="VARCHAR(500)"/>
+      <column name="DRAFT" type="BOOLEAN"/>
     </createTable>
 
     <createTable tableName="CONTACT">
@@ -219,6 +220,7 @@
       <column header="importance" name="importance" type="STRING"/>
       <column header="edit_step" name="edit_step" type="STRING"/>
       <column header="status" name="status" type="STRING"/>
+      <column header="draft" name="draft" type="BOOLEAN"/>
     </loadUpdateData>
     <loadUpdateData tableName="FIELD_OF_ACTIVITY" primaryKey="value,client_id" encoding="UTF-8" separator="," quotchar="&quot;"
       file="db/data/FIELD_OF_ACTIVITY.csv">
