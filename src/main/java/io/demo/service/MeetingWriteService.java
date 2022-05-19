@@ -121,4 +121,13 @@ public class MeetingWriteService extends VersionAwareResponseService<MeetingDTO,
 				.build();
 	}
 
+	@Override
+	public ActionResultDTO<MeetingDTO> onCancel(BusinessComponent bc) {
+		return new ActionResultDTO<MeetingDTO>().setAction(
+				PostAction.drillDown(
+						DrillDownType.INNER,
+						"/screen/meeting/"
+		));
+	}
+
 }

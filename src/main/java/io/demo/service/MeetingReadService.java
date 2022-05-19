@@ -118,10 +118,4 @@ public class MeetingReadService extends VersionAwareResponseService<MeetingDTO, 
 		return builder;
 	}
 
-
-	@Override
-	public boolean isDeferredCreationSupported(BusinessComponent bc) {
-		return false;
-	}
-
 }
