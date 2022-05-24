@@ -1,11 +1,11 @@
-import { CustomEpic, actionTypes, AnyAction } from '../interfaces/actions'
+import { of as observableOf, from as observableFrom, EMPTY } from 'rxjs'
+import { mergeMap, filter, catchError, switchMap } from 'rxjs/operators'
+import { CustomEpic, actionTypes } from '../interfaces/actions'
 import { getBasicAuthRequest } from '../api/session'
 import { LoginResponse } from '@tesler-ui/core/interfaces/session'
-import { Observable } from 'rxjs/Observable'
 import { $do, SSO_AUTH } from '../actions/types'
 import { AxiosError } from 'axios'
-import { AppState } from '../interfaces/storeSlices'
-import { Epic } from 'redux-observable'
+import { ofType } from 'redux-observable'
 import { keycloak, keycloakOptions } from '../keycloak'
 
 const responseStatusMessages: Record<number, string> = {
@@ -13,26 +13,30 @@ const responseStatusMessages: Record<number, string> = {
     403: 'Access denied'
 }
 
-const ssoAuthEpic: Epic<AnyAction, AppState> = (action$, store) =>
-    action$.ofType(SSO_AUTH).switchMap(() => {
-        return Observable.fromPromise(keycloak.init(keycloakOptions))
-            .switchMap(() => Observable.of($do.login({ login: '', password: '' })))
-            .catch(() => {
-                console.error('Authentication failed')
-                return Observable.empty<never>()
-            })
-    })
+const ssoAuthEpic: CustomEpic = action$ =>
+    action$.pipe(
+        ofType(SSO_AUTH),
+        switchMap(() => {
+            return observableFrom(keycloak.init(keycloakOptions)).pipe(
+                switchMap(() => observableOf($do.login({ login: '', password: '' }))),
+                catchError(() => {
+                    console.error('Authentication failed')
+                    return EMPTY
+                })
+            )
+        })
+    )
 
-const loginEpic: CustomEpic = (action$, store) =>
-    action$
-        .ofType(actionTypes.login)
-        .filter(action => !action.payload?.role)
-        .switchMap(action => {
+const loginEpic: CustomEpic = action$ =>
+    action$.pipe(
+        ofType(actionTypes.login),
+        filter(action => !action.payload?.role),
+        switchMap(action => {
             const login = action.payload && action.payload.login
             const password = action.payload && action.payload.password
-            return getBasicAuthRequest(login, password)
-                .mergeMap((data: LoginResponse) => {
-                    return Observable.of(
+            return getBasicAuthRequest(login, password).pipe(
+                mergeMap((data: LoginResponse) => {
+                    return observableOf(
                         $do.loginDone({
                             devPanelEnabled: data.devPanelEnabled,
                             activeRole: data.activeRole,
@@ -43,25 +47,33 @@ const loginEpic: CustomEpic = (action$, store) =>
                             screens: data.screens
                         })
                     )
-                })
-                .catch((error: AxiosError) => {
+                }),
+                catchError((error: AxiosError) => {
                     const errorMsg = error.response
                         ? responseStatusMessages[error.response.status] || 'Server application unavailable'
                         : 'Empty response from server'
-                    return Observable.of($do.loginFail({ errorMsg }))
+                    return observableOf($do.loginFail({ errorMsg }))
                 })
+            )
         })
+    )
 
-const logoutEpic: CustomEpic = (action$, store) =>
-    action$.ofType(actionTypes.logout).switchMap(() => {
-        keycloak.logout()
-        return Observable.of($do.logoutDone(null))
-    })
+const logoutEpic: CustomEpic = action$ =>
+    action$.pipe(
+        ofType(actionTypes.logout),
+        switchMap(() => {
+            keycloak.logout()
+            return observableOf($do.logoutDone(null))
+        })
+    )
 
-const logoutDone: CustomEpic = (action$, store) =>
-    action$.ofType(actionTypes.logoutDone).switchMap(() => {
-        return Observable.empty()
-    })
+const logoutDone: CustomEpic = action$ =>
+    action$.pipe(
+        ofType(actionTypes.logoutDone),
+        switchMap(() => {
+            return EMPTY
+        })
+    )
 
 export const sessionEpics = {
     ssoAuthEpic,
