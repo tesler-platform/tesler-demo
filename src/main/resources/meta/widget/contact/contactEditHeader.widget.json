@@ -1,5 +1,5 @@
 {
-  "name": "clientContactEdit",
+  "name": "contactEditHeader",
   "title": "Contact Creation",
   "type": "HeaderWidget",
   "bc": "contact",

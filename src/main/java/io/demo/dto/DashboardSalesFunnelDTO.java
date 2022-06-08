@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SalesFunnelDTO extends DataResponseDTO {
+public class DashboardSalesFunnelDTO extends DataResponseDTO {
 
 	private String funnelKey;
 

@@ -1,8 +1,8 @@
 {
-  "name": "salesFunnel",
+  "name": "dashboardSalesFunnel",
   "title": "Sales Funnel",
   "type": "Funnel",
-  "bc": "salesFunnel",
+  "bc": "dashboardSalesFunnel",
   "fields": [
     {
       "key": "funnelKey",

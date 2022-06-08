@@ -1,5 +1,5 @@
 {
-  "name": "meetingViewHeader",
+  "name": "meetingEditViewHeader",
   "title": "Meeting Overview",
   "type": "HeaderWidget",
   "bc": "meetingEdit",

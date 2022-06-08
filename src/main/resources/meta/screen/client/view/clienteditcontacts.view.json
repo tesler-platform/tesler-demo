@@ -25,7 +25,7 @@
       "gridWidth": 24
     },
     {
-      "widgetName": "contactListAssoc",
+      "widgetName": "contactEditAssoc",
       "position": 6,
       "gridWidth": 24
     }
