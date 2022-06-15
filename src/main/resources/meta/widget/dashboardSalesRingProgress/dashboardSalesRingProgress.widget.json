@@ -1,8 +1,8 @@
 {
-  "name": "salesRingProgress",
+  "name": "dashboardSalesRingProgress",
   "title": "Closed Sales",
   "type": "RingProgress",
-  "bc": "salesRingProgress",
+  "bc": "dashboardSalesRingProgress",
   "fields": [
     {
       "title": "",

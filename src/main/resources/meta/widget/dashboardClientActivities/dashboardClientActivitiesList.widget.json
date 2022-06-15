@@ -1,8 +1,8 @@
 {
-  "name": "clientActivitiesList",
+  "name": "dashboardClientActivitiesList",
   "title": "List of Activities",
   "type": "DashboardList",
-  "bc": "clientActivities",
+  "bc": "dashboardClientActivities",
   "fields": [
     {
       "title": "Client name",

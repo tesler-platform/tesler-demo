@@ -1,5 +1,5 @@
 {
-  "name": "meetingClientInfo",
+  "name": "meetingEditClientInfo",
   "title": "Client Information",
   "type": "Form",
   "bc": "meetingEdit",

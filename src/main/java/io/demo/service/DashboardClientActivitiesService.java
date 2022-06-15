@@ -2,7 +2,7 @@
 
 package io.demo.service;
 
-import io.demo.dto.ClientActivitiesDTO;
+import io.demo.dto.DashboardClientActivitiesDTO;
 import io.demo.entity.Client;
 import io.demo.entity.Client_;
 import io.demo.entity.DashboardFilter;
@@ -21,12 +21,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class
-ClientActivitiesService extends VersionAwareResponseService<ClientActivitiesDTO, Client> {
+DashboardClientActivitiesService extends VersionAwareResponseService<DashboardClientActivitiesDTO, Client> {
 
 	private final DashboardFilterRepository dashboardFilterRepository;
 
-	public ClientActivitiesService(DashboardFilterRepository dashboardFilterRepository) {
-		super(ClientActivitiesDTO.class, Client.class, null, ClientActivitiesMeta.class);
+	public DashboardClientActivitiesService(DashboardFilterRepository dashboardFilterRepository) {
+		super(DashboardClientActivitiesDTO.class, Client.class, null, DashboardClientActivitiesMeta.class);
 		this.dashboardFilterRepository = dashboardFilterRepository;
 	}
 
@@ -55,19 +55,19 @@ ClientActivitiesService extends VersionAwareResponseService<ClientActivitiesDTO,
 	}
 
 	@Override
-	protected CreateResult<ClientActivitiesDTO> doCreateEntity(Client entity, BusinessComponent bc) {
+	protected CreateResult<DashboardClientActivitiesDTO> doCreateEntity(Client entity, BusinessComponent bc) {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	protected ActionResultDTO<ClientActivitiesDTO> doUpdateEntity(Client entity, ClientActivitiesDTO data,
+	protected ActionResultDTO<DashboardClientActivitiesDTO> doUpdateEntity(Client entity, DashboardClientActivitiesDTO data,
 			BusinessComponent bc) {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	protected ClientActivitiesDTO entityToDto(BusinessComponent bc, Client entity) {
-		ClientActivitiesDTO dto = super.entityToDto(bc, entity);
+	protected DashboardClientActivitiesDTO entityToDto(BusinessComponent bc, Client entity) {
+		DashboardClientActivitiesDTO dto = super.entityToDto(bc, entity);
 		dto.setNumberOfOpenActivities((long) entity.getFieldOfActivities().size());
 		return dto;
 	}

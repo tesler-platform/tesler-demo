@@ -1,11 +1,11 @@
 package io.demo.service;
 
-import static io.demo.controller.TeslerRestController.salesFunnel;
-import static io.demo.controller.TeslerRestController.salesRingProgress;
+import static io.demo.controller.TeslerRestController.dashboardSalesFunnel;
+import static io.demo.controller.TeslerRestController.dashboardSalesRingProgress;
 
 import com.google.common.collect.ImmutableList;
-import io.demo.dto.SalesFunnelDTO;
-import io.demo.dto.SalesRingProgressDTO;
+import io.demo.dto.DashboardSalesFunnelDTO;
+import io.demo.dto.DashboardSalesRingProgressDTO;
 import io.demo.entity.Sale;
 import io.demo.entity.enums.SaleStatus;
 import io.demo.repository.ClientRepository;
@@ -55,10 +55,10 @@ public class DashboardService extends AbstractCrudmaService {
 
 	@Override
 	public ResultPage<DataResponseDTO> getAll(BusinessComponent bc) {
-		if (salesFunnel.isBc(bc)) {
+		if (dashboardSalesFunnel.isBc(bc)) {
 			List<DataResponseDTO> salesFunnelDTOS = createSalesFunnelDTOS();
 			return ResultPage.of(salesFunnelDTOS, salesFunnelDTOS.size());
-		} else if (salesRingProgress.isBc(bc)) {
+		} else if (dashboardSalesRingProgress.isBc(bc)) {
 			return ResultPage.of(ImmutableList.of(createSalesRingProgressDTO()), 1);
 		} else {
 			return new ResultPage<>();
@@ -68,16 +68,16 @@ public class DashboardService extends AbstractCrudmaService {
 	private List<DataResponseDTO> createSalesFunnelDTOS() {
 		List<DataResponseDTO> salesFunnelDTOS = new ArrayList<>();
 		long activitiesAmount = clientRepository.count() + meetingRepository.count();
-		salesFunnelDTOS.add(new SalesFunnelDTO(clients_key, clientRepository.count(), clients_color));
-		salesFunnelDTOS.add(new SalesFunnelDTO(activities_key, activitiesAmount, activities_color));
-		salesFunnelDTOS.add(new SalesFunnelDTO(meetings_key, meetingRepository.count(), meetings_color));
-		salesFunnelDTOS.add(new SalesFunnelDTO(sales_key, saleRepository.count(), sales_color));
+		salesFunnelDTOS.add(new DashboardSalesFunnelDTO(clients_key, clientRepository.count(), clients_color));
+		salesFunnelDTOS.add(new DashboardSalesFunnelDTO(activities_key, activitiesAmount, activities_color));
+		salesFunnelDTOS.add(new DashboardSalesFunnelDTO(meetings_key, meetingRepository.count(), meetings_color));
+		salesFunnelDTOS.add(new DashboardSalesFunnelDTO(sales_key, saleRepository.count(), sales_color));
 		return salesFunnelDTOS;
 	}
 
 
-	private SalesRingProgressDTO createSalesRingProgressDTO() {
-		SalesRingProgressDTO dto = new SalesRingProgressDTO();
+	private DashboardSalesRingProgressDTO createSalesRingProgressDTO() {
+		DashboardSalesRingProgressDTO dto = new DashboardSalesRingProgressDTO();
 		List<Sale> sales = saleRepository.findAll();
 		long allSalesSum = sales.stream().map(Sale::getSum).filter(Objects::nonNull).mapToLong(Long::longValue)
 				.sum();

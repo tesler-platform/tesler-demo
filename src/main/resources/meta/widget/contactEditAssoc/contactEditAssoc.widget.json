@@ -1,5 +1,5 @@
 {
-  "name": "contactListAssoc",
+  "name": "contactEditAssoc",
   "title": "Contacts",
   "type": "AssocListPopup",
   "bc": "contactEditAssoc",

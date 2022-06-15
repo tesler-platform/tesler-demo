@@ -1,6 +1,6 @@
 package io.demo.controller;
 
-import io.demo.service.ClientActivitiesService;
+import io.demo.service.DashboardClientActivitiesService;
 import io.demo.service.ClientContactService;
 import io.demo.service.ClientReadService;
 import io.demo.service.ClientWriteService;
@@ -46,9 +46,9 @@ public enum TeslerRestController implements EnumBcIdentifier {
 	saleEdit(SaleWriteService.class),
 		clientSalePickListPopup(saleEdit, ClientPickListService.class),
 	dashboardFilter(DashboardFilterService.class),
-		clientActivities(dashboardFilter, ClientActivitiesService.class),
-		salesFunnel(dashboardFilter, DashboardService.class),
-		salesRingProgress(dashboardFilter, DashboardService.class);
+		dashboardClientActivities(dashboardFilter, DashboardClientActivitiesService.class),
+	dashboardSalesFunnel(dashboardFilter, DashboardService.class),
+	dashboardSalesRingProgress(dashboardFilter, DashboardService.class);
 
 	// @formatter:on
 

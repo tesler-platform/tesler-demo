@@ -5,22 +5,22 @@
   "url": "/screen/meeting/view/dashboard",
   "widgets": [
     {
-      "widgetName": "Filters",
+      "widgetName": "dashboardFilter",
       "position": 0,
       "gridWidth": 24
     },
     {
-      "widgetName": "clientActivitiesList",
+      "widgetName": "dashboardClientActivitiesList",
       "position": 2,
       "gridWidth": 13
     },
     {
-      "widgetName": "salesRingProgress",
+      "widgetName": "dashboardSalesRingProgress",
       "position": 2,
       "gridWidth": 9
     },
     {
-      "widgetName": "salesFunnel",
+      "widgetName": "dashboardSalesFunnel",
       "position": 3,
       "gridWidth": 13
     }

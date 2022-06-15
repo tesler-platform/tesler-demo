@@ -9,13 +9,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ClientActivitiesDTO extends DataResponseDTO {
+public class DashboardClientActivitiesDTO extends DataResponseDTO {
 
 	private String clientName;
 
 	private Long numberOfOpenActivities;
 
-	public ClientActivitiesDTO(Client client) {
+	public DashboardClientActivitiesDTO(Client client) {
 		this.id = client.getId().toString();
 		this.clientName = client.getFullName();
 	}

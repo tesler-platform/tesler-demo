@@ -20,12 +20,12 @@
       "gridWidth": 24
     },
     {
-      "widgetName": "meetingClientInfo",
+      "widgetName": "meetingEditClientInfo",
       "position": 4,
       "gridWidth": 24
     },
     {
-      "widgetName": "meetingResultEdit",
+      "widgetName": "meetingEditResult",
       "position": 5,
       "gridWidth": 24
     },

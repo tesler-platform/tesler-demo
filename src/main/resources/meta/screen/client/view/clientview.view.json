@@ -10,7 +10,7 @@
       "gridWidth": 24
     },
     {
-      "widgetName": "clientViewHeader",
+      "widgetName": "clientEditViewHeader",
       "position": 1,
       "gridWidth": 24
     },

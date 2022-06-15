@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SalesRingProgressDTO extends ClientAbstractDTO {
+public class DashboardSalesRingProgressDTO extends ClientAbstractDTO {
 
 	private String salesSum;
 
