@@ -3,7 +3,7 @@ version: '2.1'
 services:
 
   tesler-demo-node-1:
-    build: .
+    image: 'teslerplatform/demo:${APP_IMAGE_TAG}'
     environment:
       FRONTEND_AUTH_SERVER_URL: 'http://demo.tesler.io:9080/auth/'
       BAKEND_AUTH_SERVER_URL: 'http://demo.tesler.io:9080/auth/'
@@ -24,9 +24,10 @@ services:
     ports:
       - 0.0.0.0:8081:8080
       - 127.0.0.1:8981:8989
+    restart: always
 
   tesler-demo-node-2:
-    build: .
+    image: 'teslerplatform/demo:${APP_IMAGE_TAG}'
     environment:
       FRONTEND_AUTH_SERVER_URL: 'http://demo.tesler.io:9080/auth/'
       BAKEND_AUTH_SERVER_URL: 'http://demo.tesler.io:9080/auth/'
@@ -47,6 +48,7 @@ services:
     ports:
       - 0.0.0.0:8082:8080
       - 127.0.0.1:8982:8989
+    restart: always
 
   tesler_postgres:
     image: postgres:12.0
