@@ -31,9 +31,9 @@
     "react-redux": "^7.2.4",
     "react-scripts": "^4.0.3",
     "redux": "^4.1.0",
-    "redux-observable": "^1.2.0",
-    "rxjs": "^6.6.7",
-    "typescript": "^3.9.10"
+    "redux-observable": "^2.0.0",
+    "rxjs": "^7.5.5",
+    "typescript": "^4.2.2"
   },
   "eslintConfig": {
     "extends": [

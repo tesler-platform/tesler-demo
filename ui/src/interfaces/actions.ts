@@ -1,8 +1,8 @@
 import { AnyAction as TeslerAnyAction, AnyOfMap, createActionTypes, uActionsMap } from '@tesler-ui/core'
-import { ActionsObservable as RoActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { Observable } from 'rxjs'
 import { CustomActionTypes } from '../actions/types'
-import { AppState } from '../interfaces/storeSlices'
+import { AppState } from './storeSlices'
 import { EpicDependencies } from '@tesler-ui/core/actions/actions'
 
 /**
@@ -21,11 +21,6 @@ type ActionsMap = uActionsMap<CustomActionTypes>
 export type AnyAction = AnyOfMap<ActionsMap> | TeslerAnyAction
 
 /**
- * Action observable override for typed actions
- */
-export type ActionsObservable<T extends AnyAction> = RoActionsObservable<T>
-
-/**
  * redux-observable epic override for typed actions and store
  */
 export type CustomEpic<
@@ -33,4 +28,4 @@ export type CustomEpic<
     Output extends Input | unknown = Input | unknown,
     State = AppState,
     Dependencies = EpicDependencies
-> = (action$: ActionsObservable<Input>, state$: StateObservable<State>, dependencies?: Dependencies) => Observable<Output>
+> = (action$: Observable<Input>, state$: StateObservable<State>, dependencies?: Dependencies) => Observable<Output>

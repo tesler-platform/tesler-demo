@@ -4,7 +4,7 @@ import styles from './ModalInvoke.module.css'
 
 interface ModalInvokeProps {}
 
-function ModalInvoke({}: ModalInvokeProps) {
+function ModalInvoke(props: ModalInvokeProps) {
     return <TeslerModalInvoke className={styles.overwrite} />
 }
 
