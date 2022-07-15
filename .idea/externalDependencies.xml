@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalDependencies">
+    <plugin id="Docker" />
+    <plugin id="Lombook Plugin" />
+    <plugin id="io.tesler.tesler-helper" />
+  </component>
+</project>
