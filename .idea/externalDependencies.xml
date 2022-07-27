@@ -3,6 +3,6 @@
   <component name="ExternalDependencies">
     <plugin id="Docker" />
     <plugin id="Lombook Plugin" />
-    <plugin id="io.tesler.tesler-helper" />
+    <plugin id="io.tesler.tesler-helper" min-version="1.1" />
   </component>
 </project>
