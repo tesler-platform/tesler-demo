@@ -43,6 +43,7 @@
     }
   ],
   "options": {
+    "filterDateByRange": true,
     "actionGroups": {
       "include": [
         "create",
