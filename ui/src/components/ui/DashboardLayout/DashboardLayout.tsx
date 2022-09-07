@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'antd'
-import { Widget } from '@tesler-ui/core'
+import { Widget, WidgetErrorBoundary } from '@tesler-ui/core'
 import { CustomWidgetDescriptor, WidgetMeta } from '@tesler-ui/core/interfaces/widget'
 
 export interface DashboardLayoutProps {
@@ -21,12 +21,14 @@ export function DashboardLayout(props: DashboardLayoutProps) {
                 <Row key={rowIndex}>
                     {row.map((widget, colIndex) => (
                         <Col key={colIndex} span={widget.gridWidth}>
-                            <Widget
-                                meta={widget}
-                                card={props.card}
-                                customWidgets={props.customWidgets}
-                                customSpinner={props.customSpinner}
-                            />
+                            <WidgetErrorBoundary meta={widget}>
+                                <Widget
+                                    meta={widget}
+                                    card={props.card}
+                                    customWidgets={props.customWidgets}
+                                    customSpinner={props.customSpinner}
+                                />
+                            </WidgetErrorBoundary>
                         </Col>
                     ))}
                 </Row>
