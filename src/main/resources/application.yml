@@ -38,7 +38,8 @@ spring:
   servlet:
     multipart:
       enabled: true
-      max-file-size: -1
+      max-file-size: 1GB
+      max-request-size: 1GB
   datasource:
     name: primaryDS
     driver-class-name: ${DATABASE_DRIVER:org.postgresql.Driver}
