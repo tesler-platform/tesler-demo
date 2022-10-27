@@ -1,16 +1,17 @@
 package io.demo.controller;
 
-import io.demo.service.DashboardClientActivitiesService;
 import io.demo.service.ClientContactService;
+import io.demo.service.ClientPickListService;
 import io.demo.service.ClientReadService;
 import io.demo.service.ClientWriteService;
 import io.demo.service.ContactPickListService;
+import io.demo.service.DashboardClientActivitiesService;
 import io.demo.service.DashboardFilterService;
+import io.demo.service.DashboardSalesFunnelService;
+import io.demo.service.DashboardSalesRingProgressService;
 import io.demo.service.MeetingReadService;
 import io.demo.service.MeetingWriteService;
-import io.demo.service.ClientPickListService;
 import io.demo.service.ResponsiblePickListService;
-import io.demo.service.DashboardService;
 import io.demo.service.SaleReadService;
 import io.demo.service.SaleWriteService;
 import io.tesler.core.crudma.bc.BcIdentifier;
@@ -47,8 +48,8 @@ public enum TeslerRestController implements EnumBcIdentifier {
 		clientSalePickListPopup(saleEdit, ClientPickListService.class),
 	dashboardFilter(DashboardFilterService.class),
 		dashboardClientActivities(dashboardFilter, DashboardClientActivitiesService.class),
-	dashboardSalesFunnel(dashboardFilter, DashboardService.class),
-	dashboardSalesRingProgress(dashboardFilter, DashboardService.class);
+	dashboardSalesFunnel(dashboardFilter, DashboardSalesFunnelService.class),
+	dashboardSalesRingProgress(dashboardFilter, DashboardSalesRingProgressService.class);
 
 	// @formatter:on
 
