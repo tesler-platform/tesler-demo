@@ -86,7 +86,7 @@ services:
       - 10990:10990
 
   tesler_minio:
-    image: bitnami/minio:latest
+    image: bitnami/minio:2022.2.12
     expose:
       - 9000
     ports:
