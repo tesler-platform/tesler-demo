@@ -2,7 +2,7 @@ import { axiosGet, buildUrl } from '@tesler-ui/core'
 import { LoginResponse } from '@tesler-ui/core/interfaces/session'
 import axios, { AxiosRequestConfig } from 'axios'
 import { keycloak, KEYCLOAK_MIN_VALIDITY } from '../keycloak'
-import { __API__ } from '../constants/constants'
+import { __API__ } from '@constants/constants'
 
 const __AJAX_TIMEOUT__ = 900000
 const __CLIENT_ID__: number = Date.now()
@@ -31,7 +31,7 @@ function tokenInterceptor(rqConfig: AxiosRequestConfig) {
     })
 }
 
-export function axiosInstance() {
+export function createAxiosInstance() {
     const instance = axios.create({
         baseURL: __API__,
         timeout: __AJAX_TIMEOUT__,
@@ -44,3 +44,5 @@ export function axiosInstance() {
     instance.interceptors.request.use(tokenInterceptor, () => Promise.reject())
     return instance
 }
+
+export const axiosInstance = createAxiosInstance()
