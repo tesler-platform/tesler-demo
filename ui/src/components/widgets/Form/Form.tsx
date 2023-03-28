@@ -1,6 +1,7 @@
 import React from 'react'
 import { WidgetFormMeta } from '@tesler-ui/core/interfaces/widget'
-import { FormWidget } from '@tesler-ui/core'
+import { FormWidget } from '@teslerComponents'
+
 import styles from './Form.module.css'
 
 interface FormProps {

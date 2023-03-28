@@ -1,5 +1,5 @@
 import React from 'react'
-import { DevToolsPanel } from '@tesler-ui/core'
+import { DevToolsPanel } from '@teslerComponents'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../interfaces/storeSlices'
 

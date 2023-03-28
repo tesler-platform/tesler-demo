@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'antd'
-import { Widget, WidgetErrorBoundary } from '@tesler-ui/core'
+import { Widget } from '@teslerComponents'
+import { WidgetErrorBoundary } from '@teslerComponents'
 import { CustomWidgetDescriptor, WidgetMeta } from '@tesler-ui/core/interfaces/widget'
 
 export interface DashboardLayoutProps {

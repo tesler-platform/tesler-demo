@@ -1,5 +1,6 @@
 import React from 'react'
-import { buildBcUrl, TemplatedTitle } from '@tesler-ui/core'
+import { buildBcUrl } from '@tesler-ui/core'
+import { TemplatedTitle } from '@teslerComponents'
 import { WidgetMeta, WidgetTypes } from '@tesler-ui/core/interfaces/widget'
 import { Col, Row } from 'antd'
 import Operations from '../Operations/Operations'

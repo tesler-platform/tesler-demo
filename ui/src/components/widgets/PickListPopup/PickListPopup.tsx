@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { PickListPopup as CorePickListPopup } from '@tesler-ui/core'
+import { PickListPopup as CorePickListPopup } from '@teslerComponents'
 import { WidgetTableMeta } from '@tesler-ui/core/interfaces/widget'
 import tableStyles from '../Table/Table.module.css'
 import styles from './PickListPopup.module.css'

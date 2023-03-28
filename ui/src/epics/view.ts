@@ -1,7 +1,7 @@
 import { CustomEpic, actionTypes } from '../interfaces/actions'
 import { Observable } from 'rxjs/Observable'
 import { $do } from '../actions/types'
-import { buildBcUrl, getFilters } from '@tesler-ui/core'
+import { BcFilter, buildBcUrl, getFilters } from '@tesler-ui/core'
 import { fetchBcCount } from '../api/bcCount'
 import { EMPTY_ARRAY } from '../constants/constants'
 
@@ -17,7 +17,7 @@ const bcFetchCountEpic: CustomEpic = (action$, store) =>
             }
 
             const bcName = sourceWidget.bcName
-            const filters = getFilters(state.screen.filters[bcName] || EMPTY_ARRAY)
+            const filters = getFilters(state.screen.filters[bcName] || (EMPTY_ARRAY as BcFilter[]))
             const bcUrl = buildBcUrl(bcName)
             return fetchBcCount(bcUrl, filters).mergeMap(({ data }) =>
                 Observable.of(

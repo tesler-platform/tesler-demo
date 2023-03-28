@@ -3,7 +3,7 @@ import { WidgetTableMeta } from '@tesler-ui/core/interfaces/widget'
 import { Dropdown, Button } from 'antd'
 import { useDispatch } from 'react-redux'
 import { $do } from '../../../../actions/types'
-import { RowOperationsMenu } from '@tesler-ui/core'
+import { RowOperationsMenu } from '@teslerComponents'
 import styles from './MenuColumn.module.css'
 
 interface MenuColumnProps {

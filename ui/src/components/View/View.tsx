@@ -1,7 +1,7 @@
 import React from 'react'
 import { CustomWidgetDescriptor, WidgetTypes } from '@tesler-ui/core/interfaces/widget'
 import Card from '../Card/Card'
-import { View as TeslerView } from '@tesler-ui/core'
+import { View as TeslerView } from '@teslerComponents'
 import { CustomFieldTypes, CustomWidgetTypes } from '../../interfaces/widget'
 import MultipleSelectField from '../../fields/MultipleSelectField/MultipleSelectField'
 import Form from '../widgets/Form/Form'

@@ -1,12 +1,12 @@
 import React from 'react'
 import { WidgetTableMeta } from '@tesler-ui/core/interfaces/widget'
-import { TableWidget } from '@tesler-ui/core'
+import { TableWidget } from '@teslerComponents'
 import styles from './Table.module.css'
 import { ColumnProps } from 'antd/es/table'
 import { DataItem } from '@tesler-ui/core/interfaces/data'
 import MenuColumn from './components/MenuColumn'
 import Pagination from '../../ui/Pagination/Pagination'
-import { TableWidgetOwnProps } from '@tesler-ui/core/components/widgets/TableWidget/TableWidget'
+import { TableWidgetOwnProps } from '@teslerComponents/widgets/TableWidget/TableWidget'
 
 interface TableProps extends TableWidgetOwnProps {
     meta: WidgetTableMeta

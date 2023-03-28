@@ -1,6 +1,7 @@
 import React from 'react'
 import cn from 'classnames'
-import { AssocListPopup as CoreAssocListPopup, useAssocRecords, useTranslation } from '@tesler-ui/core'
+import { useAssocRecords, useTranslation } from '@tesler-ui/core'
+import { AssocListPopup as CoreAssocListPopup } from '@teslerComponents'
 import { WidgetTableMeta } from '@tesler-ui/core/interfaces/widget'
 import tableStyles from '../Table/Table.module.css'
 import styles from './AssocListPopup.module.css'
@@ -30,7 +31,7 @@ function AssocListPopup({ meta }: AssocListPopupProps) {
             const calleeWidgetName = store.view.popupData?.calleeWidgetName
             const associateFieldKey = store.view.popupData?.associateFieldKey
             const data = store.data[bcName] || emptyData
-            const bcFilters = store.screen.filters?.[calleeBCName!] ?? EMPTY_ARRAY
+            const bcFilters = store.screen.filters?.[calleeBCName!] ?? (EMPTY_ARRAY as BcFilter[])
             const filterDataItems = bcFilters.find(filterItem => filterItem.fieldName === associateFieldKey)?.value as DataItem[]
             if (isFilter && filterDataItems?.length > 0) {
                 data?.forEach(dataItem => {

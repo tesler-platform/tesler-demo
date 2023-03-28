@@ -1,12 +1,12 @@
 import React from 'react'
-import { DictionaryProps } from '@tesler-ui/core/components/ui/Dictionary/Dictionary'
+import { DictionaryProps } from '@teslerComponents/ui/Dictionary/Dictionary'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../interfaces/storeSlices'
 import { buildBcUrl } from '@tesler-ui/core'
 import styles from './Dictionary.module.css'
 import { RowMeta } from '@tesler-ui/core/interfaces/rowMeta'
 import { EMPTY_ARRAY, opacitySuffix } from '../../constants/constants'
-import { Dictionary as CoreDictionary } from '@tesler-ui/core'
+import { Dictionary as CoreDictionary } from '@teslerComponents'
 
 function Dictionary(props: DictionaryProps) {
     const { value, meta, widgetName, backgroundColor } = props

@@ -1,10 +1,8 @@
 import React from 'react'
-import { ModalInvoke as TeslerModalInvoke } from '@tesler-ui/core'
+import { ModalInvoke as TeslerModalInvoke } from '@teslerComponents'
 import styles from './ModalInvoke.module.css'
 
-interface ModalInvokeProps {}
-
-function ModalInvoke({}: ModalInvokeProps) {
+function ModalInvoke() {
     return <TeslerModalInvoke className={styles.overwrite} />
 }
 
