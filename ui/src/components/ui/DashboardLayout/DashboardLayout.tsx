@@ -1,7 +1,8 @@
 import React from 'react'
 import { Row, Col } from 'antd'
-import { Widget, WidgetErrorBoundary } from '@tesler-ui/core'
 import { CustomWidgetDescriptor, WidgetMeta } from '@tesler-ui/core/interfaces/widget'
+import { useWidgetsGrid } from '@hooks/useWidgetsGrid'
+import { Widget, WidgetErrorBoundary } from '@tesler-ui/core'
 
 export interface DashboardLayoutProps {
     widgets: WidgetMeta[]
@@ -11,23 +12,17 @@ export interface DashboardLayoutProps {
     card?: (props: any) => React.ReactElement<any>
 }
 
-export function DashboardLayout(props: DashboardLayoutProps) {
-    const widgetsByRow = React.useMemo(() => {
-        return groupByRow(props.widgets, props.skipWidgetTypes || [])
-    }, [props.widgets, props.skipWidgetTypes])
+export function DashboardLayout({ widgets, skipWidgetTypes, customWidgets, customSpinner, card }: DashboardLayoutProps) {
+    const widgetsGrid = useWidgetsGrid(widgets, skipWidgetTypes)
+
     return (
         <React.Fragment>
-            {Object.values(widgetsByRow).map((row, rowIndex) => (
+            {widgetsGrid.map((row, rowIndex) => (
                 <Row key={rowIndex}>
                     {row.map((widget, colIndex) => (
                         <Col key={colIndex} span={widget.gridWidth}>
                             <WidgetErrorBoundary meta={widget}>
-                                <Widget
-                                    meta={widget}
-                                    card={props.card}
-                                    customWidgets={props.customWidgets}
-                                    customSpinner={props.customSpinner}
-                                />
+                                <Widget meta={widget} customWidgets={customWidgets} card={card} customSpinner={customSpinner} />
                             </WidgetErrorBoundary>
                         </Col>
                     ))}
@@ -37,21 +32,4 @@ export function DashboardLayout(props: DashboardLayoutProps) {
     )
 }
 
-function groupByRow(widgets: WidgetMeta[], skipWidgetTypes: string[]) {
-    const byRow: Record<string, WidgetMeta[]> = {}
-    widgets
-        .filter(item => {
-            return !skipWidgetTypes.includes(item.type)
-        })
-        .forEach(item => {
-            if (!byRow[item.position]) {
-                byRow[item.position] = []
-            }
-            byRow[item.position].push(item)
-        })
-    return byRow
-}
-
-export const MemoizedDashboard = React.memo(DashboardLayout)
-
-export default MemoizedDashboard
+export default React.memo(DashboardLayout)

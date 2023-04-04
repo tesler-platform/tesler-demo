@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "craco start",
-    "build": "react-scripts build && npm run rename",
+    "build": "craco build --config craco.prod.config.js && npm run rename",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
@@ -32,6 +32,7 @@
     "react-scripts": "^4.0.3",
     "redux": "^4.1.0",
     "redux-observable": "^0.14.1",
+    "reselect": "^4.1.7",
     "rxjs": "^5.5.12",
     "typescript": "^3.9.10"
   },
@@ -63,10 +64,12 @@
   "homepage": ".",
   "devDependencies": {
     "@craco/craco": "^6.4.3",
+    "craco-less": "^2.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "http-proxy-middleware": "^2.0.1",
     "prettier": "^2.3.2",
+    "react-app-alias": "^2.2.2",
     "source-map-loader": "0.2.4"
   }
 }

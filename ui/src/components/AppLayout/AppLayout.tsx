@@ -2,26 +2,18 @@ import React from 'react'
 import { Layout, Spin } from 'antd'
 import AppSide from '../AppSide/AppSide'
 import AppBar from '../AppBar/AppBar'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppState } from '../../interfaces/storeSlices'
+import { useSelector } from 'react-redux'
+import { AppState } from '@interfaces/storeSlices'
 import DevPanel from '../DevPanel/DevPanel'
-import { SSO_AUTH } from '../../actions/types'
 import styles from './AppLayout.module.css'
-import View from '../View/View'
+import View from '../CustomView/CustomView'
 import ModalInvoke from '../ModalInvoke/ModalInvoke'
 import SystemNotifications from '../SystemNotifications/SystemNotifications'
+import { useSsoAuth } from '../../hooks'
 
-export const AppLayout: React.FC = () => {
-    const sessionActive = useSelector((state: AppState) => state.session.active)
-    const logoutRequested = useSelector((state: AppState) => state.session.logout)
+export const AppLayout = () => {
     const modalInvoke = useSelector((state: AppState) => state.view.modalInvoke)
-    const dispatch = useDispatch()
-
-    React.useEffect(() => {
-        if (!sessionActive && !logoutRequested) {
-            dispatch({ type: SSO_AUTH })
-        }
-    }, [sessionActive, logoutRequested, dispatch])
+    const { sessionActive } = useSsoAuth()
 
     return sessionActive ? (
         <Layout>

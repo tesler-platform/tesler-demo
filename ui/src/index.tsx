@@ -11,7 +11,7 @@ import AppLayout from './components/AppLayout/AppLayout'
 import { axiosInstance } from './api/session'
 
 const App = (
-    <Provider customReducers={reducers} customEpics={epics} axiosInstance={axiosInstance()}>
+    <Provider customReducers={reducers} customEpics={epics} axiosInstance={axiosInstance}>
         <ConfigProvider locale={enUs}>
             <AppLayout />
         </ConfigProvider>
