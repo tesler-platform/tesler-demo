@@ -56,4 +56,6 @@ public class Client extends BaseEntity {
 
 	private String breifId;
 
+	private boolean draft;
+
 }

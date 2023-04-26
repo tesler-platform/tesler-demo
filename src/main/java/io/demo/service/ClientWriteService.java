@@ -95,6 +95,7 @@ public class ClientWriteService extends VersionAwareResponseService<ClientWriteD
 				.action("finish", "Save and Close")
 				.invoker((bc, dto) -> {
 					Client client = clientRepository.getById(bc.getIdAsLong());
+					client.setDraft(false);
 					ClientEditStep firstStep = Arrays.stream(ClientEditStep.values()).findFirst().get();
 					client.setEditStep(firstStep);
 					clientRepository.save(client);
