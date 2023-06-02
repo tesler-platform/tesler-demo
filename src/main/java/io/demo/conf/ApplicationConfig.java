@@ -44,12 +44,14 @@ public class ApplicationConfig {
 						.allowedOrigins("*")
 						.allowedHeaders("*");
 			}
+
 			@Override
 			public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
 				configurer.setTaskExecutor(getTaskExecutor());
 			}
 		};
 	}
+
 	@Bean
 	protected ConcurrentTaskExecutor getTaskExecutor() {
 		return new ConcurrentTaskExecutor(Executors.newFixedThreadPool(5));

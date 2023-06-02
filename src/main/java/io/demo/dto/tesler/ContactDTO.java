@@ -1,4 +1,4 @@
-package io.demo.dto;
+package io.demo.dto.tesler;
 
 import io.demo.entity.Contact;
 import io.tesler.api.data.dto.DataResponseDTO;

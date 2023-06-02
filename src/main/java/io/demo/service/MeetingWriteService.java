@@ -1,8 +1,8 @@
 package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
-import io.demo.dto.MeetingDTO;
-import io.demo.dto.MeetingDTO_;
+import io.demo.dto.tesler.MeetingDTO;
+import io.demo.dto.tesler.MeetingDTO_;
 import io.demo.entity.Meeting;
 import io.demo.repository.ClientRepository;
 import io.demo.repository.ContactRepository;

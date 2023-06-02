@@ -1,6 +1,6 @@
 package io.demo.service;
 
-import io.demo.dto.ContactDTO;
+import io.demo.dto.tesler.ContactDTO;
 import io.demo.entity.Contact;
 import io.demo.entity.Contact_;
 import io.demo.entity.Meeting;

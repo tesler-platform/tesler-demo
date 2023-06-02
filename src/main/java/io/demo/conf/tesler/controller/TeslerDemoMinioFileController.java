@@ -32,7 +32,6 @@ import io.minio.StatObjectArgs;
 import io.minio.StatObjectResponse;
 import io.tesler.core.file.dto.FileUploadDto;
 import io.tesler.core.file.dto.TeslerResponseDTO;
-import java.io.ByteArrayInputStream;
 import java.util.Collections;
 import java.util.UUID;
 import lombok.SneakyThrows;
@@ -42,7 +41,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,9 +53,13 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 @RestController
 @RequestMapping(TESLER_API_PATH_SPEL + "/file")
 public class TeslerDemoMinioFileController {
+
 	public static final String FILENAME_FIELD = "filename";
-	public static final	int FIVE_MIB = 5242880;
+
+	public static final int FIVE_MIB = 5242880;
+
 	private final MinioClient minioClient;
+
 	private final String defaultBucketName;
 
 	public TeslerDemoMinioFileController(
@@ -103,7 +105,10 @@ public class TeslerDemoMinioFileController {
 				.build()
 		);
 		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=\"" + statObjectResponse.userMetadata().get(FILENAME_FIELD) + "\"")
+				.header(
+						HttpHeaders.CONTENT_DISPOSITION,
+						"attachment;filename=\"" + statObjectResponse.userMetadata().get(FILENAME_FIELD) + "\""
+				)
 				.contentLength(statObjectResponse.size()) //
 				.body(outputStream -> IOUtils.copy(getObjectResponse, outputStream, FIVE_MIB));
 	}

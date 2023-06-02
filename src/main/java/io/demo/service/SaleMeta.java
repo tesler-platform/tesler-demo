@@ -1,6 +1,6 @@
 package io.demo.service;
 
-import io.demo.dto.SaleDTO;
+import io.demo.dto.tesler.SaleDTO;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;

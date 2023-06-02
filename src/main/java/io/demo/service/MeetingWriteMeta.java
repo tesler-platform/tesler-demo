@@ -1,7 +1,7 @@
 package io.demo.service;
 
-import io.demo.dto.MeetingDTO;
-import io.demo.dto.MeetingDTO_;
+import io.demo.dto.tesler.MeetingDTO;
+import io.demo.dto.tesler.MeetingDTO_;
 import io.demo.entity.enums.MeetingStatus;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;

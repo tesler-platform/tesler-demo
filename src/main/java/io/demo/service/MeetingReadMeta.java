@@ -1,8 +1,8 @@
 package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
-import io.demo.dto.MeetingDTO;
-import io.demo.dto.MeetingDTO_;
+import io.demo.dto.tesler.MeetingDTO;
+import io.demo.dto.tesler.MeetingDTO_;
 import io.demo.entity.enums.MeetingStatus;
 import io.tesler.api.data.dto.rowmeta.FieldDTO;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;

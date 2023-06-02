@@ -1,9 +1,9 @@
 package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
-import io.demo.dto.ClientReadDTO;
-import io.demo.dto.ClientReadDTO_;
-import io.demo.dto.ClientWriteDTO_;
+import io.demo.dto.tesler.ClientReadDTO;
+import io.demo.dto.tesler.ClientReadDTO_;
+import io.demo.dto.tesler.ClientWriteDTO_;
 import io.demo.entity.enums.ClientImportance;
 import io.demo.entity.enums.ClientStatus;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;

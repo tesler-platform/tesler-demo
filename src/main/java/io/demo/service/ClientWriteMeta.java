@@ -1,11 +1,11 @@
 package io.demo.service;
 
-import io.demo.dto.ClientWriteDTO_;
+import io.demo.dto.tesler.ClientWriteDTO_;
 import io.demo.entity.enums.ClientEditStep;
 import io.demo.entity.enums.ClientImportance;
 import io.demo.entity.enums.ClientStatus;
 import io.demo.entity.enums.FieldOfActivity;
-import io.demo.dto.ClientWriteDTO;
+import io.demo.dto.tesler.ClientWriteDTO;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;

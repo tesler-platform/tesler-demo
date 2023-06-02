@@ -1,7 +1,7 @@
 package io.demo.service;
 
-import io.demo.dto.SaleDTO;
-import io.demo.dto.SaleDTO_;
+import io.demo.dto.tesler.SaleDTO;
+import io.demo.dto.tesler.SaleDTO_;
 import io.demo.entity.enums.Product;
 import io.demo.entity.enums.SaleStatus;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;

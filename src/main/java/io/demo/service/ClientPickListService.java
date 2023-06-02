@@ -1,6 +1,6 @@
 package io.demo.service;
 
-import io.demo.dto.ClientReadDTO;
+import io.demo.dto.tesler.ClientReadDTO;
 import io.demo.entity.Client;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;

@@ -1,7 +1,7 @@
 package io.demo.service;
 
-import io.demo.dto.ResponsibleDTO;
-import io.demo.dto.ResponsibleDTO_;
+import io.demo.dto.tesler.ResponsibleDTO;
+import io.demo.dto.tesler.ResponsibleDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;

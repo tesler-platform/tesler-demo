@@ -2,8 +2,8 @@
 
 package io.demo.service;
 
-import io.demo.dto.DashboardFilterDTO;
-import io.demo.dto.DashboardFilterDTO_;
+import io.demo.dto.tesler.DashboardFilterDTO;
+import io.demo.dto.tesler.DashboardFilterDTO_;
 import io.demo.entity.DashboardFilter;
 import io.demo.entity.DashboardFilter_;
 import io.demo.entity.enums.FieldOfActivity;

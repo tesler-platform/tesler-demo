@@ -1,4 +1,4 @@
-package io.demo.dto;
+package io.demo.dto.tesler;
 
 import io.demo.entity.Client;
 import io.demo.entity.enums.ClientEditStep;

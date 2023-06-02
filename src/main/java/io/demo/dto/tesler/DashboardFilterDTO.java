@@ -1,4 +1,4 @@
-package io.demo.dto;
+package io.demo.dto.tesler;
 
 import io.tesler.api.data.dto.DataResponseDTO;
 import io.tesler.core.dto.multivalue.MultivalueField;
