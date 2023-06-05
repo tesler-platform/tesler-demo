@@ -25,7 +25,7 @@
     <spring-security.version>5.5.1</spring-security.version>
     <spring-security-crypto.version>5.5.0</spring-security-crypto.version>
     <minio.version>8.3.0</minio.version>
-
+    <spring-cloud.version>2020.0.6</spring-cloud.version>
     <!--minio compatible version-->
     <okhttp3.version>4.8.1</okhttp3.version>
   </properties>
@@ -133,6 +133,13 @@
         <groupId>org.keycloak.bom</groupId>
         <artifactId>keycloak-adapter-bom</artifactId>
         <version>${keycloak-spring-boot-starter.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

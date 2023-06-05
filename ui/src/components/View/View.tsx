@@ -20,12 +20,14 @@ import Funnel from '../widgets/Funnel/Funnel'
 import RingProgress from '../widgets/RingProgress/RingProgress'
 import DashboardCard from '../DashboardCard/DashboardCard'
 import DashboardList from '../widgets/DashboardList/DashboardList'
+import ProposalsField from '../../fields/Proposals/Proposals'
 
 const skipWidgetTypes = [WidgetTypes.SecondLevelMenu]
 
 const customFields = {
     [FieldType.dictionary]: Dictionary,
-    [CustomFieldTypes.MultipleSelect]: MultipleSelectField
+    [CustomFieldTypes.MultipleSelect]: MultipleSelectField,
+    [CustomFieldTypes.Proposals]: ProposalsField
 }
 
 const customWidgets: Partial<Record<CustomWidgetTypes | WidgetTypes, CustomWidgetDescriptor>> = {
