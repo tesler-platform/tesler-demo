@@ -1,7 +1,7 @@
 package io.demo.service;
 
-import io.demo.dto.tesler.ClientReadDTO;
-import io.demo.dto.tesler.ClientReadDTO_;
+import io.demo.dto.ClientReadDTO;
+import io.demo.dto.ClientReadDTO_;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
 import io.tesler.core.dto.rowmeta.RowDependentFieldsMeta;

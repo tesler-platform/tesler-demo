@@ -2,7 +2,7 @@
 
 package io.demo.service;
 
-import io.demo.dto.tesler.DashboardClientActivitiesDTO;
+import io.demo.dto.DashboardClientActivitiesDTO;
 import io.demo.entity.Client;
 import io.demo.entity.Client_;
 import io.demo.entity.DashboardFilter;

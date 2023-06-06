@@ -1,7 +1,7 @@
 package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
-import io.demo.dto.tesler.SaleDTO;
+import io.demo.dto.SaleDTO;
 import io.demo.entity.Sale;
 import io.demo.repository.SaleRepository;
 import io.tesler.core.crudma.bc.BusinessComponent;

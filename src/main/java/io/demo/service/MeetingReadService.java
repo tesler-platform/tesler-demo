@@ -3,7 +3,7 @@ package io.demo.service;
 import com.google.common.collect.ImmutableMap;
 import io.demo.conf.tesler.icon.ActionIcon;
 import io.demo.controller.TeslerRestController;
-import io.demo.dto.tesler.MeetingDTO;
+import io.demo.dto.MeetingDTO;
 import io.demo.entity.Meeting;
 import io.demo.entity.enums.MeetingStatus;
 import io.demo.repository.MeetingRepository;

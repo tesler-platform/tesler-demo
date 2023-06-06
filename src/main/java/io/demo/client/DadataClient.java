@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface DadataClient {
 	@RequestMapping(method = RequestMethod.POST, value = "/party")
 	@Headers("Content-Type: application/json")
-	PartySuggestionResponseDto getCompanySuggestion(PartySuggestionRequestDto rqDto);
+	PartySuggestionResponseDto getPartySuggestion(PartySuggestionRequestDto rqDto);
 
 }

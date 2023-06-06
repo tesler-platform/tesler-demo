@@ -1,4 +1,4 @@
-package io.demo.dto.tesler;
+package io.demo.dto;
 
 import io.demo.entity.Sale;
 import io.demo.entity.enums.Product;

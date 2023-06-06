@@ -3,6 +3,7 @@ package io.demo.client.interceptor;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import java.util.Objects;
+import org.springframework.http.HttpHeaders;
 
 public class DadataTokenRequestInterceptor implements RequestInterceptor {
 
@@ -14,7 +15,7 @@ public class DadataTokenRequestInterceptor implements RequestInterceptor {
 
 	@Override
 	public void apply(RequestTemplate template) {
-		template.header("Authorization", headerValue);
+		template.header(HttpHeaders.AUTHORIZATION, headerValue);
 	}
 
 }

@@ -1,4 +1,4 @@
-package io.demo.dto.tesler;
+package io.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

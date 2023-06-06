@@ -1,1 +1,2 @@
-io.demo.conf.tesler.FieldExtractor
+io.demo.conf.tesler.DashboardWidgetsFieldExtractor
+io.demo.conf.tesler.ExtendedFormFieldExtractor

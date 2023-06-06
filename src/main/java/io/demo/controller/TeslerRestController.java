@@ -1,5 +1,6 @@
 package io.demo.controller;
 
+import io.demo.service.DadataCompanySuggestionPickListService;
 import io.demo.service.DashboardClientActivitiesService;
 import io.demo.service.ClientContactService;
 import io.demo.service.ClientReadService;
@@ -48,7 +49,8 @@ public enum TeslerRestController implements EnumBcIdentifier {
 	dashboardFilter(DashboardFilterService.class),
 		dashboardClientActivities(dashboardFilter, DashboardClientActivitiesService.class),
 	dashboardSalesFunnel(dashboardFilter, DashboardService.class),
-	dashboardSalesRingProgress(dashboardFilter, DashboardService.class);
+	dashboardSalesRingProgress(dashboardFilter, DashboardService.class),
+	companySuggestionPickList(DadataCompanySuggestionPickListService.class);
 
 	// @formatter:on
 

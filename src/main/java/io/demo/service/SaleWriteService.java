@@ -1,8 +1,8 @@
 package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
-import io.demo.dto.tesler.SaleDTO;
-import io.demo.dto.tesler.SaleDTO_;
+import io.demo.dto.SaleDTO;
+import io.demo.dto.SaleDTO_;
 import io.demo.entity.Sale;
 import io.demo.repository.ClientRepository;
 import io.demo.repository.SaleRepository;

@@ -1,13 +1,13 @@
 package io.demo.service;
 
 import io.demo.controller.TeslerRestController;
-import io.demo.dto.tesler.ContactDTO_;
+import io.demo.dto.ContactDTO_;
 import io.demo.entity.Client;
 import io.demo.entity.Contact;
 import io.demo.entity.Contact_;
 import io.demo.repository.ClientRepository;
 import io.demo.repository.ContactRepository;
-import io.demo.dto.tesler.ContactDTO;
+import io.demo.dto.ContactDTO;
 import io.tesler.api.data.dto.AssociateDTO;
 import io.tesler.core.crudma.bc.BusinessComponent;
 import io.tesler.core.crudma.impl.VersionAwareResponseService;

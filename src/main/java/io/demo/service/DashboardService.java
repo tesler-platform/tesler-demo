@@ -4,8 +4,8 @@ import static io.demo.controller.TeslerRestController.dashboardSalesFunnel;
 import static io.demo.controller.TeslerRestController.dashboardSalesRingProgress;
 
 import com.google.common.collect.ImmutableList;
-import io.demo.dto.tesler.DashboardSalesFunnelDTO;
-import io.demo.dto.tesler.DashboardSalesRingProgressDTO;
+import io.demo.dto.DashboardSalesFunnelDTO;
+import io.demo.dto.DashboardSalesRingProgressDTO;
 import io.demo.entity.Sale;
 import io.demo.entity.enums.SaleStatus;
 import io.demo.repository.ClientRepository;

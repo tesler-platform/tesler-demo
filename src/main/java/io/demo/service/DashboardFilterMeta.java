@@ -1,7 +1,7 @@
 package io.demo.service;
 
-import io.demo.dto.tesler.DashboardFilterDTO;
-import io.demo.dto.tesler.DashboardFilterDTO_;
+import io.demo.dto.DashboardFilterDTO;
+import io.demo.dto.DashboardFilterDTO_;
 import io.demo.entity.enums.FieldOfActivity;
 import io.tesler.core.crudma.bc.impl.InnerBcDescription;
 import io.tesler.core.dto.rowmeta.FieldsMeta;
