@@ -7,7 +7,17 @@
     {
       "label": "Client Name",
       "key": "fullName",
-      "type": "input"
+      "type": "proposals",
+      "uniqueValueKey": "ogrn",
+      "proposalsMap": {
+        "inn": "address"
+      },
+      "optionsView": {
+          "mainLabel": "",
+          "additionalView": [{ "fieldKey": "address", "label": "Address" }, { "dataKey": "inn", "label": "Inn" }, { "dataKey": "ogrn", "label": "Ogrn" }]
+      },
+      "endpoint": "/proposals",
+      "searchParamName": "query"
     },
     {
       "label": "Importance",
