@@ -23,11 +23,6 @@
       "widgetName": "contactEditList",
       "position": 3,
       "gridWidth": 24
-    },
-    {
-      "widgetName": "companySuggestionPickList",
-      "position": 100,
-      "gridWidth": 24
     }
   ],
   "rolesAllowed": [
