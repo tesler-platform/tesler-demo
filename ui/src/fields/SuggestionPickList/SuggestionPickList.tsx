@@ -18,50 +18,29 @@ export interface SuggestionPickListProps {
 }
 
 export function SuggestionPickList({ meta: fieldMeta, widgetName, cursor }: SuggestionPickListProps) {
-    const dispatch = useDispatch()
     const [search, setSearch] = useState('')
-    const debouncedSearch = useDebounce(search, 500)
     const [options, setOptions] = useState<SuggestionPickListDataItem[]>()
-    const widgetBcName = useSelector((store: AppState) => store.view.widgets.find(item => item.name === widgetName)?.bcName)
     const [valid, setValid] = useState<boolean | undefined>()
 
-    const handleChange = (id: string) => {
-        const selectedOption = options?.find(item => item?.id === id)!
-
-        setValid(!!selectedOption)
-        if (widgetBcName) {
-            const proposalsData = fieldMeta.pickMap && selectedOption ? createDataItemFrom(fieldMeta.pickMap, selectedOption) : {}
-
-            dispatch(
-                $do.changeDataItem({
-                    bcName: widgetBcName,
-                    cursor,
-                    dataItem: {
-                        [fieldMeta.key]: selectedOption?.value,
-                        ...proposalsData
-                    }
-                })
-            )
-        }
-    }
-
-    const record = useSelector((store: AppState) => {
-        return store.view.pendingDataChanges[widgetBcName!]?.[cursor] ?? store.data[widgetBcName!]?.find(item => item.id === cursor)
-    })
-
-    const preselectedValue = record?.[fieldMeta.key] as string
-    const { fieldBcUrl, fieldBc, screenName, fieldWidget } = useSelector((state: AppState) => {
+    const { fieldBcUrl, fieldBc, screenName, fieldWidget, widgetBcName, record } = useSelector((state: AppState) => {
         const fieldBcName = fieldMeta.popupBcName
         const fieldBc = state.screen.bo.bc[fieldBcName]
         const limitBySelfCursor = state.router.bcPath?.includes(`${fieldBcName}/${cursor}`)
+        const widgetBcName = state.view.widgets.find(item => item.name === widgetName)?.bcName
 
         return {
             screenName: state.screen.screenName,
             fieldBcUrl: buildBcUrl(fieldBcName, limitBySelfCursor),
             fieldBc,
-            fieldWidget: state.view.widgets.find(widget => widget.bcName === fieldMeta.popupBcName) as SuggestionPickListWidgetMeta
+            fieldWidget: state.view.widgets.find(widget => widget.bcName === fieldMeta.popupBcName) as SuggestionPickListWidgetMeta,
+            widgetBcName: widgetBcName,
+            record: state.view.pendingDataChanges[widgetBcName!]?.[cursor] ?? state.data[widgetBcName!]?.find(item => item.id === cursor)
         }
     }, shallowEqual)
+
+    const preselectedValue = record?.[fieldMeta.key] as string
+
+    const debouncedSearch = useDebounce(search, 500)
 
     useEffect(() => {
         if (debouncedSearch) {
@@ -81,9 +60,11 @@ export function SuggestionPickList({ meta: fieldMeta, widgetName, cursor }: Sugg
         }
     }, [fieldBc.limit, fieldBc.page, fieldBcUrl, debouncedSearch, fieldMeta.popupBcName, screenName, fieldWidget.limit])
 
-    const handleSearch = (token: string) => {
+    const dispatch = useDispatch()
+
+    const handleSearch = useCallback((token: string) => {
         setSearch(token)
-    }
+    }, [])
 
     const handleValidation = useCallback(() => {
         if (!preselectedValue) {
@@ -93,6 +74,29 @@ export function SuggestionPickList({ meta: fieldMeta, widgetName, cursor }: Sugg
             setValid(true)
         }
     }, [preselectedValue])
+
+    const handleChange = useCallback(
+        (id: string) => {
+            const selectedOption = options?.find(item => item?.id === id)!
+
+            setValid(!!selectedOption)
+            if (widgetBcName) {
+                const restData = fieldMeta.pickMap && selectedOption ? createDataItemFrom(fieldMeta.pickMap, selectedOption) : {}
+
+                dispatch(
+                    $do.changeDataItem({
+                        bcName: widgetBcName,
+                        cursor,
+                        dataItem: {
+                            [fieldMeta.key]: selectedOption?.value,
+                            ...restData
+                        }
+                    })
+                )
+            }
+        },
+        [cursor, dispatch, fieldMeta.key, fieldMeta.pickMap, options, widgetBcName]
+    )
 
     return (
         <div className={styles.container}>
@@ -109,14 +113,14 @@ export function SuggestionPickList({ meta: fieldMeta, widgetName, cursor }: Sugg
                 defaultActiveFirstOption={false}
             >
                 {options?.map(option => {
-                    const additionalInfo = createAdditionalInfo(fieldWidget, option)
+                    const contentList = createContentList(fieldWidget, option)
 
                     return (
                         <Select.Option key={option.id} value={option.id} label={option.value} className={styles.option}>
                             <div className={styles.item}>
-                                {additionalInfo?.map(text => {
-                                    return <span key={text}>{text}</span>
-                                })}
+                                {contentList?.map(text => (
+                                    <span key={text}>{text}</span>
+                                ))}
                             </div>
                         </Select.Option>
                     )
@@ -137,7 +141,7 @@ function createDataItemFrom(pickMap: Record<string, string>, data: SuggestionPic
     }, {})
 }
 
-function createAdditionalInfo(fieldWidget: SuggestionPickListWidgetMeta, option: SuggestionPickListDataItem) {
+function createContentList(fieldWidget: SuggestionPickListWidgetMeta, option: SuggestionPickListDataItem) {
     return fieldWidget?.fields?.map(field => {
         const label = field.title ? `${field.title}: ` : ''
         const value = option[field.key]
