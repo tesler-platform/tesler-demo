@@ -17,6 +17,29 @@ export interface SuggestionPickListProps {
     value: string
 }
 
+/**
+ * A field similar to Select with a search.
+ * Field type: suggestionPickList.
+ * The meta of the field is identical to the meta of the pickList field.
+ *
+ * PopupBcName is a property from the meta, an endpoint for searching for matching values.
+ * The local options is formed based on its response. Every object in options,
+ * must have value and id.
+ *
+ * pickMap is a property of the meta field which is used to populate other fields. The data is taken from the options.
+ *
+ * key is the property of the meta that is the key of the meta. Value for this field will be taken from the value property, which is contained in the option.
+ *
+ * So for the field you must create a widget with SuggestionPickList type and bc corresponding popupBcName of our field.
+ * The fields of this widget will be used to render the option in the drop-down list.
+ * The widget must be specified in the meta for the view.
+ *
+ *
+ * @param fieldMeta
+ * @param widgetName
+ * @param cursor
+ * @constructor
+ */
 export function SuggestionPickList({ meta: fieldMeta, widgetName, cursor }: SuggestionPickListProps) {
     const [search, setSearch] = useState('')
     const [options, setOptions] = useState<SuggestionPickListDataItem[]>()
