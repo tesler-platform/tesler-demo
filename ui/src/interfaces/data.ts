@@ -1,11 +1,8 @@
-export type ProposalsServiceResponse = ProposalsDataItem[]
-
-export interface ProposalsDataItem {
+export interface SuggestionPickListDataItem {
     value: string
-
-    data: Record<string, any>
+    [key: string]: any
 }
 
-export interface ProposalsData {
-    proposals: ProposalsDataItem[]
+export interface SuggestionPickListData {
+    proposals: SuggestionPickListDataItem[]
 }

@@ -1,16 +1,17 @@
 import { WidgetMeta, WidgetTypes, WidgetOptions } from '@tesler-ui/core/interfaces/widget'
-import { WidgetFormFieldBase } from '@tesler-ui/schema/src/interfaces/widget'
+import { PickListFieldMeta } from '@tesler-ui/schema/src/interfaces/widget'
 
 export enum CustomFieldTypes {
     MultipleSelect = 'multipleSelect',
-    Proposals = 'proposals'
+    SuggestionPickList = 'suggestionPickList'
 }
 
 export enum CustomWidgetTypes {
     Steps = 'Steps',
     Funnel = 'Funnel',
     RingProgress = 'RingProgress',
-    DashboardList = 'DashboardList'
+    DashboardList = 'DashboardList',
+    SuggestionPickList = 'SuggestionPickList'
 }
 
 export const removeRecordOperationWidgets: Array<WidgetTypes | string> = [WidgetTypes.List]
@@ -34,14 +35,14 @@ export interface RingProgressWidgetMeta extends WidgetMeta {
     options: WidgetOptions & { ringProgressOptions: { text: string; numberField: string; descriptionField: string; percentField: string } }
 }
 
-export interface ProposalsWidgetField extends Omit<WidgetFormFieldBase, 'type'> {
-    type: CustomFieldTypes.Proposals
-    proposalsMap?: Record<string, string>
-    endpoint?: string
-    searchParamName?: string
-    uniqueValueKey: string
-    optionsView?: {
-        mainLabel?: string
-        additionalView?: Array<{ fieldKey?: string; dataKey?: string; label?: string }>
-    }
+export interface SuggestionPickListWidgetMeta extends WidgetMeta {
+    type: CustomWidgetTypes.SuggestionPickList
+    fields: Array<{
+        title: string
+        key: string
+    }>
+}
+
+export interface SuggestionPickListField extends Omit<PickListFieldMeta, 'type'> {
+    type: CustomFieldTypes.SuggestionPickList
 }

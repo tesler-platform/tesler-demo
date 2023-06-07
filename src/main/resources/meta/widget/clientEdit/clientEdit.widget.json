@@ -5,19 +5,13 @@
   "bc": "clientEdit",
   "fields": [
     {
-      "label": "Client Name",
+      "label": "Company",
       "key": "fullName",
-      "type": "proposals",
-      "uniqueValueKey": "ogrn",
-      "proposalsMap": {
-        "inn": "address"
-      },
-      "optionsView": {
-          "mainLabel": "",
-          "additionalView": [{ "fieldKey": "address", "label": "Address" }, { "dataKey": "inn", "label": "Inn" }, { "dataKey": "ogrn", "label": "Ogrn" }]
-      },
-      "endpoint": "/proposals",
-      "searchParamName": "query"
+      "type": "suggestionPickList",
+      "popupBcName": "companySuggestionPickList",
+      "pickMap": {
+        "address": "inn"
+      }
     },
     {
       "label": "Importance",
